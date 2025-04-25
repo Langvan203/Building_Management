@@ -31,5 +31,6 @@ namespace BuildingManagement.Domain.Entities
 
         // Navigation
         public ICollection<tnMatBang> tnMatBangs { get; set; }
+        public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
     }
 }

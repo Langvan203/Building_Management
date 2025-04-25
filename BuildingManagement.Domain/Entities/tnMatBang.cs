@@ -26,6 +26,10 @@ namespace BuildingManagement.Domain.Entities
         public int MaLMB { get; set; }
 
         // Navigation
+        public dvDienDongHo dvDienDongHo { get; set; }  
+        public dvNuocDongHo dvNuocDongHo { get; set; }
+        public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
+
         public mbTrangThai mbTrangThai { get; set; }
 
         public tnTangLau tnTangLau { get; set; }

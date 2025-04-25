@@ -21,5 +21,6 @@ namespace BuildingManagement.Domain.Entities
         public tnbtHeThong tnbtHeThong { get; set; }
 
         public nkbtTrangThai nkbtTrangThai { get; set; }
+        public ICollection<nkbtChiTietBaoTri> nkbtChiTietBaoTris { get; set; }
     }
 }

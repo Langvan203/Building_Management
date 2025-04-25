@@ -1,0 +1,12 @@
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\bin\Debug\net8.0\BuildingManagement.Domain.deps.json
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\bin\Debug\net8.0\BuildingManagement.Domain.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\bin\Debug\net8.0\BuildingManagement.Domain.pdb
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.AssemblyInfoInputs.cache
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.AssemblyInfo.cs
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.csproj.CoreCompileInputs.cache
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.sourcelink.json
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\refint\BuildingManagement.Domain.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\BuildingManagement.Domain.pdb
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Domain\obj\Debug\net8.0\ref\BuildingManagement.Domain.dll

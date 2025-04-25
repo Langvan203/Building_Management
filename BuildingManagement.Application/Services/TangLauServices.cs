@@ -1,0 +1,22 @@
+﻿using AutoMapper;
+using BuildingManagement.Application.Interfaces.Repositories;
+using BuildingManagement.Application.Interfaces.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BuildingManagement.Application.Services
+{
+    public class TangLauServices : ITangLauServices
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public async Task CreateTangLau()
+        {
+            var dsTL = _unitOfWork.TangLaus.GetTangLauByMaTN(3);
+        }
+    }
+}
