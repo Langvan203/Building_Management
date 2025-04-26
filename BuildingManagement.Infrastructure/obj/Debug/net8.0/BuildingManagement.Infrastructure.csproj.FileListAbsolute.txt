@@ -16,3 +16,5 @@ B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\Buildin
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Infrastructure\obj\Debug\net8.0\refint\BuildingManagement.Infrastructure.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Infrastructure\obj\Debug\net8.0\BuildingManagement.Infrastructure.pdb
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Infrastructure\obj\Debug\net8.0\ref\BuildingManagement.Infrastructure.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Infrastructure\bin\Debug\net8.0\BuildingManagement.Infrastructure.runtimeconfig.json
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.Infrastructure\obj\Debug\net8.0\BuildingManagement.Infrastructure.genruntimeconfig.cache

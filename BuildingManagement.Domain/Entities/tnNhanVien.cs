@@ -22,5 +22,6 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnPhongBan> tnPhongBans { get; set; }
 
         public ICollection<tnToaNha> tnToaNhas { get; set; }
+        public ICollection<nkbtKeHoachBaoTri> nkbtKeHoachBaoTris { get; set; }
     }
 }

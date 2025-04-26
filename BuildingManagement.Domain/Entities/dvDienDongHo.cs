@@ -13,7 +13,11 @@ namespace BuildingManagement.Domain.Entities
         public int MaDH { get; set; }
         public string SoDongHo { get; set; }
 
+        //FK
+        public int MaMB { get; set; }
+
         //Navigation 
         public tnMatBang tnMatBang { get; set; }
+        public ICollection<dvDien> dvDiens { get; set; }    
     }
 }

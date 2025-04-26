@@ -10,7 +10,7 @@ namespace BuildingManagement.Domain.Entities
     public class dvDichVuSuDung : BaseEntity
     {
         [Key]
-        public string MaDVSD { get; set; }
+        public int MaDVSD { get; set; }
         public string DonViTinh { get; set; }
         public int KyThanhToan { get; set; }
         public bool IsThanhToanTheoKy { get; set; }
@@ -27,9 +27,12 @@ namespace BuildingManagement.Domain.Entities
 
         // FK
         public int MaDV { get; set; }
-
+        public int MaKH { get; set; }
+        public int MaMB { get; set; }
         //Navigation 
         public dvDichVu dvDichVu { get; set; }
         public ICollection<dvHoaDon> dvHoaDons { get; set; }
+        public tnKhachHang tnKhachHang { get; set; }
+        public tnMatBang tnMatBang { get; set; }
     }
 }

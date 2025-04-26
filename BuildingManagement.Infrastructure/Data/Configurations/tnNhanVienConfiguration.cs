@@ -17,7 +17,7 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
 
             builder.HasMany(tn => tn.Roles)
                 .WithMany(tn => tn.tnNhanViens)
-                .UsingEntity<Dictionary<string, string>>("Role_NhanVien", j =>
+                .UsingEntity<Dictionary<string, object>>("Role_NhanVien", j =>
                     j.HasOne<Role>()
                     .WithMany()
                     .HasForeignKey("RoleID")
@@ -33,7 +33,25 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                         j.HasKey("RoleID", "MaNV");
                     }
                 );
-               
+
+            builder.HasMany(tn => tn.tnToaNhas)
+                .WithMany(tn => tn.tnNhanViens)
+                .UsingEntity<Dictionary<string, object>>("ToaNha_NhanVien", tn =>
+                    tn.HasOne<tnToaNha>()
+                    .WithMany()
+                    .HasForeignKey("MaTN")
+                    .OnDelete(DeleteBehavior.Cascade),
+
+                    tn => tn.HasOne<tnNhanVien>()
+                    .WithMany()
+                    .HasForeignKey("MaNV")
+                    .OnDelete(DeleteBehavior.Cascade),
+
+                    tn =>
+                    {
+                        tn.HasKey("MaTN", "MaNV");
+                    }
+                );
         }
     }
 }

@@ -28,7 +28,6 @@ namespace BuildingManagement.Domain.Entities
         // Navigation
         public dvDienDongHo dvDienDongHo { get; set; }  
         public dvNuocDongHo dvNuocDongHo { get; set; }
-        public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
 
         public mbTrangThai mbTrangThai { get; set; }
 
@@ -38,6 +37,8 @@ namespace BuildingManagement.Domain.Entities
         
         public mbLoaiMB mbLoaiMB { get; set; }
 
-        public ICollection<tnbtHeThong> tnbtHeThongs { get; set; } 
+        public ICollection<tnbtHeThong> tnbtHeThongs { get; set; }
+        public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
+        public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
     }
 }

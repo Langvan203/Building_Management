@@ -19,7 +19,7 @@ namespace BuildingManagement.Domain.Entities
 
         //FK
         public int MaDM { get; set; }
-
+        public int MaDH { get; set; }
         //Navigation 
         public dvNuocDinhMuc dvNuocDinhMuc { get; set; }    
         public dvNuocDongHo dvNuocDongHo { get; set; }

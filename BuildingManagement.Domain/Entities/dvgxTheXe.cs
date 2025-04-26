@@ -15,10 +15,12 @@ namespace BuildingManagement.Domain.Entities
         public DateTime NgayHetHanSuDung { get; set; }
 
         //FK
+        public int MaLX { get; set; }
+        public int MaKH { get; set; }
         public int MaMB { get; set; }
-
         //Navigation
         public dvgxLoaiXe dvgxLoaiXe {  get; set; }   
+        public tnKhachHang tnKhachHang { get; set; }
         public tnMatBang tnMatBang { get; set; }
     }
 }

@@ -15,6 +15,6 @@ namespace BuildingManagement.Domain.Entities
         public decimal DonGiaDinhMuc { get; set; }
 
         // Navigation
-        public ICollection<dvDien> dvDien { get; set; }
+        public ICollection<dvDien> dvDiens { get; set; }
     }
 }

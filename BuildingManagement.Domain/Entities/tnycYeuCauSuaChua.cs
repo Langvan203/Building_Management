@@ -13,6 +13,10 @@ namespace BuildingManagement.Domain.Entities
         public int MaYC { get; set; }
         public string NguoiYeuCau { get; set; }
 
+        //FK
+        public int MaHeThong { get; set; }
+        public int MaKH { get; set; }
+
         //Navigation
         public tnKhachHang tnKhachHang { get; set; }
         public tnbtHeThong tnbtHeThong { get; set; }    
