@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnkhachhangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnkhachhangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnmatbangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnmatbangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tntanglauconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tntanglauconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tntoanhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tntoanhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnycyeucausuachuaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnycyeucausuachuaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnnhanvienconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnnhanvienconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,32 +59,12 @@
       "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\dvdienconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnycyeucausuachuaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnycyeucausuachuaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tntoanhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tntoanhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tntanglauconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tntanglauconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnphongbanconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnphongbanconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnmatbangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnmatbangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnkhoinhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnkhoinhaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnkhachhangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\tnkhachhangconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\tnbthethongconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -318,7 +318,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -326,33 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dvHoaDonConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:41:47.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RoleConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:48:17.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "tnNhanVienConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnNhanVienConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnNhanVienConfiguration.cs",
@@ -360,51 +334,11 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnNhanVienConfiguration.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAswCAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:49:25.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:49:25.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ptPhieuThuConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:48:07.759Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dvDichVuSuDungConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:40:19.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "dvDichVuConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:36:22.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "dvDichVu.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\dvDichVu.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Domain\\Entities\\dvDichVu.cs",
@@ -412,12 +346,11 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvDichVu.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAcwBQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:43:31.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:43:31.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "dvLoaiDVConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvLoaiDVConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvLoaiDVConfiguration.cs",
@@ -425,25 +358,11 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvLoaiDVConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:42:00.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:42:00.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dvDienConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:40:31.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "tnycYeuCauSuaChuaConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnycYeuCauSuaChuaConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnycYeuCauSuaChuaConfiguration.cs",
@@ -451,25 +370,11 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnycYeuCauSuaChuaConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:50:18.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:50:18.124Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "tnToaNhaConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:49:58.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "tnTangLauConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnTangLauConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnTangLauConfiguration.cs",
@@ -477,25 +382,23 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnTangLauConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:49:48.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:49:48.665Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "tnPhongBanConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
+              "DocumentIndex": 3,
+              "Title": "tnToaNhaConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnToaNhaConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:49:37.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:49:58.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
               "Title": "tnMatBangConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnMatBangConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnMatBangConfiguration.cs",
@@ -503,25 +406,11 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnMatBangConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:49:15.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:49:15.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "tnKhoiNhaConfiguration.cs",
-              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
-              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
-              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
-              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:48:58.956Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 0,
               "Title": "tnKhachHangConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhachHangConfiguration.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhachHangConfiguration.cs",
@@ -534,6 +423,102 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "dvDichVuConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:36:22.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "dvDichVuSuDungConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDichVuSuDungConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:40:19.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ptPhieuThuConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\ptPhieuThuConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:48:07.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "dvHoaDonConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:41:47.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RoleConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:48:17.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "dvDienConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:40:31.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "tnPhongBanConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnPhongBanConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:49:37.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "tnKhoiNhaConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnKhoiNhaConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T14:48:58.956Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 16,
               "Title": "tnbtHeThongConfiguration.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\tnbtHeThongConfiguration.cs",
@@ -542,8 +527,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\tnbtHeThongConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:48:35.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:48:35.112Z"
             },
             {
               "$type": "Document",
@@ -555,8 +539,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\nkbtTrangThaiConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:47:54.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:47:54.242Z"
             },
             {
               "$type": "Document",
@@ -568,8 +551,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\nkbtLichSuBaoTriConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:47:41.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:47:41.956Z"
             },
             {
               "$type": "Document",
@@ -581,8 +563,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\nkbtKeHoachBaoTriConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:47:23.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:47:23.889Z"
             },
             {
               "$type": "Document",
@@ -594,8 +575,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\nkbtChiTietBaoTriConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:47:10.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:47:10.1Z"
             },
             {
               "$type": "Document",
@@ -607,8 +587,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\mbTrangThaiConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:46:54.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:46:54.938Z"
             },
             {
               "$type": "Document",
@@ -620,8 +599,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\mbLoaiMBConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:43:23.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:43:23.636Z"
             },
             {
               "$type": "Document",
@@ -633,8 +611,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvNuocDongHoConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:42:40.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:42:40.649Z"
             },
             {
               "$type": "Document",
@@ -646,8 +623,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvNuocDinhMucConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:42:29.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:42:29.684Z"
             },
             {
               "$type": "Document",
@@ -659,8 +635,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvNuocConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:42:18.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:42:18.457Z"
             },
             {
               "$type": "Document",
@@ -672,8 +647,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Context\\BuildingManagementDbContext.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAowDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:26:31.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:26:31.353Z"
             },
             {
               "$type": "Document",
@@ -685,8 +659,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvgxTheXeConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:41:34.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:41:34.574Z"
             },
             {
               "$type": "Document",
@@ -698,8 +671,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvgxLoaiXeConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:41:22.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:41:22.203Z"
             },
             {
               "$type": "Document",
@@ -711,8 +683,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienDongHoConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:41:08.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:41:08.2Z"
             },
             {
               "$type": "Document",
@@ -724,8 +695,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvDienDinhMucConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:40:45.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:40:45.002Z"
             },
             {
               "$type": "Document",
@@ -737,8 +707,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Services\\TangLauServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:19:20.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:19:20.727Z"
             },
             {
               "$type": "Document",
@@ -750,8 +719,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Services\\ITangLauServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:18:30.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:18:30.171Z"
             },
             {
               "$type": "Document",
@@ -763,8 +731,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\ITangLauRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:13:14.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T14:13:14.011Z"
             },
             {
               "$type": "Document",
@@ -776,8 +743,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Services\\IToaNhaServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T12:49:26.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T12:49:26.089Z"
             },
             {
               "$type": "Document",
@@ -789,8 +755,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Services\\ToaNhaServices.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAtwB4AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T12:49:17.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T12:49:17.956Z"
             },
             {
               "$type": "Document",
@@ -802,8 +767,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Mappings\\MappingProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T10:08:27.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:08:27.894Z"
             },
             {
               "$type": "Document",
@@ -815,8 +779,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T10:05:43.246Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:05:43.246Z"
             },
             {
               "$type": "Document",
@@ -828,8 +791,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IToaNhaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T10:03:22.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:03:22.415Z"
             },
             {
               "$type": "Document",
@@ -840,8 +802,7 @@
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\BuildingManagement.Application.csproj",
               "RelativeToolTip": "BuildingManagement.Application\\BuildingManagement.Application.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-25T10:14:29.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:14:29.85Z"
             },
             {
               "$type": "Document",
@@ -853,21 +814,19 @@
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:49:20.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:49:20.086Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 42,
-              "Title": "BuildingManagement.API",
+              "Title": "BuildingManagement.API.csproj",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\BuildingManagement.API.csproj",
               "RelativeDocumentMoniker": "BuildingManagement.API\\BuildingManagement.API.csproj",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\BuildingManagement.API.csproj",
               "RelativeToolTip": "BuildingManagement.API\\BuildingManagement.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-25T10:12:28.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:12:28.652Z"
             },
             {
               "$type": "Document",
@@ -879,8 +838,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\DTOs\\ToaNhaDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAowBAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T10:06:56.509Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T10:06:56.509Z"
             },
             {
               "$type": "Document",
@@ -892,8 +850,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnycYeuCauSuaChua.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:14:06.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:14:06.581Z"
             },
             {
               "$type": "Document",
@@ -905,8 +862,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\nkbtChiTietBaoTri.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:12:38.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:12:38.161Z"
             },
             {
               "$type": "Document",
@@ -918,8 +874,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\BuildingManagement.Application.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-22T10:04:09.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T10:04:09.177Z"
             },
             {
               "$type": "Document",
@@ -931,8 +886,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvgxTheXe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:08:11.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:08:11.22Z"
             },
             {
               "$type": "Document",
@@ -944,8 +898,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvgxLoaiXe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:07:15.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:07:15.906Z"
             },
             {
               "$type": "Document",
@@ -957,8 +910,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-22T10:05:34.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T10:05:34.816Z"
             },
             {
               "$type": "Document",
@@ -970,8 +922,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvNuocDinhMuc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:02:17.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:02:17.582Z"
             },
             {
               "$type": "Document",
@@ -983,8 +934,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnTangLau.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:37:22.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:37:22.857Z"
             },
             {
               "$type": "Document",
@@ -996,8 +946,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnToaNha.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:27:23.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:27:23.763Z"
             },
             {
               "$type": "Document",
@@ -1009,8 +958,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvNuoc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:03:33.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:03:33.551Z"
             },
             {
               "$type": "Document",
@@ -1022,8 +970,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvNuocDongHo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T09:00:23.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T09:00:23.072Z"
             },
             {
               "$type": "Document",
@@ -1035,8 +982,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvDien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:57:57.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:57:57.777Z"
             },
             {
               "$type": "Document",
@@ -1048,8 +994,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvDienDongHo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:54:47.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:54:47.828Z"
             },
             {
               "$type": "Document",
@@ -1061,8 +1006,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnbtHeThong.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T13:40:21.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T13:40:21.26Z"
             },
             {
               "$type": "Document",
@@ -1074,8 +1018,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnKhachHang.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T13:32:41.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T13:32:41.377Z"
             },
             {
               "$type": "Document",
@@ -1087,8 +1030,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvDienDinhMuc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:56:55.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:56:55.417Z"
             },
             {
               "$type": "Document",
@@ -1100,8 +1042,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\ptPhieuThu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:52:30.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:52:30.069Z"
             },
             {
               "$type": "Document",
@@ -1113,8 +1054,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\nkbtKeHoachBaoTri.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T13:45:36.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T13:45:36.196Z"
             },
             {
               "$type": "Document",
@@ -1126,8 +1066,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvHoaDon.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:49:00.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:49:00.811Z"
             },
             {
               "$type": "Document",
@@ -1139,8 +1078,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnMatBang.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:39:52.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:39:52.907Z"
             },
             {
               "$type": "Document",
@@ -1152,8 +1090,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvDichVuSuDung.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:44:59.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:44:59.901Z"
             },
             {
               "$type": "Document",
@@ -1165,8 +1102,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvLoaiDV.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:42:53.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:42:53.739Z"
             },
             {
               "$type": "Document",
@@ -1178,8 +1114,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\nkbtLichSuBaoTri.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T08:40:34.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T08:40:34.921Z"
             },
             {
               "$type": "Document",
@@ -1191,8 +1126,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\mbLoaiMB.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T13:38:01.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T13:38:01.748Z"
             },
             {
               "$type": "Document",
@@ -1204,8 +1138,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\nkbtTrangThai.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T13:44:42.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T13:44:42.813Z"
             },
             {
               "$type": "Document",
@@ -1217,8 +1150,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\mbTrangThai.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:42:51.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:42:51.819Z"
             },
             {
               "$type": "Document",
@@ -1230,8 +1162,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnKhoiNha.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:34:03.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:34:03.735Z"
             },
             {
               "$type": "Document",
@@ -1243,8 +1174,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnPhongBan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:09:58.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:09:58.08Z"
             },
             {
               "$type": "Document",
@@ -1256,8 +1186,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\tnNhanVien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:05:08.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:05:08.338Z"
             },
             {
               "$type": "Document",
@@ -1269,8 +1198,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T13:00:05.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T13:00:05.599Z"
             },
             {
               "$type": "Document",
@@ -1282,8 +1210,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Entities\\Role.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T12:57:22.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T12:57:22.485Z"
             },
             {
               "$type": "Document",
@@ -1295,8 +1222,7 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Class1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T09:12:55.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T09:12:55.003Z"
             },
             {
               "$type": "Document",
@@ -1308,8 +1234,7 @@
               "RelativeToolTip": "BuildingManagement.Application\\Class1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T09:12:37.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T09:12:37.915Z"
             },
             {
               "$type": "Document",
@@ -1321,8 +1246,7 @@
               "RelativeToolTip": "BuildingManagement.Domain\\Class1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T09:12:16.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T09:12:16.01Z"
             }
           ]
         }
