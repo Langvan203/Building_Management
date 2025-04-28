@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Domain.Entities;
 
 namespace BuildingManagement.Application.Mappings
@@ -15,6 +16,7 @@ namespace BuildingManagement.Application.Mappings
         {
             CreateMap<tnToaNha, ToaNhaDto>();
             CreateMap<CreateToaNhaDto, tnToaNha>();
+            CreateMap<RegisterDto, tnNhanVien>();
         }
     }
 }

@@ -14,6 +14,10 @@ namespace BuildingManagement.Domain.Entities
         public string TenNV { get; set; }
         public DateTime? NgaySinh { get; set; }
         public string DiaChiThuongTru { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string SDT { get; set; }
+        public string PasswordHash { get; set; }
 
         // Navigation
         public ICollection<Role> Roles { get; set; }

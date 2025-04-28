@@ -35,7 +35,6 @@ B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\Buildin
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BuildingManagement.API.props
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BuildingManagement.API.props
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets.pack.json
-B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\Building.3F8AD053.Up2Date
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\BuildingManagement.API.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\refint\BuildingManagement.API.dll
@@ -178,3 +177,13 @@ B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\Buildin
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

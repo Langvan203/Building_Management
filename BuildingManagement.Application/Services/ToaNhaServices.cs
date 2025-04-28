@@ -2,6 +2,7 @@
 using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
+using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,16 @@ namespace BuildingManagement.Application.Services
             return _mapper.Map<ToaNhaDto>(toanha);
         }
 
-        public async Task TaoToaNhaAsync(CreateToaNhaDto dto)
+        public async Task<tnToaNha> TaoToaNhaAsync(CreateToaNhaDto dto)
         {
-            
+            var findToaNha = await _unitOfWork.ToaNhas.ExistsAsync(x => x.TenTN == dto.TenTN);
+            if(findToaNha)
+            {
+                throw new Exception("Dự án tòa nhà đã tồn tại");
+            }    
+            var newToaNha = _mapper.Map<tnToaNha>(dto);
+            await _unitOfWork.ToaNhas.AddAsync(newToaNha);
+            return newToaNha;
         }
     }
 }

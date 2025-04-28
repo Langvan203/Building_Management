@@ -49,6 +49,13 @@ namespace BuildingManagement.Infrastructure.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BuildingManagementDbContext).Assembly);
+
+            modelBuilder.Entity<Role>().HasData(
+                new Role { RoleID = 1, RoleName = "Admin", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) },
+                new Role { RoleID = 2, RoleName = "Quản lý tòa nhà", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) },
+                new Role { RoleID = 3, RoleName = "Nhân viên lễ tân", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) },
+                new Role { RoleID = 4, RoleName = "Nhân viên tòa nhà", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) }
+                );
         }
     }
 }

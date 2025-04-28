@@ -10,7 +10,7 @@ namespace BuildingManagement.Domain.Entities
     {
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpdatedDate { get; set; }
-        public string NguoiTao { get; set; }
+        public string NguoiTao { get; set; } = "";
         public string NguoiSua { get; set; } = "";
     }
 }
