@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Domain.Entities;
 
@@ -17,6 +17,17 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<tnToaNha, ToaNhaDto>();
             CreateMap<CreateToaNhaDto, tnToaNha>();
             CreateMap<RegisterDto, tnNhanVien>();
+            CreateMap<tnKhoiNha, KhoiNhaDto>();
+            CreateMap<CreateKhoiNhaDto, tnKhoiNha>();
+
+            CreateMap<tnTangLau, TangLauDto>();
+            CreateMap<CreateTangLauDto, tnTangLau>();
+
+            CreateMap<mbLoaiMB, LoaiMatBangDto>();
+            CreateMap<CreateNewLoaiMB, mbLoaiMB>();
+
+            CreateMap<CreateNewTrangThaiMatBangDto, mbTrangThai>();
+            CreateMap<mbTrangThai, TrangThaiMatBangDto>();
         }
     }
 }

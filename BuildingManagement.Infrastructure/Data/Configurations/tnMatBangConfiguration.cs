@@ -19,9 +19,9 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(mb => mb.tnMatBang)
                 .HasForeignKey(mb => mb.MaMB);
 
-            builder.HasOne(mb => mb.mbTrangThai)
-                .WithOne(mb => mb.tnMatBang)
-                .HasForeignKey<mbTrangThai>(tt => tt.MaTrangThai);
+            //builder.HasMany(mb => mb.mbTrangThai)
+            //    .WithOne(mb => mb.tnMatBang)
+            //    .HasForeignKey<mbTrangThai>(tt => tt.MaTrangThai);
 
             builder.HasMany(mb => mb.dvDichVuSuDungs)
                 .WithOne(mb => mb.tnMatBang)

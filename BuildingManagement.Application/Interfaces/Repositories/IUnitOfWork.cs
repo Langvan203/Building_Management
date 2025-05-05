@@ -11,6 +11,9 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         IToaNhaRepository ToaNhas { get; }
         ITangLauRepository TangLaus { get; }
         INhanVienRepository NhanViens { get; }
+        IKhoiNhaRepository KhoiNhas { get; }
+        IMatBangLoaiMatBangRepository LoaiMatBangs { get; }
+        IMatBangTrangThaiRepository TrangThaiMatBangs { get; }
         IRoleRepository Roles { get; }
 
         Task<int> SaveChangesAsync();

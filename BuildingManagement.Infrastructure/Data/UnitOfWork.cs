@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.Interfaces.Repositories;
+﻿using AutoMapper;
+using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Infrastructure.Data.Context;
 using BuildingManagement.Infrastructure.Data.Repositories;
@@ -17,8 +18,12 @@ namespace BuildingManagement.Infrastructure.Data
         private readonly ToaNhaRepository _toanha;
         private readonly TangLauRepository _tanglau;
         private readonly NhanVienRepository _nhanVien;
+        private readonly LoaiMatBangRepository _loaiMatBang;
+        private readonly TrangThaiMatBangRepository _trangThaiMatBang;
+        private readonly KhoiNhaRepository _khoiNha;
         private readonly RoleRepository _role;
         private IDbContextTransaction _transaction;
+        private readonly IMapper _mapper;
 
         public IToaNhaRepository ToaNhas => _toanha;
 
@@ -26,14 +31,23 @@ namespace BuildingManagement.Infrastructure.Data
 
         public INhanVienRepository NhanViens => _nhanVien;
 
+        public IKhoiNhaRepository KhoiNhas => _khoiNha;
+
+        public IMatBangLoaiMatBangRepository LoaiMatBangs => _loaiMatBang;
+
+        public IMatBangTrangThaiRepository TrangThaiMatBangs => _trangThaiMatBang;
         public IRoleRepository Roles => _role;
 
-        public UnitOfWork(BuildingManagementDbContext context)
+        public UnitOfWork(BuildingManagementDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
             _toanha = new ToaNhaRepository(_context);
-            _tanglau = new TangLauRepository(_context);
+            _tanglau = new TangLauRepository(_context, mapper);
             _nhanVien = new NhanVienRepository(_context);
+            _khoiNha = new KhoiNhaRepository(_context, mapper);
+            _trangThaiMatBang = new TrangThaiMatBangRepository(_context, mapper);
+            _loaiMatBang = new LoaiMatBangRepository(_context, mapper);
             _role = new RoleRepository(_context);
         }
         public async Task<int> SaveChangesAsync()

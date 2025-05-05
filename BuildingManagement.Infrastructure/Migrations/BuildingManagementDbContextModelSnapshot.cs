@@ -674,7 +674,10 @@ namespace BuildingManagement.Infrastructure.Migrations
             modelBuilder.Entity("BuildingManagement.Domain.Entities.mbTrangThai", b =>
                 {
                     b.Property<int>("MaTrangThai")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTrangThai"));
 
                     b.Property<string>("TenTrangThai")
                         .IsRequired()
@@ -1040,6 +1043,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<int>("MaTL")
                         .HasColumnType("int");
 
+                    b.Property<int>("MaTrangThai")
+                        .HasColumnType("int");
+
                     b.Property<string>("MaVT")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1072,6 +1078,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaLMB");
 
                     b.HasIndex("MaTL");
+
+                    b.HasIndex("MaTrangThai");
 
                     b.ToTable("tnMatBangs");
                 });
@@ -1544,17 +1552,6 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("tnMatBang");
                 });
 
-            modelBuilder.Entity("BuildingManagement.Domain.Entities.mbTrangThai", b =>
-                {
-                    b.HasOne("BuildingManagement.Domain.Entities.tnMatBang", "tnMatBang")
-                        .WithOne("mbTrangThai")
-                        .HasForeignKey("BuildingManagement.Domain.Entities.mbTrangThai", "MaTrangThai")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("tnMatBang");
-                });
-
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtChiTietBaoTri", b =>
                 {
                     b.HasOne("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", "nkbtKeHoachBaoTri")
@@ -1636,7 +1633,15 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BuildingManagement.Domain.Entities.mbTrangThai", "mbTrangThai")
+                        .WithMany("tnMatBangs")
+                        .HasForeignKey("MaTrangThai")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("mbLoaiMB");
+
+                    b.Navigation("mbTrangThai");
 
                     b.Navigation("tnKhachHang");
 
@@ -1779,6 +1784,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("tnMatBangs");
                 });
 
+            modelBuilder.Entity("BuildingManagement.Domain.Entities.mbTrangThai", b =>
+                {
+                    b.Navigation("tnMatBangs");
+                });
+
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", b =>
                 {
                     b.Navigation("nkbtChiTietBaoTris");
@@ -1817,9 +1827,6 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("dvgxTheXes");
-
-                    b.Navigation("mbTrangThai")
-                        .IsRequired();
 
                     b.Navigation("tnbtHeThongs");
                 });

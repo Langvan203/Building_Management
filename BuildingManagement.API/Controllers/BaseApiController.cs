@@ -6,14 +6,14 @@ namespace BuildingManagement.API.Controllers
 {
     public abstract class BaseApiController : ControllerBase
     {
-        protected string Id
+        protected int Id
         {
             get
             {
-                var subClaim = User.FindFirst(JwtRegisteredClaimNames.Sub);
+                var subClaim = User.FindFirst(ClaimTypes.NameIdentifier);
                 if(subClaim == null)
                     throw new InvalidOperationException("User ID claim missing or invalid");
-                return subClaim.Value;
+                return Convert.ToInt32(subClaim.Value);
             }
         }
 
@@ -21,7 +21,7 @@ namespace BuildingManagement.API.Controllers
         {
             get
             {
-                var nameClaim = User.FindFirst(JwtRegisteredClaimNames.Name);
+                var nameClaim = User.FindFirst(ClaimTypes.Name);
                 if (nameClaim == null)
                     throw new InvalidOperationException("User name claim missing or invalid");
                 return nameClaim.Value;

@@ -36,7 +36,7 @@ namespace BuildingManagement.Infrastructure.Security
                 new Claim(JwtRegisteredClaimNames.Sub, nv.MaNV.ToString()),
                 new Claim(ClaimTypes.Email, nv.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Name, nv.TenNV.ToString())
+                new Claim(ClaimTypes.Name, nv.TenNV.ToString())
             };
             claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
@@ -45,7 +45,7 @@ namespace BuildingManagement.Infrastructure.Security
                 issuer: _jwtConfig.Issuer,
                 audience: _jwtConfig.Audience,
                 claims = claims,
-                expires: DateTime.UtcNow.AddHours(_jwtConfig.ExpiryHours),
+                expires: DateTime.UtcNow.AddMonths(1),
                 signingCredentials: creds
                 );
             return new JwtSecurityTokenHandler().WriteToken(token); 

@@ -14,6 +14,6 @@ namespace BuildingManagement.Domain.Entities
         public string TenTrangThai { get; set; }
 
         // Navigation
-        public tnMatBang tnMatBang { get; set; }
+        public ICollection<tnMatBang> tnMatBangs { get; set; }
     }
 }

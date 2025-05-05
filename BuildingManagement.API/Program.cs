@@ -51,6 +51,11 @@ builder.Services.AddAuthentication(options =>
 // inject services 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
+builder.Services.AddScoped<IToaNhaServices, ToaNhaServices>();
+builder.Services.AddScoped<IKhoiNhaService, KhoiNhaService>();
+builder.Services.AddScoped<ITangLauServices, TangLauServices>();
+builder.Services.AddScoped<ILoaiMatBangService, LoaiMatBangService>();
+builder.Services.AddScoped<ITrangThaiMatBangService, TrangThaiMatBangService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 // add JWT service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();

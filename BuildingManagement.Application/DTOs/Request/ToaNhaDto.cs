@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuildingManagement.Application.DTOs
+namespace BuildingManagement.Application.DTOs.Request
 {
     public class ToaNhaDto
     {

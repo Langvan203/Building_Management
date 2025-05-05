@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
 using BuildingManagement.Domain.Entities;
@@ -20,8 +20,19 @@ namespace BuildingManagement.Application.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+        public async Task<bool> XoaToaNhaAsync(int id)
+        {
+            var findTN = await _unitOfWork.ToaNhas.GetByIdAsync(id);
+            if (findTN == null)
+            {
+                return false;
+            }
+            await _unitOfWork.ToaNhas.DeleteAsync(findTN);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
 
-        public async Task<IEnumerable<ToaNhaDto>> GetToaNhaAsync()
+        public async Task<IEnumerable<ToaNhaDto>> GetDSToaNhaAsync()
         {
             var dsToanha = await _unitOfWork.ToaNhas.GetAllAsync();
             return _mapper.Map<IEnumerable<ToaNhaDto>>(dsToanha);
@@ -33,7 +44,7 @@ namespace BuildingManagement.Application.Services
             return _mapper.Map<ToaNhaDto>(toanha);
         }
 
-        public async Task<tnToaNha> TaoToaNhaAsync(CreateToaNhaDto dto)
+        public async Task<tnToaNha> TaoToaNhaAsync(CreateToaNhaDto dto, string tennv)
         {
             var findToaNha = await _unitOfWork.ToaNhas.ExistsAsync(x => x.TenTN == dto.TenTN);
             if(findToaNha)
@@ -41,7 +52,9 @@ namespace BuildingManagement.Application.Services
                 throw new Exception("Dự án tòa nhà đã tồn tại");
             }    
             var newToaNha = _mapper.Map<tnToaNha>(dto);
+            newToaNha.NguoiTao = tennv;
             await _unitOfWork.ToaNhas.AddAsync(newToaNha);
+            await _unitOfWork.SaveChangesAsync();
             return newToaNha;
         }
     }
