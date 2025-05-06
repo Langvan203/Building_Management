@@ -26,6 +26,8 @@ namespace BuildingManagement.Domain.Entities
 
         // Navigation
         public ICollection<tnNhanVien> tnNhanViens { get; set; }
+        public ICollection<tnMatBang> tnMatBangs { get; set; }
+        public ICollection<tnTangLau> tnTangLaus { get; set; }
 
         public ICollection<tnKhoiNha> tnKhoiNhas { get; set; }
     }

@@ -21,5 +21,7 @@ namespace BuildingManagement.Application.DTOs.Request
         public decimal DienTichSan { get; set; }
         public decimal DienTichKhuVucDungChung { get; set; }
         public decimal DienTichKyThuaPhuTro { get; set; }
+        public int MaKN { get; set; }
+        public int MaTN { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuildingManagement.Domain.Entities
 {
-    public class mbTrangThai
+    public class mbTrangThai : BaseEntity
     {
         [Key]
         public int MaTrangThai { get; set; }

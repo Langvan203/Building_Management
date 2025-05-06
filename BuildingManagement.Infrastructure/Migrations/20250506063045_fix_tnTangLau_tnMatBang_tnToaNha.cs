@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BuildingManagement.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class fix_field_mbTrangThai : Migration
+    public partial class fix_tnTangLau_tnMatBang_tnToaNha : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -107,7 +107,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                 {
                     MaTrangThai = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenTrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TenTrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NguoiTao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NguoiSua = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -338,8 +342,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                         name: "FK_tnKhoiNhas_tnToaNhas_MaTN",
                         column: x => x.MaTN,
                         principalTable: "tnToaNhas",
-                        principalColumn: "MaTN",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "MaTN");
                 });
 
             migrationBuilder.CreateTable(
@@ -377,6 +380,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                     DienTichKhuVucDungChung = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DienTichKyThuaPhuTro = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     MaKN = table.Column<int>(type: "int", nullable: false),
+                    MaTN = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NguoiTao = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -390,6 +394,12 @@ namespace BuildingManagement.Infrastructure.Migrations
                         column: x => x.MaKN,
                         principalTable: "tnKhoiNhas",
                         principalColumn: "MaKN",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_tnTangLaus_tnToaNhas_MaTN",
+                        column: x => x.MaTN,
+                        principalTable: "tnToaNhas",
+                        principalColumn: "MaTN",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -411,6 +421,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                     MaKH = table.Column<int>(type: "int", nullable: true),
                     MaLMB = table.Column<int>(type: "int", nullable: false),
                     MaTrangThai = table.Column<int>(type: "int", nullable: false),
+                    MaTN = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NguoiTao = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -442,6 +453,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                         principalTable: "tnTangLaus",
                         principalColumn: "MaTL",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_tnMatBangs_tnToaNhas_MaTN",
+                        column: x => x.MaTN,
+                        principalTable: "tnToaNhas",
+                        principalColumn: "MaTN");
                 });
 
             migrationBuilder.CreateTable(
@@ -881,6 +897,16 @@ namespace BuildingManagement.Infrastructure.Migrations
                     { 4, new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Admin", "Nhân viên tòa nhà", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
+            migrationBuilder.InsertData(
+                table: "mbTrangThais",
+                columns: new[] { "MaTrangThai", "CreatedDate", "NguoiSua", "NguoiTao", "TenTrangThai", "UpdatedDate" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Admin", "Chưa bàn giao", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Admin", "Đang sử dụng", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Admin", "Đã thanh lý", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_BaoTri_NhanVien_MaKeHoach",
                 table: "BaoTri_NhanVien",
@@ -1020,6 +1046,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                 column: "MaTL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_tnMatBangs_MaTN",
+                table: "tnMatBangs",
+                column: "MaTN");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_tnMatBangs_MaTrangThai",
                 table: "tnMatBangs",
                 column: "MaTrangThai");
@@ -1028,6 +1059,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                 name: "IX_tnTangLaus_MaKN",
                 table: "tnTangLaus",
                 column: "MaKN");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tnTangLaus_MaTN",
+                table: "tnTangLaus",
+                column: "MaTN");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tnycYeuCauSuaChuas_MaHeThong",

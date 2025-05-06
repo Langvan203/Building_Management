@@ -9,7 +9,7 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface ITangLauServices
     {
-        Task<TangLauDto> CreateTangLau(CreateTangLauDto tangLauDto, int MaKN, string TenNguoiTao, int MaTN);
+        Task<TangLauDto> CreateTangLau(CreateTangLauDto tangLauDto,string TenNguoiTao);
         Task<IEnumerable<TangLauDto>> GetDSTangLauByMaKN(int MaKN, int MaTN);
     }
 }

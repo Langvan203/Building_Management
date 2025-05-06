@@ -56,6 +56,7 @@ builder.Services.AddScoped<IKhoiNhaService, KhoiNhaService>();
 builder.Services.AddScoped<ITangLauServices, TangLauServices>();
 builder.Services.AddScoped<ILoaiMatBangService, LoaiMatBangService>();
 builder.Services.AddScoped<ITrangThaiMatBangService, TrangThaiMatBangService>();
+builder.Services.AddScoped<IMatBangService, MatBangService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 // add JWT service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();

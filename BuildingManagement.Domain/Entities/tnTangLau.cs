@@ -18,9 +18,11 @@ namespace BuildingManagement.Domain.Entities
 
         //FK
         public int MaKN { get; set; }
+        public int MaTN { get; set; }
 
         // Navigation 
         public tnKhoiNha tnKhoiNha { get; set; }
+        public tnToaNha tnToaNha { get; set; }
 
         public ICollection<tnMatBang> tnMatBangs { get; set; }
     }

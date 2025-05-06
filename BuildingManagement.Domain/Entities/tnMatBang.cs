@@ -25,6 +25,7 @@ namespace BuildingManagement.Domain.Entities
         public int? MaKH { get; set; }
         public int MaLMB { get; set; }
         public int MaTrangThai { get; set; }
+        public int MaTN { get; set; }
 
         // Navigation
         public dvDienDongHo dvDienDongHo { get; set; }  
@@ -34,6 +35,7 @@ namespace BuildingManagement.Domain.Entities
 
         public tnTangLau tnTangLau { get; set; }
 
+        public tnToaNha tnToaNha { get; set; }
         public tnKhachHang tnKhachHang { get; set; }
         
         public mbLoaiMB mbLoaiMB { get; set; }

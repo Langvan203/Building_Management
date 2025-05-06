@@ -17,7 +17,8 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
 
             builder.HasMany(mb => mb.tnbtHeThongs)
                 .WithOne(mb => mb.tnMatBang)
-                .HasForeignKey(mb => mb.MaMB);
+                .HasForeignKey(mb => mb.MaMB)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //builder.HasMany(mb => mb.mbTrangThai)
             //    .WithOne(mb => mb.tnMatBang)

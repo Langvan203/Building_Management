@@ -20,6 +20,7 @@ namespace BuildingManagement.Infrastructure.Data
         private readonly NhanVienRepository _nhanVien;
         private readonly LoaiMatBangRepository _loaiMatBang;
         private readonly TrangThaiMatBangRepository _trangThaiMatBang;
+        private readonly MatBangRepository _matBang;
         private readonly KhoiNhaRepository _khoiNha;
         private readonly RoleRepository _role;
         private IDbContextTransaction _transaction;
@@ -35,6 +36,8 @@ namespace BuildingManagement.Infrastructure.Data
 
         public IMatBangLoaiMatBangRepository LoaiMatBangs => _loaiMatBang;
 
+        public IMatBangRepository MatBangs => _matBang;
+
         public IMatBangTrangThaiRepository TrangThaiMatBangs => _trangThaiMatBang;
         public IRoleRepository Roles => _role;
 
@@ -48,6 +51,7 @@ namespace BuildingManagement.Infrastructure.Data
             _khoiNha = new KhoiNhaRepository(_context, mapper);
             _trangThaiMatBang = new TrangThaiMatBangRepository(_context, mapper);
             _loaiMatBang = new LoaiMatBangRepository(_context, mapper);
+            _matBang = new MatBangRepository(_context, mapper);
             _role = new RoleRepository(_context);
         }
         public async Task<int> SaveChangesAsync()

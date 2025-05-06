@@ -23,10 +23,10 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpPost("create-tang-lau")]
-        public async Task<IActionResult> CreateNewTangLau(CreateTangLauDto dto, int MaTN, int MaKN)
+        public async Task<IActionResult> CreateNewTangLau(CreateTangLauDto dto)
         {
 
-            var newTL = await _TangLauService.CreateTangLau(dto, MaKN, Name, MaTN);
+            var newTL = await _TangLauService.CreateTangLau(dto,Name);
             return Ok(newTL);
         }
     }

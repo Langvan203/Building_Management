@@ -19,6 +19,8 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
             builder.HasMany(tn => tn.tnTangLaus)
                 .WithOne(tn => tn.tnKhoiNha)
                 .HasForeignKey(tn => tn.MaKN);
+            
+            
         }
     }
 }

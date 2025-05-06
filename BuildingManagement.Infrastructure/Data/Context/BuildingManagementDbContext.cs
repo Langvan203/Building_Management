@@ -56,6 +56,14 @@ namespace BuildingManagement.Infrastructure.Data.Context
                 new Role { RoleID = 3, RoleName = "Nhân viên lễ tân", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) },
                 new Role { RoleID = 4, RoleName = "Nhân viên tòa nhà", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025,04,28) }
                 );
+
+
+            modelBuilder.Entity<mbTrangThai>().HasData(
+                new mbTrangThai { MaTrangThai = 1, TenTrangThai = "Chưa bàn giao", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new mbTrangThai { MaTrangThai = 2, TenTrangThai = "Đang sử dụng", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new mbTrangThai { MaTrangThai = 3, TenTrangThai = "Đã thanh lý", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) }
+                );
+
         }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuildingManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(BuildingManagementDbContext))]
-    [Migration("20250505091521_fix_field_mbTrangThai")]
-    partial class fix_field_mbTrangThai
+    [Migration("20250506063045_fix_tnTangLau_tnMatBang_tnToaNha")]
+    partial class fix_tnTangLau_tnMatBang_tnToaNha
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -682,13 +682,56 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTrangThai"));
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NguoiSua")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NguoiTao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TenTrangThai")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("MaTrangThai");
 
                     b.ToTable("mbTrangThais");
+
+                    b.HasData(
+                        new
+                        {
+                            MaTrangThai = 1,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Chưa bàn giao",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaTrangThai = 2,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Đang sử dụng",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaTrangThai = 3,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Đã thanh lý",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtChiTietBaoTri", b =>
@@ -1046,6 +1089,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<int>("MaTL")
                         .HasColumnType("int");
 
+                    b.Property<int>("MaTN")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaTrangThai")
                         .HasColumnType("int");
 
@@ -1081,6 +1127,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaLMB");
 
                     b.HasIndex("MaTL");
+
+                    b.HasIndex("MaTN");
 
                     b.HasIndex("MaTrangThai");
 
@@ -1195,6 +1243,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<int>("MaKN")
                         .HasColumnType("int");
 
+                    b.Property<int>("MaTN")
+                        .HasColumnType("int");
+
                     b.Property<string>("NguoiSua")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1213,6 +1264,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasKey("MaTL");
 
                     b.HasIndex("MaKN");
+
+                    b.HasIndex("MaTN");
 
                     b.ToTable("tnTangLaus");
                 });
@@ -1612,7 +1665,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasOne("BuildingManagement.Domain.Entities.tnToaNha", "tnToaNha")
                         .WithMany("tnKhoiNhas")
                         .HasForeignKey("MaTN")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("tnToaNha");
@@ -1636,6 +1689,12 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BuildingManagement.Domain.Entities.tnToaNha", "tnToaNha")
+                        .WithMany("tnMatBangs")
+                        .HasForeignKey("MaTN")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("BuildingManagement.Domain.Entities.mbTrangThai", "mbTrangThai")
                         .WithMany("tnMatBangs")
                         .HasForeignKey("MaTrangThai")
@@ -1649,6 +1708,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("tnKhachHang");
 
                     b.Navigation("tnTangLau");
+
+                    b.Navigation("tnToaNha");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnTangLau", b =>
@@ -1659,7 +1720,15 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BuildingManagement.Domain.Entities.tnToaNha", "tnToaNha")
+                        .WithMany("tnTangLaus")
+                        .HasForeignKey("MaTN")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("tnKhoiNha");
+
+                    b.Navigation("tnToaNha");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnbtHeThong", b =>
@@ -1842,6 +1911,10 @@ namespace BuildingManagement.Infrastructure.Migrations
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnToaNha", b =>
                 {
                     b.Navigation("tnKhoiNhas");
+
+                    b.Navigation("tnMatBangs");
+
+                    b.Navigation("tnTangLaus");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnbtHeThong", b =>

@@ -28,6 +28,9 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<CreateNewTrangThaiMatBangDto, mbTrangThai>();
             CreateMap<mbTrangThai, TrangThaiMatBangDto>();
+
+            CreateMap<tnMatBang, MatBangDto>();
+            CreateMap<CreateMatBangDto, tnMatBang>();
         }
     }
 }

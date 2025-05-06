@@ -17,7 +17,19 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
 
             builder.HasMany(tn => tn.tnKhoiNhas)
                 .WithOne(tn => tn.tnToaNha)
-                .HasForeignKey(tn => tn.MaTN);
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnTangLaus)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.HasMany(tn => tn.tnMatBangs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

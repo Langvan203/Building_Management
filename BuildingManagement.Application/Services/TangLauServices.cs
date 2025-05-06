@@ -23,14 +23,13 @@ namespace BuildingManagement.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<TangLauDto> CreateTangLau(CreateTangLauDto dto, int MaKN, string TenNguoiTao, int MaTN)
+        public async Task<TangLauDto> CreateTangLau(CreateTangLauDto dto, string TenNguoiTao)
         {
-            var checkTL = await _unitOfWork.TangLaus.CheckTangLau(MaKN, MaTN);
+            var checkTL = await _unitOfWork.TangLaus.CheckTangLau(dto.MaKN, dto.MaTN);
             if (checkTL)
             {
                 var newTL = _mapper.Map<tnTangLau>(dto);
                 newTL.NguoiTao = TenNguoiTao;
-                newTL.MaKN = MaKN;
                 await _unitOfWork.TangLaus.AddAsync(newTL);
                 await _unitOfWork.SaveChangesAsync();
                 return _mapper.Map<TangLauDto>(newTL);
