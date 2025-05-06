@@ -31,6 +31,9 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<tnMatBang, MatBangDto>();
             CreateMap<CreateMatBangDto, tnMatBang>();
+
+            CreateMap<dvLoaiDV, LoaiDVDto>();
+            CreateMap<CreateLoaiDVDto, dvLoaiDV>();
         }
     }
 }
