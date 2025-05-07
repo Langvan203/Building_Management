@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Domain.Entities;
@@ -34,6 +35,18 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<dvLoaiDV, LoaiDVDto>();
             CreateMap<CreateLoaiDVDto, dvLoaiDV>();
+
+            CreateMap<dvDienDinhMuc, DichVuDienDinhMucDto>();
+            CreateMap<CreateDichVuDienDinhMucDto, dvDienDinhMuc>();
+
+            CreateMap<dvDienDongHo, DichVuDienDongHoDto>();
+            CreateMap<CreateDichVuDienDongHoDto, dvDienDongHo>();
+
+            CreateMap<dvgxLoaiXe, DichVuGuiXeLoaiXeDto>();
+            CreateMap<CreateDichVuGuiXeLoaiXeDto, dvgxLoaiXe>();
+
+            CreateMap<dvgxTheXe, DichVuGuiXeTheXeDto>();
+            CreateMap<CreateDichVuGuiXeTheXeDto, dvgxTheXe>();
         }
     }
 }

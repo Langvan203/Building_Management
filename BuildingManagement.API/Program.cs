@@ -58,6 +58,30 @@ builder.Services.AddScoped<ILoaiMatBangService, LoaiMatBangService>();
 builder.Services.AddScoped<ITrangThaiMatBangService, TrangThaiMatBangService>();
 builder.Services.AddScoped<IMatBangService, MatBangService>();
 builder.Services.AddScoped<ILoaiDichVuService, LoaiDichVuService>();
+builder.Services.AddScoped<INhanVienService, NhanVienService>();
+builder.Services.AddScoped<INKBTLichSuBaoTriService, NKBTLichSuBaoTriService>();
+builder.Services.AddScoped<INKBTHeThongSerivce, NKBTHeThongService>();
+builder.Services.AddScoped<INKBTKeHoachBaoTriService, NKBTKeHoachBaoTriService>();
+builder.Services.AddScoped<INKBTChiTietBaoTriService, NKBTChiTietBaoTriService>();
+builder.Services.AddScoped<IKhacHangService, KhachHangService>();
+builder.Services.AddScoped<INKBTTrangThaiBaoTriService, NKBTTrangThaiBaoTriService>();
+builder.Services.AddScoped<IPhieuThuService, PhieuThuService>();
+builder.Services.AddScoped<IDichVuNuocDinhMucService, DichVuNuocDinhMucService>();
+builder.Services.AddScoped<IDichVuNuocService, DichVuNuocService>();
+builder.Services.AddScoped<IDichVuDienDinhMucService, DichVuDienDinhMucService>();
+builder.Services.AddScoped<IDichVuDienService, DichVuDienService>();
+builder.Services.AddScoped<IDichVuNuocDongHoService, DichVuNuocDongHoService>();
+builder.Services.AddScoped<IDichVuDienDongHoService, DichVuDienDongHoSerivce>();
+builder.Services.AddScoped<IDichVuGuiXeLoaiXeService, DichVuGuiXeLoaiXeService>();
+builder.Services.AddScoped<IDichVuGuiXeTheXeService, DichVuGuiXeTheXeService>();
+builder.Services.AddScoped<IDichVuHoaDonService, DichVuHoaDonService>();
+builder.Services.AddScoped<IDichVuSuDungSerivce, DichVuSuDungService>();
+builder.Services.AddScoped<IPhongBanService, PhongBanService>();
+
+
+
+
+
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 // add JWT service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
