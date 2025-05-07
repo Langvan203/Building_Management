@@ -15,9 +15,11 @@ namespace BuildingManagement.Domain.Entities
 
         //FK
         public int MaMB { get; set; }
+        public int MaKH { get; set; }
 
         //Navigation 
         public tnMatBang tnMatBang { get; set; }
         public ICollection<dvDien> dvDiens { get; set; }    
+        public tnKhachHang tnKhachHang { get; set; }
     }
 }

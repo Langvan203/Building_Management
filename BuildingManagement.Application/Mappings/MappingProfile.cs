@@ -47,6 +47,9 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<dvgxTheXe, DichVuGuiXeTheXeDto>();
             CreateMap<CreateDichVuGuiXeTheXeDto, dvgxTheXe>();
+
+            CreateMap<dvDien, DichVuDienDto>();
+            CreateMap<CreateDichVuDienDto, dvDien>();
         }
     }
 }

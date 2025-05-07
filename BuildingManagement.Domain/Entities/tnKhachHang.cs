@@ -34,5 +34,8 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
         public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
         public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
+
+        public dvDienDongHo dvDienDongHo { get; set; }
+        public dvNuocDongHo dvNuocDongHo { get; set; }
     }
 }

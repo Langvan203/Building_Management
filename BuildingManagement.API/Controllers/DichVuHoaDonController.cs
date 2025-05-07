@@ -5,7 +5,7 @@ namespace BuildingManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DichVuHoaDonController : ControllerBase
+    public class DichVuHoaDonController : BaseApiController
     {
     }
 }

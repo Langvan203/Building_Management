@@ -124,7 +124,7 @@ namespace BuildingManagement.Infrastructure.Data
             _theXe = new DichVuGuiXeTheXeRepository(_context, mapper);
             _loaiXe = new DichVuGuiXeLoaiXeRepository(_context);
             _nuoc = new DichVuNuocRepository(_context);
-            _dien = new DichVuDienRepository(_context);
+            _dien = new DichVuDienRepository(_context,mapper);
             _nuocDinhMuc = new DichVuNuocDinhMucRepository(_context);
             _dienDinhMuc = new DichVuDienDinhMucRepository(_context);
             _dichVuSuDung = new DichVuSuDungRepository(_context);

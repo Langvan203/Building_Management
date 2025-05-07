@@ -4,6 +4,7 @@ using BuildingManagement.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuildingManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(BuildingManagementDbContext))]
-    partial class BuildingManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250507141618_add_fk_tnKhachHang_dvDienDongHo-dvNuocDongHo-add-field-ngayBatDau-ngayKetThuc-to-dvDien-dvNuoc")]
+    partial class add_fk_tnKhachHang_dvDienDongHodvNuocDongHoaddfieldngayBatDaungayKetThuctodvDiendvNuoc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
