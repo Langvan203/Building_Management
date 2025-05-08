@@ -24,7 +24,6 @@ namespace BuildingManagement.Domain.Entities
         public decimal TienBVMT { get; set; }
         public decimal ThanhTien { get; set; }
         public string GhiChu { get; set; }
-
         // FK
         public int MaDV { get; set; }
         public int MaKH { get; set; }

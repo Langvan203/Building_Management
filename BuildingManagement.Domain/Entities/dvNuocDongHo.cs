@@ -11,6 +11,7 @@ namespace BuildingManagement.Domain.Entities
     {
         [Key]
         public int MaDH { get; set; }
+        public string SoDH { get; set; }
 
         //FK 
         public int MaMB { get; set; }

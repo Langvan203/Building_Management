@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
 using BuildingManagement.Domain.Entities;
@@ -36,6 +36,11 @@ namespace BuildingManagement.Application.Services
             return null;
         }
 
+        public Task<DichVuNuocDongHoDto> CreateNewDongHo(CreateDichVuNuocDongHoDto dto, string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<DichVuDienDongHoDto> GetDongHoDienByMaMB(int MaMB)
         {
             var checkDongHoDien = await _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.MaMB == MaMB);
@@ -51,5 +56,7 @@ namespace BuildingManagement.Application.Services
             var dsDongHo = await _unitOfWork.DienDongHos.GetAllAsync();
             return _mapper.Map<IEnumerable<DichVuDienDongHoDto>>(dsDongHo);
         }
+
+       
     }
 }

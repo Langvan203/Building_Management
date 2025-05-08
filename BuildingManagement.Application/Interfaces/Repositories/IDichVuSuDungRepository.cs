@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Domain.Entities;
+﻿using BuildingManagement.Application.DTOs.Request;
+using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace BuildingManagement.Application.Interfaces.Repositories
 {
     public interface IDichVuSuDungRepository : IRepository<dvDichVuSuDung>
     {
+        Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDungByMaKH(int MaKH);
     }
 }

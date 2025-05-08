@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Domain.Entities;
@@ -13,7 +12,7 @@ namespace BuildingManagement.Application.Mappings
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile() 
+        public MappingProfile()
         {
             CreateMap<tnToaNha, ToaNhaDto>();
             CreateMap<CreateToaNhaDto, tnToaNha>();
@@ -50,6 +49,15 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<dvDien, DichVuDienDto>();
             CreateMap<CreateDichVuDienDto, dvDien>();
+
+            CreateMap<dvNuocDinhMuc, DichVuNuocDinhMucDto>();
+            CreateMap<CreateDichVuDienDinhMucDto, dvNuocDinhMuc>();
+
+            CreateMap<dvNuoc,  DichVuNuocDto>();
+            CreateMap<CreateDichVuNuocDto, dvNuoc>();
+
+            CreateMap<dvDichVuSuDung, DichVuSuDungDto>();
+            CreateMap<CreateDichVuSuDungDto, dvDichVuSuDung>();
         }
     }
 }

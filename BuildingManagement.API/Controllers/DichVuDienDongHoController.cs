@@ -1,4 +1,4 @@
-﻿using BuildingManagement.Application.DTOs;
+﻿using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
