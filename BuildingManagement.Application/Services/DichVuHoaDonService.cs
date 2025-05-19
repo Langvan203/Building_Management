@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.Interfaces.Repositories;
+﻿using BuildingManagement.Application.DTOs.Response;
+using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,14 @@ namespace BuildingManagement.Application.Services
             _unitOfWork = unitOfWork;
         }
 
+        public Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

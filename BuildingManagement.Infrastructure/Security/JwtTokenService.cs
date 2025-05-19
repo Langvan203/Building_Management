@@ -63,7 +63,8 @@ namespace BuildingManagement.Infrastructure.Security
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret)),
                 ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero
+                ClockSkew = TimeSpan.Zero,
+                
             };
             return tokenHandler.ValidateToken(token, parameters, out _);
         }

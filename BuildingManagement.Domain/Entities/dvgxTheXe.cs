@@ -11,6 +11,8 @@ namespace BuildingManagement.Domain.Entities
     {
         [Key]
         public int MaTX { get; set; }
+        public string BienSo { get; set; }
+        public string ViTri { get; set; }
         public DateTime NgayBatDauSuDung { get; set; } 
         public DateTime NgayHetHanSuDung { get; set; }
 

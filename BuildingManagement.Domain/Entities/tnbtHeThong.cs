@@ -14,11 +14,12 @@ namespace BuildingManagement.Domain.Entities
         public string TenHeThong { get; set; }
 
         //FK
-        public int MaMB { get; set; }
+        public int? MaMB { get; set; }
+        public int? MaTN { get; set; }
 
         //Navigation
         public tnMatBang tnMatBang { get; set; }
-
+        public tnToaNha tnToaNha { get; set; }
         public ICollection<nkbtKeHoachBaoTri> nkbtKeHoachBaoTris { get; set; }
         public ICollection<nkbtLichSuBaoTri> nkbtLichSuBaoTris { get; set; }
         public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChua { get; set; }

@@ -58,6 +58,12 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<dvDichVuSuDung, DichVuSuDungDto>();
             CreateMap<CreateDichVuSuDungDto, dvDichVuSuDung>();
+
+            CreateMap<tnKhachHang, KhachHangDto>();
+            CreateMap<CreateKhachHangDto, tnKhachHang>();
+
+            CreateMap<CreateDichVuDto, dvDichVu>();
+            CreateMap<dvDichVu, DichVuDto>();
         }
     }
 }

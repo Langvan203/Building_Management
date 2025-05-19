@@ -32,6 +32,17 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(mb => mb.tnMatBang)
                 .HasForeignKey(mb => mb.MaMB);
 
+            builder.HasMany(dv => dv.dvHoaDons)
+                .WithOne(tn => tn.tnMatBang)
+                .HasForeignKey(tn => tn.MaMB)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            builder.HasMany(yc => yc.tnycYeuCauSuaChuas)
+                .WithOne(tn => tn.tnMatBang)
+                .HasForeignKey(tn => tn.MaMB)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

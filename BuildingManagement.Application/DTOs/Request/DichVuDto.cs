@@ -17,5 +17,6 @@ namespace BuildingManagement.Application.DTOs.Request
     {
         public string TenDV { get; set; }
         public int MaLDV { get; set; }
+        public int MaTN { get; set; }
     }
 }

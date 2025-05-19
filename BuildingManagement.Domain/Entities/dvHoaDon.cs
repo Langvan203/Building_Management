@@ -23,9 +23,19 @@ namespace BuildingManagement.Domain.Entities
 
         //FK
         public int MaDVSD { get; set; }
+        public int? MaTN { get; set; }
+        public int? MaKN { get; set; }
+        public int? MaTL { get; set; }
+        public int? MaKH { get; set; }
+        public int? MaMB { get; set; }
 
         // Navigation 
         public dvDichVuSuDung dvDichVuSuDung { get; set; }
         public ICollection<ptPhieuThu> ptPhieuThus { get; set; }
+        public tnToaNha tnToaNha { get; set; }
+        public tnKhoiNha tnKhoiNha { get; set; }
+        public tnTangLau tnTangLau { get; set; }
+        public tnKhachHang tnKhachHang { get; set; }
+        public tnMatBang tnMatBang { get; set; }
     }
 }

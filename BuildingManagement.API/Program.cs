@@ -1,4 +1,4 @@
-using BuildingManagement.Infrastructure.Data.Context;
+﻿using BuildingManagement.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -12,6 +12,11 @@ using BuildingManagement.Application.Interfaces.Services;
 using BuildingManagement.Application.Services;
 using BuildingManagement.Application.Mappings;
 using BuildingManagement.Infrastructure.Security;
+using BuildingManagement.Domain.Ultility;
+using BuildingManagement.Application.Interfaces.Services.Ultility;
+using BuildingManagement.Application.Services.Ultility;
+using BuildingManagement.API.Filter;
+using System.Security.Claims;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +26,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
+
+// add EmailSetting
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Smtp"));
+builder.Services.Configure<OTPConfiguration>(builder.Configuration.GetSection("Otp"));
 
 // add authentication
 
@@ -44,7 +53,10 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero,
 
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSetting.Secret))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSetting.Secret)),
+
+        RoleClaimType = ClaimTypes.Role,
+        NameClaimType = ClaimTypes.NameIdentifier
     };
 });
 
@@ -77,11 +89,15 @@ builder.Services.AddScoped<IDichVuGuiXeTheXeService, DichVuGuiXeTheXeService>();
 builder.Services.AddScoped<IDichVuHoaDonService, DichVuHoaDonService>();
 builder.Services.AddScoped<IDichVuSuDungSerivce, DichVuSuDungService>();
 builder.Services.AddScoped<IPhongBanService, PhongBanService>();
+builder.Services.AddScoped<IDichVuService, DichVuService>();
+
+// ultility service
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddScoped<IOTPService, OTPService>();
 
 
-
-
-
+// add performance filter
+builder.Services.AddScoped<ApiPerformanceFilter>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 // add JWT service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
@@ -119,6 +135,18 @@ builder.Services.AddSwaggerGen(options =>
 
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials() // Quan trọng!
+              .SetIsOriginAllowed(_ => true); // Có thể cần thiết trong môi trường dev
+    });
+});
+
 builder.Services.AddAuthorization();
 
 
@@ -136,7 +164,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

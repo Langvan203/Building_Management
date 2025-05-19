@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bzeUU8Iqlok=",
+  "dgSpecHash": "+o7pLzrZbJo=",
   "success": true,
   "projectFilePath": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\BuildingManagement.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\van32\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\van32\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\van32\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.3.0\\microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "C:\\Users\\van32\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\van32\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.3.0\\microsoft.aspnetcore.authentication.cookies.2.3.0.nupkg.sha512",

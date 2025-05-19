@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Domain.Entities;
+﻿using BuildingManagement.Application.DTOs.Response;
+using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
 {
     public interface IDichVuHoaDonRepository : IRepository<dvHoaDon>
     {
-
+        Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync();
+        Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync();
     }
 }

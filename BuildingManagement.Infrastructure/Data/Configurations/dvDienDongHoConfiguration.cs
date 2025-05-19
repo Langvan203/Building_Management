@@ -23,9 +23,6 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(dv => dv.dvDienDongHo)
                 .HasForeignKey(dv => dv.MaDH);
 
-            builder.HasOne(dv => dv.tnKhachHang)
-                .WithOne(dv => dv.dvDienDongHo)
-                .HasForeignKey<dvDienDongHo>(dv => dv.MaKH);
         }
     }
 }

@@ -44,6 +44,8 @@ namespace BuildingManagement.Infrastructure.Data.Context
         public DbSet<tnTangLau> tnTangLaus { get; set; }
         public DbSet<tnToaNha> tnToaNhas { get; set; }
         public DbSet<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
+        public DbSet<tnycTrangThai> tnycTrangThais { get; set; }
+        public DbSet<nvDanhGia> nvDanhGias { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -62,6 +64,13 @@ namespace BuildingManagement.Infrastructure.Data.Context
                 new mbTrangThai { MaTrangThai = 1, TenTrangThai = "Chưa bàn giao", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
                 new mbTrangThai { MaTrangThai = 2, TenTrangThai = "Đang sử dụng", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
                 new mbTrangThai { MaTrangThai = 3, TenTrangThai = "Đã thanh lý", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) }
+                );
+
+            modelBuilder.Entity<tnycTrangThai>().HasData(
+                new tnycTrangThai { IdTrangThai = 1, TenTrangThai = "Chờ duyệt", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new tnycTrangThai { IdTrangThai = 2, TenTrangThai = "Đã duyệt", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new tnycTrangThai { IdTrangThai = 3, TenTrangThai = "Đang thực hiện", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new tnycTrangThai { IdTrangThai = 4, TenTrangThai = "Đã hoàn thành", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) }
                 );
 
         }

@@ -13,7 +13,12 @@ namespace BuildingManagement.Domain.Entities
         public int MaLDV { get; set; }
         public string TenLDV { get; set; }
 
+
+        //FK
+        public int? MaTN { get; set; }
+
         //Navigation
         public ICollection<dvDichVu> dvDichVus { get; set; }
+        public tnToaNha tnToaNha { get; set; }
     }
 }

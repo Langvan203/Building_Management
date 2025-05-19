@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildingManagement.Application.DTOs.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuHoaDonService
     {
+        Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync();
+        Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync();
     }
 }

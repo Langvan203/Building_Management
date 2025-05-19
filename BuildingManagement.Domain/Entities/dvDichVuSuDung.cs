@@ -28,10 +28,16 @@ namespace BuildingManagement.Domain.Entities
         public int MaDV { get; set; }
         public int MaKH { get; set; }
         public int MaMB { get; set; }
+        public int? MaTN { get; set; }
+        public int? MaKN { get; set; }
+        public int? MaTL { get; set; }
         //Navigation 
         public dvDichVu dvDichVu { get; set; }
         public ICollection<dvHoaDon> dvHoaDons { get; set; }
         public tnKhachHang tnKhachHang { get; set; }
         public tnMatBang tnMatBang { get; set; }
+        public tnTangLau tnTangLau { get; set; }
+        public tnKhoiNha tnKhoiNha { get; set; }
+        public tnToaNha tnToaNha { get; set; }
     }
 }

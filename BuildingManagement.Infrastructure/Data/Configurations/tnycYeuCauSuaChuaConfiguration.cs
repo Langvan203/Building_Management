@@ -14,6 +14,7 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<tnycYeuCauSuaChua> builder)
         {
             builder.HasKey(yc => yc.MaYC);
+
         }
     }
 }

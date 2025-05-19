@@ -52,6 +52,11 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                         tn.HasKey("MaTN", "MaNV");
                     }
                 );
+
+            builder.HasMany(tn => tn.nvDanhGias)
+                .WithOne(tn => tn.tnNhanVien)
+                .HasForeignKey(tn => tn.MaNV)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
