@@ -29,7 +29,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             var tnData = await _context.tnToaNhas.Where(x => x.CreatedDate >= from && x.CreatedDate <= to).Include(x => x.tnMatBangs).Include(x => x.tnKhachHangs).Include(x => x.dvDichVus).Include(x => x.tnycYeuCauSuaChuas).Include(x => x.dvHoaDons).AsSplitQuery().ToListAsync();
             var totalBuilding = _context.tnToaNhas.Count();
             var totalUnit = _context.tnMatBangs.Count();
-            var occupiedUnits = _context.tnMatBangs.Where(x => x.IsBanGiao == true).Count();
+            var occupiedUnits = _context.tnMatBangs.Where(x => x.MaTrangThai == 1).Count();
             var maintanceIssues = _context.tnycYeuCauSuaChuas.Count();
             var occupanceRate = (decimal)occupiedUnits / totalUnit * 100;
 
@@ -63,8 +63,8 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 occupancyBuilding occupancy = new occupancyBuilding();
                 newBD.BuildingName = building.TenTN;
                 newBD.Units = building.tnMatBangs.Count();
-                newBD.Occupied = building.tnMatBangs.Where(x => x.IsBanGiao == true).ToList().Count();
-                newBD.vacant = building.tnMatBangs.Where(x => x.IsBanGiao == false).ToList().Count();
+                newBD.Occupied = building.tnMatBangs.Where(x => x.MaTrangThai == 1).ToList().Count();
+                newBD.vacant = building.tnMatBangs.Where(x => x.MaTrangThai == 1).ToList().Count();
                 buildings.Add(newBD);
                 occupancy.BuildingName = building.TenTN;
                 occupancy.value = newBD.Units != 0 ? (decimal)newBD.Occupied / newBD.Units * 100 : 0;
@@ -308,7 +308,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 .Select(x => new OccupancyRate
                 {
                     buildingName = x.TenTN,
-                    Rate = (decimal)x.tnMatBangs.Where(x => x.IsBanGiao == true).Count() / x.tnMatBangs.Count() * 100
+                    Rate = (decimal)x.tnMatBangs.Where(x => x.MaTrangThai == 2).Count() / x.tnMatBangs.Count() * 100
                 }).ToListAsync();
             return occupancyRates;
         }
@@ -349,7 +349,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             var buildingStatus = overViewData.SelectMany(x => x.tnMatBangs).GroupBy(x => x.MaTN).Select(x => new BuildingStatus
             {
                 Name = x.First().tnToaNha.TenTN,
-                Occupancy = (decimal)x.Where(x => x.IsBanGiao == true).Count() / x.Count() * 100,
+                Occupancy = (decimal)x.Where(x => x.MaTrangThai == 2).Count() / x.Count() * 100,
                 Maintaince = x.Select(x => x.tnycYeuCauSuaChuas).Count(),
             }).ToList();
 
@@ -495,9 +495,9 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 TotalServices = x.dvDichVus.Count(),
                 TotalResidents = x.tnKhachHangs.Count(),
                 TotalMonthlyRevenue = x.dvHoaDons.Sum(x => x.DaThanhToan),
-                OccupancyRate = (decimal)x.tnMatBangs.Where(x => x.IsBanGiao == false).Count() / x.tnMatBangs.Count() * 100,
+                OccupancyRate = (decimal)x.tnMatBangs.Where(x => x.MaTrangThai == 2).Count() / x.tnMatBangs.Count() * 100,
                 TotalBuilding = dataToaNha.Count(),
-                TotalOccupied = x.tnMatBangs.Where(x => x.IsBanGiao == true).Count(),
+                TotalOccupied = x.tnMatBangs.Where(x => x.MaTrangThai == 2).Count(),
             }).FirstOrDefault();
 
             var totalDataLastMonth = await _context.tnToaNhas.Where(x => x.CreatedDate.Month == month-1 && x.CreatedDate.Year == year)
@@ -513,7 +513,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                     TotalServices = x.dvDichVus.Count(),
                     TotalResidents = x.tnKhachHangs.Count(),
                     TotalMonthlyRevenue = x.dvHoaDons.Sum(x => x.DaThanhToan),
-                    OccupancyRate = (decimal)x.tnMatBangs.Where(x => x.IsBanGiao == false).Count() / x.tnMatBangs.Count() * 100,
+                    OccupancyRate = (decimal)x.tnMatBangs.Where(x => x.MaTrangThai == 2).Count() / x.tnMatBangs.Count() * 100,
                     TotalBuilding = totalDataLastMonth.Count(),
                 }).FirstOrDefault();
 

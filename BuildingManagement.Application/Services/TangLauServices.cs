@@ -25,16 +25,38 @@ namespace BuildingManagement.Application.Services
 
         public async Task<TangLauDto> CreateTangLau(CreateTangLauDto dto, string TenNguoiTao)
         {
-            var checkTL = await _unitOfWork.TangLaus.CheckTangLau(dto.MaKN, dto.MaTN);
-            if (checkTL)
+            var checkTL = await _unitOfWork.TangLaus.GetFirstOrDefaultAsync(x => x.MaKN == dto.MaKN && x.MaTN == dto.MaTN);
+            if (checkTL!= null)
             {
+                if(checkTL.TenTL == dto.TenTL)
+                {
+                    throw new Exception("Tên tầng lầu đã tồn tại");
+                }    
                 var newTL = _mapper.Map<tnTangLau>(dto);
                 newTL.NguoiTao = TenNguoiTao;
                 await _unitOfWork.TangLaus.AddAsync(newTL);
                 await _unitOfWork.SaveChangesAsync();
                 return _mapper.Map<TangLauDto>(newTL);
             }
-            throw new Exception("Mã khối nhà không tồn tại");
+            throw new Exception("Mã khối nhà,tòa nhà không tồn tại");
+        }
+
+        public async Task<bool> DeleteTangLau(int MaTL)
+        {
+            var findTangLau = await _unitOfWork.TangLaus.GetFirstOrDefaultAsync(x => x.MaTL == MaTL);
+            if (findTangLau != null)
+            {
+                await _unitOfWork.TangLaus.DeleteAsync(findTangLau);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<List<TangLauDto>> GetDSTangLau()
+        {
+            var dsTangLau = await _unitOfWork.TangLaus.GetDSTangLau();
+            return dsTangLau;
         }
 
         public async Task<IEnumerable<TangLauDto>> GetDSTangLauByMaKN(int MaTN, int MaKN)
@@ -46,5 +68,40 @@ namespace BuildingManagement.Application.Services
             }
             return null;
         }
+
+        public async Task<List<TangLauDto>> GetDSTangLauByMaKN(int MaKN)
+        {
+            var dsTL = await _unitOfWork.TangLaus.GetTangLauByKhoiNha(MaKN);
+            return dsTL;
+        }
+
+        public async Task<List<TangLauFilter>> GetTangLauFilter()
+        {
+            var dsTL = await _unitOfWork.TangLaus.GetTangLauFilter();
+            if (dsTL == null)
+            {
+                throw new Exception("Không có tầng lầu nào");
+            }
+            return dsTL;
+        }
+
+        public async Task<bool> UpdateTangLau(UpdateTangLauDto tangLauDto, string tennv)
+        {
+            var findTangLau = await _unitOfWork.TangLaus.GetFirstOrDefaultAsync(x => x.MaTL == tangLauDto.MaTL);
+            if(findTangLau!= null)
+            {
+                findTangLau.TenTL = tangLauDto.TenTL;
+                findTangLau.DienTichSan = tangLauDto.DienTichSan;
+                findTangLau.DienTichKhuVucDungChung = tangLauDto.DienTichKhuVucDungChung;
+                findTangLau.DienTichKyThuaPhuTro = tangLauDto.DienTichKyThuaPhuTro;
+                findTangLau.NguoiSua = tennv;
+                findTangLau.UpdatedDate = DateTime.Now;
+                await _unitOfWork.TangLaus.UpdateAsync(findTangLau);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }    
+            return false;
+        }
+        
     }
 }

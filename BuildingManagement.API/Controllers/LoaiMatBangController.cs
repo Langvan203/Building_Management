@@ -15,21 +15,21 @@ namespace BuildingManagement.API.Controllers
             _loaiMatBangService = loaiMatBangService;
         }
 
-        [HttpGet("Get-ds-loaimb")]
+        [HttpGet("GetDSLoaiMatBang")]
         public async Task<IActionResult> GetDSLoaiMB()
         {
             var dsLMB = await _loaiMatBangService.GetDSLoaiMB();
             return Ok(dsLMB);
         }
 
-        [HttpPost("Create-new-loaimb")]
+        [HttpPost("CreateLoaiMatBang")]
         public async Task<IActionResult> CreateNewLoaiMB(CreateNewLoaiMB dto)
         {
             var newLMB = await _loaiMatBangService.CreateNewLoaiMB(dto,Name);
             return Ok(newLMB);
         }
 
-        [HttpDelete("Remove-loaimb")]
+        [HttpDelete("RemoveLoaiMB")]
         public async Task<IActionResult> RemoveLoaiMB(int MaLMB)
         {
             var removeLMB = await _loaiMatBangService.DeleteLoaiMB(MaLMB);

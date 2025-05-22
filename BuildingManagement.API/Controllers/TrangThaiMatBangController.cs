@@ -15,21 +15,21 @@ namespace BuildingManagement.API.Controllers
             _trangThaiMatBangService = trangThaiMatBangService;
         }
 
-        [HttpGet("get-ds-trangthai")]
+        [HttpGet("GetDSTrangThaiMatBang")]
         public async Task<IActionResult> GetDSTrangThaiMB()
         {
             var dsTrangThaiMB = await _trangThaiMatBangService.GetDSTrangThaiMatBang();
             return Ok(dsTrangThaiMB);
         }
 
-        [HttpPost("create-trangthai")]
+        [HttpPost("CreateTrangThaiMB")]
         public async Task<IActionResult> CreateNewTrangThai(CreateNewTrangThaiMatBangDto dto)
         {
             var newTrangThaiMB = await _trangThaiMatBangService.CreateNewTrangThaiMB(dto, Name);
             return Ok(newTrangThaiMB);
         }
 
-        [HttpDelete("remove-trangthai")]
+        [HttpDelete("RemoveTrangThai")]
         public async Task<IActionResult> RemoveTrangThai(int maTT)
         {
             var removeTrangThaiMB = await _trangThaiMatBangService.RemoveTrangThai(maTT);

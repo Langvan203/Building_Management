@@ -13,5 +13,8 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     {
         Task<IEnumerable<TangLauDto>> GetDSTangLau(int MaTN, int MaKN);
         Task<bool> CheckTangLau(int MaKN, int MaTN);
+        Task<List<TangLauDto>> GetDSTangLau();
+        Task<List<TangLauFilter>> GetTangLauFilter();
+        Task<List<TangLauDto>> GetTangLauByKhoiNha(int MaKN);
     }
 }

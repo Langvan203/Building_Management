@@ -27,7 +27,7 @@ namespace BuildingManagement.Application.Services
             if (checkMB != null)
             {
                 checkMB.MaKH = MaKH;
-                checkMB.IsBanGiao = true;
+                checkMB.MaTrangThai = 2;
                 await _unitOfWork.MatBangs.UpdateAsync(checkMB);
                 await _unitOfWork.SaveChangesAsync();
                 return _mapper.Map<MatBangDto>(checkMB);
@@ -47,6 +47,14 @@ namespace BuildingManagement.Application.Services
                 return _mapper.Map<MatBangDto>(newMB);
             }
             return null;
+        }
+
+        public async Task<List<DanhSachMatBangDTO>> GetDSMatBang()
+        {
+            var dsMatBang = await _unitOfWork.MatBangs.GetDSMatBang();
+            if (dsMatBang == null)
+                return null;
+            return dsMatBang;
         }
 
         public async Task<IEnumerable<MatBangDto>> GetDSMatBangByMaKH(int MaKH)
@@ -91,12 +99,14 @@ namespace BuildingManagement.Application.Services
             return false;
         }
 
-        public async Task<MatBangDto> UpdateMatBang(int MaMB, UpdateThongTinCoBanMatBangDto dto, string name)
+        public async Task<MatBangDto> UpdateMatBang(UpdateThongTinCoBanMatBangDto dto, string name)
         {
-            var checkMB = await _unitOfWork.MatBangs.GetFirstOrDefaultAsync(x => x.MaMB == MaMB);
+            var checkMB = await _unitOfWork.MatBangs.GetFirstOrDefaultAsync(x => x.MaMB == dto.MaMB);
             if(checkMB != null)
             {
                 checkMB.DienTichThongThuy = dto.DienTichThongThuy;
+                checkMB.MaTrangThai = dto.MaTrangThai;
+                checkMB.MaKH = dto.MaKhachHang;
                 checkMB.DienTichTimTuong = dto.DienTichTimTuong;
                 checkMB.NgayBanGiao = dto.NgayBanGiao;
                 checkMB.NgayHetHanChoThue = dto.NgayHetHanChoThue;

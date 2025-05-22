@@ -38,5 +38,10 @@ namespace BuildingManagement.Application.Services
 
         public async Task<IEnumerable<KhachHangDto>> GetDSKhachHang() => _mapper.Map<IEnumerable<KhachHangDto>>(await _unitOfWork.KhachHangs.GetAllAsync());
 
+        public async Task<List<KhachHangFilter>> GetDSKhachHangFilter()
+        {
+            var dsKH = await _unitOfWork.KhachHangs.GetDSKhachHang();
+            return dsKH;
+        }
     }
 }

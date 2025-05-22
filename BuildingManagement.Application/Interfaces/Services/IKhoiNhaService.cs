@@ -11,6 +11,10 @@ namespace BuildingManagement.Application.Interfaces.Services
     {
         Task<KhoiNhaDto> CreateKhoiNha(CreateKhoiNhaDto request, string tennv);
         Task<IEnumerable<KhoiNhaDto>> GetKhoiNhaByMaTN(int matn);
+        Task<List<KhoiNhaDto>> GetDSKhoiNhaDetail();
+        Task<List<KhoiNhaFilter>> GetKhoiNhaFilter();
+        Task<bool> DeleteKhoiNha(int MaKN);
+        Task<bool> UpdateKhoiNha(UpdateKhoiNhaDto dto, string tennv);
         
     }
 }

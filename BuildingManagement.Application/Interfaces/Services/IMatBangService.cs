@@ -16,8 +16,9 @@ namespace BuildingManagement.Application.Interfaces.Services
         Task<IEnumerable<MatBangDto>> GetDSMatBangByMaTN(int MaTN);
         Task<MatBangDto> CreateMatBang(CreateMatBangDto dto, string name);
         Task<bool> RemoveMatBang(int MaMB);
-        Task<MatBangDto> UpdateMatBang(int MaMB, UpdateThongTinCoBanMatBangDto dto, string name);
+        Task<MatBangDto> UpdateMatBang(UpdateThongTinCoBanMatBangDto dto, string name);
         Task<MatBangDto> BanGiaoMatBang(int MaMB, int MaKH);
+        Task<List<DanhSachMatBangDTO>> GetDSMatBang();
 
     }
 }

@@ -27,7 +27,7 @@ namespace BuildingManagement.API.Controllers
             
         }
 
-        [HttpGet("lay-ds-toa-nha")]
+        [HttpGet("GetDSToaNha")]
         public async Task<IActionResult> GetDSToaNha()
         {
          

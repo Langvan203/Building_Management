@@ -28,6 +28,13 @@ namespace BuildingManagement.API.Controllers
             var newKhachHang = await _khachHangService.CreateNewKhachHang(dto, Name);
             return Ok(newKhachHang);
         }
+
+        [HttpGet("GetDSKhachHangFilter")]
+        public async Task<IActionResult> GetDSKhachHangFilter()
+        {
+            var dsKhachHang = await _khachHangService.GetDSKhachHangFilter();
+            return Ok(dsKhachHang);
+        }
     }
     
 }

@@ -34,6 +34,12 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(tn => tn.tnKhoiNha)
                 .HasForeignKey(tn => tn.MaKN)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnMatBangs)
+                .WithOne(tn => tn.tnKhoiNha)
+                .HasForeignKey(tn => tn.MaKN)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

@@ -11,5 +11,10 @@ namespace BuildingManagement.Application.Interfaces.Services
     {
         Task<TangLauDto> CreateTangLau(CreateTangLauDto tangLauDto,string TenNguoiTao);
         Task<IEnumerable<TangLauDto>> GetDSTangLauByMaKN(int MaKN, int MaTN);
+        Task<List<TangLauDto>> GetDSTangLau();
+        Task<List<TangLauFilter>> GetTangLauFilter();
+        Task<bool> UpdateTangLau(UpdateTangLauDto tangLauDto, string tennv);
+        Task<bool> DeleteTangLau(int MaTL);
+        Task<List<TangLauDto>> GetDSTangLauByMaKN(int MaKN);
     }
 }

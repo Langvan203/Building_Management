@@ -6,6 +6,7 @@ using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +39,51 @@ namespace BuildingManagement.Application.Services
         public async Task<IEnumerable<KhoiNhaDto>> GetKhoiNhaByMaTN(int matn)
         {
             var dskn = await _unitOfWork.KhoiNhas.GetDSKhoiNhaByMaTN(matn);
+            return dskn;
+        }
+
+        public async Task<List<KhoiNhaDto>> GetDSKhoiNhaDetail()
+        {
+            var dskn = await _unitOfWork.KhoiNhas.GetDSKhoiNhaDetail();
+            return dskn;
+        }
+
+        public async Task<bool> DeleteKhoiNha(int MaKN)
+        {
+            var khoinha = await _unitOfWork.KhoiNhas.GetByIdAsync(MaKN);
+            if (khoinha == null)
+            {
+                throw new Exception($"Khối nhà có mã {MaKN} không tồn tại");
+            }
+            khoinha.TrangThaiKhoiNha = 0;
+            _unitOfWork.KhoiNhas.DeleteAsync(khoinha);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateKhoiNha(UpdateKhoiNhaDto dto, string tennv)
+        {
+            var findKhoiNha = await _unitOfWork.KhoiNhas.GetFirstOrDefaultAsync(x => x.MaKN == dto.MaKN);
+            if(findKhoiNha == null)
+            {
+                return false;
+            }
+            findKhoiNha.TenKN = dto.TenKN;
+            findKhoiNha.TrangThaiKhoiNha = dto.TrangThaiKhoiNha;
+            findKhoiNha.NguoiSua = tennv;
+            findKhoiNha.UpdatedDate = DateTime.Now;
+            await _unitOfWork.KhoiNhas.UpdateAsync(findKhoiNha);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<KhoiNhaFilter>> GetKhoiNhaFilter()
+        {
+            var dskn = await _unitOfWork.KhoiNhas.GetKhoiNhaFilter();
+            if (dskn == null)
+            {
+                throw new Exception("Không có khối nhà nào");
+            }
             return dskn;
         }
     }

@@ -11,5 +11,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     public interface IKhoiNhaRepository : IRepository<tnKhoiNha>
     {
         Task<IEnumerable<KhoiNhaDto>> GetDSKhoiNhaByMaTN(int matn);
+        Task<List<KhoiNhaDto>> GetDSKhoiNhaDetail();
+        Task<List<KhoiNhaFilter>> GetKhoiNhaFilter();
     }
 }

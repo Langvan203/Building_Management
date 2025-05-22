@@ -22,12 +22,55 @@ namespace BuildingManagement.API.Controllers
             return Ok(dsTL);
         }
 
-        [HttpPost("create-tang-lau")]
+        [HttpPost("CreateTangLau")]
         public async Task<IActionResult> CreateNewTangLau(CreateTangLauDto dto)
         {
 
-            var newTL = await _TangLauService.CreateTangLau(dto,Name);
+            var newTL = await _TangLauService.CreateTangLau(dto, Name);
             return Ok(newTL);
+        }
+
+        [HttpGet("GetDSTangLau")]
+        public async Task<IActionResult> GetDSTangLau()
+        {
+            var dsTL = await _TangLauService.GetDSTangLau();
+            return Ok(dsTL);
+        }
+
+        [HttpPut("UpdateTangLau")]
+        public async Task<IActionResult> UpdateTangLau(UpdateTangLauDto tangLauDto)
+        {
+            var result = await _TangLauService.UpdateTangLau(tangLauDto, Name);
+            if (result)
+            {
+                return Ok("Cập nhật thành công");
+            }
+            return BadRequest("Cập nhật không thành công");
+        }
+
+        [HttpDelete("DeleteTangLau")]
+        public async Task<IActionResult> DeleteTangLau(int MaTL)
+        {
+            var result = await _TangLauService.DeleteTangLau(MaTL);
+            if (result)
+            {
+                return Ok("Xóa thành công");
+            }
+            return BadRequest("Xóa không thành công");
+        }
+
+        [HttpGet("GetDSTangLauByMaKN")]
+        public async Task<IActionResult> GetDSTangLauByMaKN(int MaKN)
+        {
+            var dsTL = await _TangLauService.GetDSTangLauByMaKN(MaKN);
+            return Ok(dsTL);
+        }
+
+        [HttpGet("GetDSTangLauFilter")]
+        public async Task<IActionResult> GetDSTangLauFilter()
+        {
+            var dsTL = await _TangLauService.GetTangLauFilter();
+            return Ok(dsTL);
         }
     }
 }

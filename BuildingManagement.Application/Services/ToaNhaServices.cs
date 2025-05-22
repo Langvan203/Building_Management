@@ -98,7 +98,7 @@ namespace BuildingManagement.Application.Services
         public async Task<ToaNhaDto> UpdateToaNha(UpdateToaNhaDto dto, string tennv)
         {   
             var findToaNhaByName = await _unitOfWork.ToaNhas.GetFirstOrDefaultAsync(x => x.MaTN == dto.Id);
-            if (findToaNhaByName != null)
+            if (findToaNhaByName == null)
             {
                 throw new Exception("Dự án tòa nhà không tồn tại");
             }

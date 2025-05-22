@@ -14,6 +14,31 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         public PhongBanRepository(BuildingManagementDbContext context) : base(context)
         {
         }
+
+        public Task<bool> AddPhongBan(tnPhongBan phongBan)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeletePhongBan(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<tnPhongBan>> GetAllPhongBan()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<tnPhongBan> GetPhongBanById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdatePhongBan(tnPhongBan phongBan)
+        {
+            throw new NotImplementedException();
+        }
     }
    
 }

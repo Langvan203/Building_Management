@@ -53,7 +53,7 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<dvNuocDinhMuc, DichVuNuocDinhMucDto>();
             CreateMap<CreateDichVuDienDinhMucDto, dvNuocDinhMuc>();
 
-            CreateMap<dvNuoc,  DichVuNuocDto>();
+            CreateMap<dvNuoc, DichVuNuocDto>();
             CreateMap<CreateDichVuNuocDto, dvNuoc>();
 
             CreateMap<dvDichVuSuDung, DichVuSuDungDto>();
@@ -64,6 +64,8 @@ namespace BuildingManagement.Application.Mappings
 
             CreateMap<CreateDichVuDto, dvDichVu>();
             CreateMap<dvDichVu, DichVuDto>();
+
+            CreateMap<tnPhongBan, PhongBanDto>();
         }
     }
 }

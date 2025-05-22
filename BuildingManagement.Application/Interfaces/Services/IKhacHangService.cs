@@ -11,5 +11,6 @@ namespace BuildingManagement.Application.Interfaces.Services
     {
         Task<IEnumerable<KhachHangDto>> GetDSKhachHang();
         Task<KhachHangDto> CreateNewKhachHang(CreateKhachHangDto dto, string name);
+        Task<List<KhachHangFilter>> GetDSKhachHangFilter();
     }
 }

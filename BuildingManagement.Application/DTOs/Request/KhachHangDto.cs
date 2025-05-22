@@ -48,4 +48,11 @@ namespace BuildingManagement.Application.DTOs.Request
         public int? MaKN { get; set; }
         public int? MaTL { get; set; }
     }
+
+    public class KhachHangFilter
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Contract { get; set; }
+    }
 }

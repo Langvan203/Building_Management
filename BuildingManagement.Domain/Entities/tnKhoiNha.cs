@@ -24,6 +24,7 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnKhachHang> tnKhachHangs { get; set; }
         public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
         public ICollection<dvHoaDon> dvHoaDons { get; set; }
+        public ICollection<tnMatBang> tnMatBangs { get; set; }
 
 
     }

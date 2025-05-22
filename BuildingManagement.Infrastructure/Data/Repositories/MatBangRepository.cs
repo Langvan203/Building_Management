@@ -20,6 +20,41 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             _mapper = mapper;
         }
 
+        public async Task<List<DanhSachMatBangDTO>> GetDSMatBang()
+        {
+            var dsMatBang = await _context.tnMatBangs.Include(x => x.mbLoaiMB)
+                                                        .Include(x => x.mbTrangThai)
+                                                        .Include(x => x.tnKhachHang)
+                                                    .Include(x => x.tnToaNha)
+                                                    .Include(x => x.tnTangLau)
+                                                    .Include(x => x.tnKhoiNha)
+                                                        .AsSplitQuery().ToListAsync();
+            var dsMatBangDto = dsMatBang.Select(x => new DanhSachMatBangDTO
+            {
+                MaMB = x.MaMB,
+                MaTN = x.MaTN,
+                MaKN = x.MaKN == null ? 0 : (int)x.MaKN,
+                MaTL = x.MaTL,
+                MaVT = x.MaVT,
+                DienTichBG = x.DienTichBG,
+                DienTichThongThuy = x.DienTichThongThuy,
+                DienTichTimTuong = x.DienTichTimTuong,
+                SoHopDong = x.SoHopDong,
+                NgayBanGiao = x.NgayBanGiao,
+                NgayHetHanChoThue = x.NgayHetHanChoThue,
+                MaLMB = x.MaLMB,
+                TenLMB = x.mbLoaiMB.TenLMB,
+                MaKH = x.MaKH == null ? 0 : (int)x.MaKH,
+                TenKH = x.tnKhachHang == null ? "" : x.tnKhachHang.IsCaNhan == true ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
+                MaTT = x.MaTrangThai,
+                TenTrangThai = x.mbTrangThai.TenTrangThai,
+                TenTN = x.tnToaNha.TenTN,
+                TenKN = x.tnKhoiNha.TenKN,
+                TenTL = x.tnTangLau.TenTL
+            }).ToList();
+            return dsMatBangDto;
+        }
+
         public async Task<IEnumerable<MatBangDto>> GetDSMatBangByMaKH(int MaKH)
         {
             

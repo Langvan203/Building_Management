@@ -16,6 +16,17 @@ namespace BuildingManagement.API.Controllers
         }
 
 
+        [HttpGet("GetDSMatBang")]
+        public async Task<IActionResult> GetDSMatBang()
+        {
+            var dsMB = await _matBangService.GetDSMatBang();
+            if (dsMB == null)
+            {
+                return NotFound("Không tìm thấy danh sách mặt bằng nào");
+            }
+            return Ok(dsMB);
+        }
+
         [HttpGet("GetDSMatBangByMaKH")]
         public async Task<IActionResult> GetDSMatBangByMaKH(int MaKH)
         {
@@ -70,10 +81,10 @@ namespace BuildingManagement.API.Controllers
             return Ok(newMB);
         }
 
-        [HttpPut("UpdateMatBang/{MaMB}")]
-        public async Task<IActionResult> UpdateMatBang(int MaMB, [FromBody] UpdateThongTinCoBanMatBangDto dto)
+        [HttpPut("UpdateMatBang")]
+        public async Task<IActionResult> UpdateMatBang([FromBody] UpdateThongTinCoBanMatBangDto dto)
         {
-            var updatedMB = await _matBangService.UpdateMatBang(MaMB, dto, Name);
+            var updatedMB = await _matBangService.UpdateMatBang(dto, Name);
             if (updatedMB == null)
             {
                 return NotFound("Cập nhật mặt bằng không thành công");

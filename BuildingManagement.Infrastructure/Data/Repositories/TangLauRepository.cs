@@ -35,5 +35,62 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             }
             return false;
         }
+
+        public async Task<List<TangLauDto>> GetDSTangLau()
+        {
+            var tnTangLau = await _context.tnTangLaus.Include(x => x.tnMatBangs)
+                                                            .ThenInclude(x => x.mbTrangThai)
+                                                        .Include(x => x.tnMatBangs)
+                                                            .ThenInclude(x => x.mbLoaiMB)
+                                                        .AsSplitQuery().ToListAsync();
+                                            
+            var dsTangLau = tnTangLau.Select(x => new TangLauDto
+            {
+                MaKN = x.MaKN,
+                MaTN = x.MaTN,
+                TenTL = x.TenTL,
+                MaTL = x.MaTL,
+                DienTichSan = x.DienTichSan,
+                DienTichKhuVucDungChung = x.DienTichKhuVucDungChung,
+                DienTichKyThuaPhuTro = x.DienTichKyThuaPhuTro,
+                listMatBangInTanLaus = x.tnMatBangs.Select(x => new ListMatBangInTanLau
+                {
+                    Id = x.MaMB,
+                    Number = x.MaVT,
+                    FloorId = x.MaTL,
+                    Area = x.DienTichBG,
+                    Status = x.mbTrangThai.TenTrangThai,
+                    Type = x.mbLoaiMB.TenLMB,
+                }).ToList()
+            }).ToList();
+            return dsTangLau;
+        }
+
+        public async Task<List<TangLauDto>> GetTangLauByKhoiNha(int MaKN)
+        {
+            var dsTL = await _context.tnTangLaus.Where(x => x.MaKN == MaKN).ToListAsync();
+            var dsTangLau = dsTL.Select(x => new TangLauDto
+            {
+                MaKN = x.MaKN,
+                MaTN = x.MaTN,
+                TenTL = x.TenTL,
+                MaTL = x.MaTL,
+                DienTichSan = x.DienTichSan,
+                DienTichKhuVucDungChung = x.DienTichKhuVucDungChung,
+                DienTichKyThuaPhuTro = x.DienTichKyThuaPhuTro,
+            }).ToList();
+            return dsTangLau;
+        }
+
+        public async Task<List<TangLauFilter>> GetTangLauFilter()
+        {
+            var dsTangLau = await _context.tnTangLaus.Select(x => new TangLauFilter
+            {
+                MaTL = x.MaTL,
+                MaKN = x.MaKN,
+                TenTL = x.TenTL
+            }).ToListAsync();
+            return dsTangLau;
+        }
     }
 }

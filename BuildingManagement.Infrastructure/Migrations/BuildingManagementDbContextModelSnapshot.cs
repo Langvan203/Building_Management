@@ -1200,10 +1200,10 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<decimal>("DienTichTimTuong")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<bool>("IsBanGiao")
-                        .HasColumnType("bit");
-
                     b.Property<int?>("MaKH")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MaKN")
                         .HasColumnType("int");
 
                     b.Property<int>("MaLMB")
@@ -1246,6 +1246,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasKey("MaMB");
 
                     b.HasIndex("MaKH");
+
+                    b.HasIndex("MaKN");
 
                     b.HasIndex("MaLMB");
 
@@ -2019,6 +2021,11 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .WithMany("tnMatBangs")
                         .HasForeignKey("MaKH");
 
+                    b.HasOne("BuildingManagement.Domain.Entities.tnKhoiNha", "tnKhoiNha")
+                        .WithMany("tnMatBangs")
+                        .HasForeignKey("MaKN")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("BuildingManagement.Domain.Entities.mbLoaiMB", "mbLoaiMB")
                         .WithMany("tnMatBangs")
                         .HasForeignKey("MaLMB")
@@ -2048,6 +2055,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("mbTrangThai");
 
                     b.Navigation("tnKhachHang");
+
+                    b.Navigation("tnKhoiNha");
 
                     b.Navigation("tnTangLau");
 
@@ -2267,6 +2276,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("dvHoaDons");
 
                     b.Navigation("tnKhachHangs");
+
+                    b.Navigation("tnMatBangs");
 
                     b.Navigation("tnTangLaus");
                 });
