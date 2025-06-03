@@ -54,6 +54,18 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             return await _context.Set<T>().Where(predicate).FirstOrDefaultAsync();
         }
 
-
+        public async Task DeleteEntityRelationship(T entity)
+        {
+            var findEntity = await _context.Set<T>().Include(e => e).FirstOrDefaultAsync(e => e.Equals(entity));
+            if (findEntity != null)
+            {
+                _context.Set<T>().Remove(findEntity);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Entity not found");
+            }
+        }
     }
 }

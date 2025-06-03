@@ -18,6 +18,7 @@ namespace BuildingManagement.Domain.Entities
         public string Email { get; set; }
         public string SDT { get; set; }
         public string PasswordHash { get; set; }
+        public int? MaPB { get; set; }
 
         // Navigation
         public ICollection<Role> Roles { get; set; }

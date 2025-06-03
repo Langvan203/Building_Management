@@ -25,13 +25,9 @@ namespace BuildingManagement.Application.Services
 
         public async Task<TangLauDto> CreateTangLau(CreateTangLauDto dto, string TenNguoiTao)
         {
-            var checkTL = await _unitOfWork.TangLaus.GetFirstOrDefaultAsync(x => x.MaKN == dto.MaKN && x.MaTN == dto.MaTN);
-            if (checkTL!= null)
+            var checkTL = await _unitOfWork.TangLaus.GetFirstOrDefaultAsync(x => x.MaKN == dto.MaKN && x.MaTN == dto.MaTN && x.TenTL == dto.TenTL);
+            if (checkTL == null)
             {
-                if(checkTL.TenTL == dto.TenTL)
-                {
-                    throw new Exception("Tên tầng lầu đã tồn tại");
-                }    
                 var newTL = _mapper.Map<tnTangLau>(dto);
                 newTL.NguoiTao = TenNguoiTao;
                 await _unitOfWork.TangLaus.AddAsync(newTL);

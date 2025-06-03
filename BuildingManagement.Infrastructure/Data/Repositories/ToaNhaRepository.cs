@@ -96,7 +96,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         {
             try
             {
-                var tnData = await _context.tnToaNhas.Include(x => x.dvHoaDons).ThenInclude(x => x.tnKhachHang).ThenInclude(x => x.tnMatBangs).Include(x => x.dvDichVus).Include(x => x.dvDichVuSuDungs).AsSplitQuery().ToListAsync();
+                var tnData = await _context.tnToaNhas.Include(x => x.dvHoaDons).ThenInclude(x => x.tnKhachHang).Include(x => x.tnMatBangs).Include(x => x.dvDichVus).Include(x => x.dvDichVuSuDungs).AsSplitQuery().ToListAsync();
                 // chi phi thang hien tai
                 var paidMonthlyRevenue = tnData.SelectMany(x => x.dvDichVuSuDungs.Where(x => x.CreatedDate.Month == DateTime.Now.Month && x.CreatedDate.Year == DateTime.Now.Year)).Sum(x => x.ThanhTien);
                 // chi phi thang truoc
@@ -109,7 +109,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 var outstandings = tnData.SelectMany(x => x.dvHoaDons.Where(x => x.CreatedDate.Month == DateTime.Now.Month && x.CreatedDate.Year == DateTime.Now.Year)).Sum(x => x.ConNo);
                 // khoan phai thu thu
                 var needPaid = totalRevenue + outstandings;
-                var collectionRate = (decimal)totalRevenue / needPaid * 100;
+                var collectionRate = needPaid == 0 ? 0 : (decimal)totalRevenue / needPaid * 100;
                 var revenueGrowth = lastTotalRevenue == 0 ? 100 : (decimal)(totalRevenue - lastTotalRevenue) / lastTotalRevenue * 100;
                 var revenuePaid = lastpaidMonthlyRevenue == 0 ? 100 : (decimal)(paidMonthlyRevenue - lastpaidMonthlyRevenue) / lastpaidMonthlyRevenue * 100;
                 //thong ke theo thang
@@ -398,7 +398,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             var totalRequest = _context.tnycYeuCauSuaChuas.Where(x => x.CreatedDate >= from && x.CreatedDate <= to).Count();
             var pendingRequest = _context.tnycYeuCauSuaChuas.Where(x => x.IdTrangThai != 4 && x.CreatedDate >= from && x.CreatedDate <= to).Count();
             var completedRequest = _context.tnycYeuCauSuaChuas.Where(x => x.IdTrangThai == 4 && x.CreatedDate >= from && x.CreatedDate <= to).Count();
-            var completionRequest = (decimal)completedRequest / totalRequest * 100;
+            var completionRequest = totalRequest == 0 ? 100 : (decimal)completedRequest / totalRequest * 100;
             var totalPoint = svData.SelectMany(x => x.tnNhanViens).SelectMany(x => x.nvDanhGias).Sum(x => x.DiemDanhGia);
             var totalEvaluate = svData.SelectMany(x => x.tnNhanViens).SelectMany(x => x.nvDanhGias).Count();
             var satisfactionRate = (totalPoint != 0 && totalEvaluate != 0) ? (decimal)totalPoint / totalEvaluate * 100 : 0;

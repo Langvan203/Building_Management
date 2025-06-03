@@ -57,6 +57,8 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(tn => tn.tnNhanVien)
                 .HasForeignKey(tn => tn.MaNV)
                 .OnDelete(DeleteBehavior.NoAction);
+
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Domain.Entities;
@@ -66,6 +67,9 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<dvDichVu, DichVuDto>();
 
             CreateMap<tnPhongBan, PhongBanDto>();
+            CreateMap<CreatePhongBanDto, tnPhongBan>();
+
+            CreateMap<CreateNhanVienDto, tnNhanVien>();
         }
     }
 }

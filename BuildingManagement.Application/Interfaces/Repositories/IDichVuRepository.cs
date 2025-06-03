@@ -11,6 +11,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     public interface IDichVuRepository : IRepository<dvDichVu>
     {
         Task<IEnumerable<DichVuDto>> GetDVByMaLDV(int MaLDV);
+        Task<DichVuDto> GetDichVuById(int MaDV);
     }
 }
 

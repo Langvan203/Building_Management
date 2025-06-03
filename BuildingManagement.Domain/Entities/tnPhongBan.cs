@@ -12,7 +12,8 @@ namespace BuildingManagement.Domain.Entities
         [Key]
         public int MaPB { get; set; }
         public string TenPB { get; set; }
-
+        public int? MaTN { get; set; }
         public ICollection<tnNhanVien> tnNhanViens { get; set; }
+        public tnToaNha tnToaNha { get; set; }
     }
 }

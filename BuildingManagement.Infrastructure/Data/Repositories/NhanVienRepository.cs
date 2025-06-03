@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Request.AuthDto;
+﻿using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request.AuthDto;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Infrastructure.Data.Context;
@@ -32,5 +33,54 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             return null;
         }
 
+        public async Task<List<GetDSNhanVienDto>> GetDSNhanVien()
+        {
+            var ds = await _context.tnNhanViens
+             .Include(nv => nv.tnPhongBans)
+             .Include(pb => pb.tnToaNhas)
+             .Include(role => role.Roles)
+             .AsSplitQuery()
+             .ToListAsync();
+            var dsNhanVien = ds.Select(nv => new GetDSNhanVienDto
+            {
+                MaNV = nv.MaNV,
+                TenNV = nv.TenNV,
+                Email = nv.Email,
+                SDT = nv.SDT,
+                DiaChiThuongTru = nv.DiaChiThuongTru,
+                NgaySinh = nv.NgaySinh,
+                UserName = nv.UserName,
+                phongBans = nv.tnPhongBans.Select(pb => new NhanVienPhongBan
+                {
+                    MaPB = pb.MaPB.ToString(),
+                    TenPB = pb.TenPB
+                }).ToList(),
+                toaNhas = nv.tnToaNhas.Select(tn => new NhanVienInToaNha
+                {
+                    MaTN = tn.MaTN.ToString(),
+                    TenTN = tn.TenTN
+                }).ToList(),
+                Roles = nv.Roles.Select(role => new NhanVienRoles
+                {
+                    RoleID = role.RoleID.ToString(),
+                    RoleName = role.RoleName
+                }).ToList()
+            }).ToList();
+            return dsNhanVien;
+        }
+
+        public async Task<tnNhanVien> CheckNVInPhongBan(int MaNV, int MaPB)
+        {
+            var checkNV = await _context.tnNhanViens.Include(x => x.tnPhongBans)
+                .FirstOrDefaultAsync(x => x.MaNV == MaNV);
+            return checkNV;
+        }
+
+        public async Task<tnNhanVien> CheckNVInToaNha(int MaNV, int MaPB)
+        {
+            var checkNV = await _context.tnNhanViens.Include(x => x.tnPhongBans)
+                .FirstOrDefaultAsync(x => x.MaNV == MaNV && x.tnPhongBans.Any(pb => pb.tnToaNha.MaTN == MaPB));
+            return checkNV;
+        }
     }
 }

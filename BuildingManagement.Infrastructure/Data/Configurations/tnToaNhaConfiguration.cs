@@ -66,6 +66,10 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .HasForeignKey(tn => tn.MaTN)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            builder.HasMany(tn => tn.tnPhongBans)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

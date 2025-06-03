@@ -11,6 +11,9 @@ namespace BuildingManagement.Application.DTOs.Request
         public int MaDV { get; set; }
         public string TenDV { get; set; }
         public int MaLDV { get; set; }
+        public decimal TyLeBVMT { get; set; }
+        public decimal DonGia { get; set; }
+        public decimal TyLeVAT { get; set; }
     }
 
     public class CreateDichVuDto

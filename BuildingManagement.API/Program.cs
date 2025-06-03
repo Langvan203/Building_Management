@@ -17,6 +17,7 @@ using BuildingManagement.Application.Interfaces.Services.Ultility;
 using BuildingManagement.Application.Services.Ultility;
 using BuildingManagement.API.Filter;
 using System.Security.Claims;
+using BuildingManagement.Application.Chat;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,6 +58,22 @@ builder.Services.AddAuthentication(options =>
 
         RoleClaimType = ClaimTypes.Role,
         NameClaimType = ClaimTypes.NameIdentifier
+    };
+
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            var accessToken = context.Request.Query["access_token"];
+            var path = context.HttpContext.Request.Path;
+
+            // Nếu request đến SignalR hub và có token trong query string
+            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chatHub"))
+            {
+                context.Token = accessToken;
+            }
+            return Task.CompletedTask;
+        }
     };
 });
 
@@ -103,6 +120,16 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
 
+// add signalR
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true; // Bật chi tiết lỗi
+});
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+});
 
 // add swgger authen
 builder.Services.AddSwaggerGen(options =>
@@ -157,18 +184,23 @@ builder.Services.AddDbContext<BuildingManagementDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
+// Configure the HTTP request pipeline.
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<ChatHub>("/chatHub");
+});
 
-app.MapControllers();
 
 app.Run();

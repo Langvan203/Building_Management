@@ -37,16 +37,50 @@ namespace BuildingManagement.Application.Services
 
         public async Task<MatBangDto> CreateMatBang(CreateMatBangDto dto, string name)
         {
-            var checkTTMB = await _unitOfWork.MatBangs.GetFirstOrDefaultAsync(x => x.MaVT == dto.MaVT);
-            if (checkTTMB == null)
+            await _unitOfWork.BeginTransactionAsync();
+            try
             {
-                var newMB = _mapper.Map<tnMatBang>(dto);
-                newMB.NguoiTao = name;
-                await _unitOfWork.MatBangs.AddAsync(newMB);
-                await _unitOfWork.SaveChangesAsync();
-                return _mapper.Map<MatBangDto>(newMB);
+                var checkTTMB = await _unitOfWork.MatBangs.GetFirstOrDefaultAsync(x => x.MaVT == dto.MaVT && x.MaKN == dto.MaKN && x.MaTL == dto.MaTL && x.MaTN == dto.MaTN);
+                if (checkTTMB == null)
+                {
+                    var newMB = _mapper.Map<tnMatBang>(dto);
+                    newMB.NguoiTao = name;
+                    await _unitOfWork.MatBangs.AddAsync(newMB);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    // thêm dịch vụ phí quản lý
+                    var dvPQL = await _unitOfWork.DichVus.GetFirstOrDefaultAsync(x => x.MaDV == 8);
+
+                    var dvSuDung = new dvDichVuSuDung
+                    {
+                        NgayBatDauTinhPhi = DateTime.Now,
+                        NgayKetThucTinhPhi = DateTime.Now.AddMonths(1),
+                        IsDuyet = false,
+                        ThanhTien = newMB.DienTichBG * dvPQL.DonGia + newMB.DienTichBG * dvPQL.DonGia * dvPQL.TyLeVAT + dvPQL.DonGia * dvPQL.TyLeBVMT,
+                        GhiChu = "Thêm phí quản lý tự động",
+                        MaDV = dvPQL.MaDV,
+                        MaKH = newMB.MaTrangThai == 2 ? newMB.MaKH : null,
+                        MaMB = newMB.MaMB,
+                        NguoiTao = newMB.NguoiTao,
+                        MaKN = newMB.MaKN,
+                        MaTL = newMB.MaTL,
+                        MaTN = newMB.MaTN,
+                        TienBVMT = newMB.DienTichBG * dvPQL.DonGia * dvPQL.TyLeBVMT/100,
+                        TienVAT = newMB.DienTichBG * dvPQL.DonGia * dvPQL.TyLeVAT/100,
+                    };
+                    await _unitOfWork.DichVuSuDungs.AddAsync(dvSuDung);
+                    await _unitOfWork.SaveChangesAsync();
+                    await _unitOfWork.CommitTransactionAsync();
+
+                    return _mapper.Map<MatBangDto>(newMB);
+                }
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackAsync();
+                throw new Exception("Lỗi thêm mặt bằng", ex);
+            }
         }
 
         public async Task<List<DanhSachMatBangDTO>> GetDSMatBang()

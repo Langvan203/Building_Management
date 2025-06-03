@@ -25,6 +25,13 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             var dsDichVu = await _context.dvDichVus.Where(x => x.MaLDV == MaLDV).ToListAsync();
             return _mapper.Map<IEnumerable<DichVuDto>>(dsDichVu);
         }
+
+        public async Task<DichVuDto> GetDichVuById(int MaDV)
+        {
+            var dichVu = await _context.dvDichVus.FindAsync(MaDV);
+            if (dichVu == null) return null;
+            return _mapper.Map<DichVuDto>(dichVu);
+        }
     }
     
 }
