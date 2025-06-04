@@ -82,5 +82,23 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 .FirstOrDefaultAsync(x => x.MaNV == MaNV && x.tnPhongBans.Any(pb => pb.tnToaNha.MaTN == MaPB));
             return checkNV;
         }
+
+        public async Task<tnNhanVien> GetNhanVienInPhongBan(int MaNV)
+        {
+            var nv = await _context.tnNhanViens.Include(x => x.tnPhongBans).FirstOrDefaultAsync(x => x.MaNV == MaNV);
+            return nv;
+        }
+
+        public async Task<tnNhanVien> GetNhanVienInToaNha(int MaNV)
+        {
+            var nv = await _context.tnNhanViens.Include(x => x.tnToaNhas).FirstOrDefaultAsync(x => x.MaNV == MaNV);
+            return nv;
+        }
+
+        public async Task<tnNhanVien> GetNhanVienRoles(int manv)
+        {
+            var nv = await _context.tnNhanViens.Include(x => x.tnToaNhas).FirstOrDefaultAsync(x => x.MaNV == manv);
+            return nv;
+        }
     }
 }

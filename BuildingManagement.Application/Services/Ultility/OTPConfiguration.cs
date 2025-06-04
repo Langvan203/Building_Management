@@ -10,5 +10,6 @@ namespace BuildingManagement.Application.Services.Ultility
     {
         public string Secret { get; set; }
         public int ExpireMinutes { get; set; }
+
     }
 }

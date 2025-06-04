@@ -15,5 +15,8 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task<List<GetDSNhanVienDto>> GetDSNhanVien();
         Task<tnNhanVien> CheckNVInPhongBan(int MaNV, int MaPB);
         Task<tnNhanVien> CheckNVInToaNha(int MaNV, int MaPB);
+        Task<tnNhanVien> GetNhanVienInPhongBan(int MaNV);
+        Task<tnNhanVien> GetNhanVienInToaNha(int MaNV);
+        Task<tnNhanVien> GetNhanVienRoles(int manv);
     }
 }

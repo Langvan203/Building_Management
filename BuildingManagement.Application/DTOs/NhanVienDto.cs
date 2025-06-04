@@ -26,6 +26,19 @@ namespace BuildingManagement.Application.DTOs
         public string Email { get; set; }
         public string SDT { get; set; }
         public string Password { get; set; }
+        public List<int>? MaPBs { get; set; } = new List<int>();
+        public List<int>? MaTNs { get; set; } = new List<int>();
+    }
+
+    public class UpdateThongTinNhanVien
+    {
+        public int MaNV { get; set; }
+        public string HoTen { get; set; }
+        public string TenDangNhap { get; set; }
+        public string Email { get; set; }
+        public string SoDienThoai { get; set; }
+        public DateTime NgaySinh { get; set; }
+        public string DiaChi { get; set; }
     }
 
     public class GetDSNhanVienDto
@@ -57,5 +70,11 @@ namespace BuildingManagement.Application.DTOs
     {
         public string RoleID { get; set; }
         public string RoleName { get; set; }
+    }
+
+    public class UpdateNhanVienToaNha
+    {
+        public int MaNV { get; set; }
+        public List<int> dsToaNha { get; set; }
     }
 }

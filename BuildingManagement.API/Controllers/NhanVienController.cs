@@ -50,5 +50,60 @@ namespace BuildingManagement.API.Controllers
             }
             return Ok("Thêm nhân viên vào phòng ban thành công");
         }
+
+        [HttpPut("UpdateNhanVienInPhongBan")]
+        public async Task<IActionResult> UpdateNhanVienInPhongBan(List<int> dsPhongBan, int maNV)
+        {
+            var result = await _nhanVienService.UpdatePhongBanNhanVien(dsPhongBan, maNV);
+            if (!result)
+            {
+                return NotFound("Không tìm thấy nhân viên hoặc phòng ban để cập nhật");
+            }
+            return Ok("Cập nhật phòng ban cho nhân viên thành công");
+        }
+
+        [HttpPut("UpdateNhanVienToaNha")]
+        public async Task<IActionResult> UpdateNhanVienToaNha(UpdateNhanVienToaNha dto)
+        {
+            var result = await _nhanVienService.UpdateToaNhaNhanVien(dto.dsToaNha, dto.MaNV);
+            if (!result)
+            {
+                return NotFound("Không tìm thấy nhân viên hoặc tòa nhà để cập nhật");
+            }
+            return Ok("Cập nhật tòa nhà cho nhân viên thành công");
+        }
+
+        [HttpPut("UpdateNhanVienRole")]
+        public async Task<IActionResult> UpdateNhanVienRole(List<int> dsRole, int maNV)
+        {
+            var result = await _nhanVienService.UpdateRoleNhanVien(dsRole, maNV);
+            if (!result)
+            {
+                return NotFound("Không tìm thấy nhân viên hoặc vai trò để cập nhật");
+            }
+            return Ok("Cập nhật vai trò cho nhân viên thành công");
+        }
+
+        [HttpPut("UpdateThongTinNhanVien")]
+        public async Task<IActionResult> UpdateThongTinNhanVien(UpdateThongTinNhanVien dto)
+        {
+            try
+            {
+                var result = await _nhanVienService.UpdateThongTinNhanVien(dto, Name);
+                if (result)
+                {
+                    return Ok("Cập nhật thông tin nhân viên thành công");
+                }
+                else
+                {
+                    return NotFound("Không tìm thấy nhân viên để cập nhật");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

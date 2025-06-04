@@ -15,5 +15,10 @@ namespace BuildingManagement.Application.Interfaces.Services
         Task<bool> XoaNhanVienToaNha(int manv, int MaTN);
         Task<bool> ThemNhanVienPhongBan(int manv, int MaPB);
         Task<bool> XoaNhanVienPhongBan(int manv, int MaPB);
+        Task<bool> UpdateThongTinNhanVien(UpdateThongTinNhanVien dto, string tennv);
+        Task<bool> UpdatePhongBanNhanVien(List<int> dsPhongBan, int maNV);
+        Task<bool> UpdateToaNhaNhanVien(List<int> dsToaNha, int maNV);
+        Task<bool> UpdateRoleNhanVien(List<int> dsRole, int maNV);
+        Task<bool> RemoveNhanVien(int MaNV);
     }
 }

@@ -50,6 +50,11 @@ namespace BuildingManagement.Application.Services
             return dsNhanVien;
         }
 
+        public Task<bool> RemoveNhanVien(int MaNV)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> ThemNhanVienPhongBan(int manv, int MaPB)
         {
             var checkNVInPB = await _unitOfWork.NhanViens.CheckNVInPhongBan(manv, MaPB);
@@ -74,6 +79,83 @@ namespace BuildingManagement.Application.Services
         public Task<bool> ThemNhanVienToToaNha(int manv, int MaTN)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdatePhongBanNhanVien(List<int> dsPhongBan, int maNV)
+        {
+            var getNV = await _unitOfWork.NhanViens.GetNhanVienInPhongBan(maNV);
+            if(getNV == null)
+            {
+                throw new Exception("Nhân viên không tồn tại");
+            }
+            var dspb = await _unitOfWork.PhongBans.GetAllAsync();
+            // lấy ra tất cả ds phòng ban hiện có
+            var pbID = dspb.Select(x => x.MaPB).ToList();
+            // lọc ra những danh sách phòng ban mà trong danh sách gửi đến có
+            var dsPhongBanValid = dsPhongBan.Where(x => pbID.Contains(x)).ToList();
+            var dsPBNew = await _unitOfWork.PhongBans.GetAllConditionAsync(x => dsPhongBanValid.Contains(x.MaPB));
+            getNV.tnPhongBans = dsPBNew.ToList();
+            await _unitOfWork.NhanViens.UpdateAsync(getNV);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+
+        }
+
+        public async Task<bool> UpdateRoleNhanVien(List<int> dsRole, int maNV)
+        {
+            var getNV = await _unitOfWork.NhanViens.GetNhanVienRoles(maNV);
+            if (getNV == null)
+            {
+                throw new Exception("Nhân viên không tồn tại");
+            }
+            var dspb = await _unitOfWork.Roles.GetAllAsync();
+            // lấy ra tất cả ds role hiện có
+            var pbID = dspb.Select(x => x.RoleID).ToList();
+            // lọc ra những danh sách role mà trong danh sách gửi đến có
+            var dsRoleValid = dsRole.Where(x => pbID.Contains(x)).ToList();
+            var dsRoleNew = await _unitOfWork.Roles.GetAllConditionAsync(x => dsRoleValid.Contains(x.RoleID));
+            getNV.Roles = dsRoleNew.ToList();
+            await _unitOfWork.NhanViens.UpdateAsync(getNV);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateThongTinNhanVien(UpdateThongTinNhanVien dto,string tennv)
+        {
+            var nv = await _unitOfWork.NhanViens.GetNhanVienInPhongBan(dto.MaNV);
+            if(nv!= null)
+            {
+                nv.UserName = dto.TenDangNhap;
+                nv.TenNV = dto.HoTen;
+                nv.Email = dto.Email;
+                nv.NgaySinh = dto.NgaySinh;
+                nv.SDT = dto.SoDienThoai;
+                nv.DiaChiThuongTru = dto.DiaChi;
+                nv.NguoiSua = tennv;
+                await _unitOfWork.NhanViens.UpdateAsync(nv);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> UpdateToaNhaNhanVien(List<int> dsToaNha, int maNV)
+        {
+            var getNV = await _unitOfWork.NhanViens.GetNhanVienInToaNha(maNV);
+            if (getNV == null)
+            {
+                throw new Exception("Nhân viên không tồn tại");
+            }
+            var dstn = await _unitOfWork.ToaNhas.GetAllAsync();
+            // lấy ra tất cả ds tòa nhà hiện có
+            var pbID = dstn.Select(x => x.MaTN).ToList();
+            // lọc ra những danh sách tòa nhà mà trong danh sách gửi đến có
+            var dsTNValid = dsToaNha.Where(x => pbID.Contains(x)).ToList();
+            var dsTNNew = await _unitOfWork.ToaNhas.GetAllConditionAsync(x => dsTNValid.Contains(x.MaTN));
+            getNV.tnToaNhas = dsTNNew.ToList();
+            await _unitOfWork.NhanViens.UpdateAsync(getNV);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
 
         public Task<bool> XoaNhanVienPhongBan(int manv, int MaPB)

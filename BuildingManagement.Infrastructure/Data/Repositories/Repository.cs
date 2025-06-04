@@ -67,5 +67,10 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 throw new Exception("Entity not found");
             }
         }
+
+        public async Task<IEnumerable<T>> GetAllConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).ToListAsync();
+        }
     }
 }

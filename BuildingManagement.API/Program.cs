@@ -107,6 +107,7 @@ builder.Services.AddScoped<IDichVuHoaDonService, DichVuHoaDonService>();
 builder.Services.AddScoped<IDichVuSuDungSerivce, DichVuSuDungService>();
 builder.Services.AddScoped<IPhongBanService, PhongBanService>();
 builder.Services.AddScoped<IDichVuService, DichVuService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 // ultility service
 builder.Services.AddTransient<IEmailService, EmailService>();
