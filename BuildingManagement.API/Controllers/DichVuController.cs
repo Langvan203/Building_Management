@@ -40,5 +40,17 @@ namespace BuildingManagement.API.Controllers
             }
             return NotFound("Không tìm thấy dịch vụ với mã này");
         }
+
+        [HttpDelete("DeleteDichVu")]
+
+        public async Task<IActionResult> DeleteDichVu(int MaDV)
+        {
+            var result = await _dichVuService.RemoveDichVu(MaDV);
+            if (result)
+            {
+                return Ok("Xóa dịch vụ thành công");
+            }
+            return BadRequest("Xóa dịch vụ không thành công");
+        }
     }
 }

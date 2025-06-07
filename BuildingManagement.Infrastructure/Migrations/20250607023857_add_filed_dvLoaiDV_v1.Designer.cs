@@ -4,6 +4,7 @@ using BuildingManagement.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuildingManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(BuildingManagementDbContext))]
-    partial class BuildingManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250607023857_add_filed_dvLoaiDV_v1")]
+    partial class add_filed_dvLoaiDV_v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -507,68 +510,6 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaTN");
 
                     b.ToTable("dvLoaiDVs");
-
-                    b.HasData(
-                        new
-                        {
-                            MaLDV = 1,
-                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Icon = "<Zap className=\"h-5 w-5 text-yellow-500\" />",
-                            IsEssential = true,
-                            MoTa = "Dịch vụ điện cho cư dân",
-                            NguoiSua = "",
-                            NguoiTao = "Admin",
-                            TenLDV = "Dịch vụ điện",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaLDV = 2,
-                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Icon = "<Droplet className=\"h-5 w-5 text-blue-500\" />",
-                            IsEssential = true,
-                            MoTa = "Dịch vụ nước cho cư dân",
-                            NguoiSua = "",
-                            NguoiTao = "Admin",
-                            TenLDV = "Dịch vụ nước",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaLDV = 3,
-                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Icon = "<Wifi className=\"h-5 w-5 text-purple-500\" />",
-                            IsEssential = true,
-                            MoTa = "Dịch vụ Internet cho cư dân",
-                            NguoiSua = "",
-                            NguoiTao = "Admin",
-                            TenLDV = "Dịch vụ Internet",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaLDV = 4,
-                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Icon = "<Car className=\"h-5 w-5 text-gray-500\" />",
-                            IsEssential = true,
-                            MoTa = "Dịch vụ gửi xe cho cư dân",
-                            NguoiSua = "",
-                            NguoiTao = "Admin",
-                            TenLDV = "Dịch vụ gửi xe",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaLDV = 5,
-                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Icon = "<Dumbbell className=\"h-5 w-5 text-green-500\" />",
-                            IsEssential = false,
-                            MoTa = "Dịch vụ phòng tập Gym cho cư dân",
-                            NguoiSua = "",
-                            NguoiTao = "Admin",
-                            TenLDV = "Dịch vụ Gym",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.dvNuoc", b =>

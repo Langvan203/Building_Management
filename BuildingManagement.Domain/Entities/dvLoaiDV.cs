@@ -12,7 +12,9 @@ namespace BuildingManagement.Domain.Entities
         [Key]
         public int MaLDV { get; set; }
         public string TenLDV { get; set; }
-
+        public string? Icon { get; set; }
+        public string? MoTa { get; set; }
+        public bool IsEssential { get; set; } = false;
 
         //FK
         public int? MaTN { get; set; }

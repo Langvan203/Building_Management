@@ -9,8 +9,9 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface ILoaiDichVuService
     {
-        Task<IEnumerable<LoaiDVDto>> GetDSLoaiDV();
-        Task<LoaiDVDto> CreateNewLoaiDV(CreateLoaiDVDto loaiDV, string name);
-        Task<bool> DeleteLoaiDV(int MaLDV);
+        Task<List<GetDSLoaiDichVu>> GetDSLoaiDichVu();
+        Task<List<GetDSLoaiDichVu>> GetDSLoaiDichVuByMaTN(int MaTN);
+        Task<CreateLoaiDVDto> CreateLoaiDichVu(CreateLoaiDVDto dto, string tennv);
+        Task<bool> DeleteLoaiDichVu(int MaLDV);
     }
 }

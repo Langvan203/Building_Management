@@ -37,6 +37,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         {
             var ds = await _context.tnNhanViens
              .Include(nv => nv.tnPhongBans)
+                .ThenInclude(tn => tn.tnToaNha)
              .Include(pb => pb.tnToaNhas)
              .Include(role => role.Roles)
              .AsSplitQuery()
@@ -53,7 +54,8 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 phongBans = nv.tnPhongBans.Select(pb => new NhanVienPhongBan
                 {
                     MaPB = pb.MaPB.ToString(),
-                    TenPB = pb.TenPB
+                    TenPB = pb.TenPB,
+                    TenTN = pb.MaTN != null ? pb.tnToaNha.TenTN : null
                 }).ToList(),
                 toaNhas = nv.tnToaNhas.Select(tn => new NhanVienInToaNha
                 {
@@ -97,7 +99,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
 
         public async Task<tnNhanVien> GetNhanVienRoles(int manv)
         {
-            var nv = await _context.tnNhanViens.Include(x => x.tnToaNhas).FirstOrDefaultAsync(x => x.MaNV == manv);
+            var nv = await _context.tnNhanViens.Include(x => x.Roles).FirstOrDefaultAsync(x => x.MaNV == manv);
             return nv;
         }
     }

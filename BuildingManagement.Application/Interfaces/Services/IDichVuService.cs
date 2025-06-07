@@ -9,8 +9,9 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuService
     {
-        Task<IEnumerable<DichVuDto>> GetDSDichVu();
+        Task<List<GetDSDichVu>> GetDSDichVu();
         Task<DichVuDto> CreateNewDichVu(CreateDichVuDto dto, string name);
         Task<IEnumerable<DichVuDto>> GetDVByMaLDV(int MaLDV);
+        Task<bool> RemoveDichVu(int MaDV);
     }
 }

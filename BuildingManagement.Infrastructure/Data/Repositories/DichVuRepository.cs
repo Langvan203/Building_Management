@@ -32,6 +32,23 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             if (dichVu == null) return null;
             return _mapper.Map<DichVuDto>(dichVu);
         }
+
+        public async Task<List<GetDSDichVu>> GetDSDichVu()
+        {
+            var dsDichVu = await _context.dvDichVus.Include(x => x.dvLoaiDV).Select(x => new GetDSDichVu
+            {
+                id = x.MaDV,
+                tenDV = x.TenDV,
+                maLDV = x.MaLDV,
+                donGia = x.DonGia,
+                tyLeBVMT = x.TyLeBVMT,
+                tyLeVAT = x.TyLeVAT,
+                donViTinh = x.DonViTinh,
+                kyThanhToan = x.KyThanhToan,
+                isThanhToanTheoKy = x.IsThanhToanTheoKy
+            }).ToListAsync();
+            return dsDichVu;
+        }
     }
     
 }

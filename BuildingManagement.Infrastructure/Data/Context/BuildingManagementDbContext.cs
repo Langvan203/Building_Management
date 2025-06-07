@@ -73,6 +73,14 @@ namespace BuildingManagement.Infrastructure.Data.Context
                 new tnycTrangThai { IdTrangThai = 4, TenTrangThai = "Đã hoàn thành", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) }
                 );
 
+            modelBuilder.Entity<dvLoaiDV>().HasData(
+                new dvLoaiDV { MaLDV = 1, TenLDV = "Dịch vụ điện", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = true, MoTa = "Dịch vụ điện cho cư dân", Icon = "<Zap className=\"h-5 w-5 text-yellow-500\" />" },
+                new dvLoaiDV { MaLDV = 2, TenLDV = "Dịch vụ nước", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = true, MoTa = "Dịch vụ nước cho cư dân", Icon = "<Droplet className=\"h-5 w-5 text-blue-500\" />" },
+                new dvLoaiDV { MaLDV = 3, TenLDV = "Dịch vụ Internet", Icon = "<Wifi className=\"h-5 w-5 text-purple-500\" />", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = true, MoTa = "Dịch vụ Internet cho cư dân" },
+                new dvLoaiDV { MaLDV = 4, TenLDV = "Dịch vụ gửi xe", Icon = "<Car className=\"h-5 w-5 text-gray-500\" />", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = true, MoTa = "Dịch vụ gửi xe cho cư dân" },
+                new dvLoaiDV { MaLDV = 5, TenLDV = "Dịch vụ Gym", Icon = "<Dumbbell className=\"h-5 w-5 text-green-500\" />", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = false, MoTa = "Dịch vụ phòng tập Gym cho cư dân" }
+                );
+
         }
     }
 }

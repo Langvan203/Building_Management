@@ -12,6 +12,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     {
         Task<IEnumerable<DichVuDto>> GetDVByMaLDV(int MaLDV);
         Task<DichVuDto> GetDichVuById(int MaDV);
+        Task<List<GetDSDichVu>> GetDSDichVu();
     }
 }
 

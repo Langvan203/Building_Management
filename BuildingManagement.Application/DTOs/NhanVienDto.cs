@@ -65,8 +65,9 @@ namespace BuildingManagement.Application.DTOs
     {
         public string MaPB { get; set; }
         public string TenPB { get; set; }
+        public string TenTN { get; set; }
     }
-    public class NhanVienRoles 
+    public class NhanVienRoles
     {
         public string RoleID { get; set; }
         public string RoleName { get; set; }
@@ -76,5 +77,17 @@ namespace BuildingManagement.Application.DTOs
     {
         public int MaNV { get; set; }
         public List<int> dsToaNha { get; set; }
+    }
+
+    public class UpdateNhanVienPhongBan
+    {
+        public int MaNV { get; set; }
+        public List<int> dsPhongBan { get; set; }
+    }
+
+    public class UpdateNhanVienRole
+    {
+        public int MaNV { get; set; }
+        public List<int> dsRole { get; set; }
     }
 }

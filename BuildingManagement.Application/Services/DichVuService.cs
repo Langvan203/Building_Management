@@ -25,9 +25,9 @@ namespace BuildingManagement.Application.Services
         public async Task<DichVuDto> CreateNewDichVu(CreateDichVuDto dto, string name)
         {
             var checkDV = await _unitOfWork.DichVus.GetFirstOrDefaultAsync(x => x.MaLDV == dto.MaLDV && x.TenDV == dto.TenDV);
-            if(checkDV != null)
+            if (checkDV != null)
             {
-                return null;
+                throw new Exception("Dịch vụ đã tồn tại trong loại dịch vụ này.");
             }
             var newDV = _mapper.Map<dvDichVu>(dto);
             newDV.NguoiTao = name;
@@ -36,16 +36,28 @@ namespace BuildingManagement.Application.Services
             return _mapper.Map<DichVuDto>(newDV);
         }
 
-        public async Task<IEnumerable<DichVuDto>> GetDSDichVu()
+        public async Task<List<GetDSDichVu>> GetDSDichVu()
         {
-            var dsDichVu = await _unitOfWork.DichVus.GetAllAsync();
-            return _mapper.Map<IEnumerable<DichVuDto>>(dsDichVu);
+            var dsDichVu = await _unitOfWork.DichVus.GetDSDichVu();
+            return dsDichVu;
         }
 
         public async Task<IEnumerable<DichVuDto>> GetDVByMaLDV(int MaLDV)
         {
             var dsDichVu = await _unitOfWork.DichVus.GetDVByMaLDV(MaLDV);
             return dsDichVu;
+        }
+
+        public async Task<bool> RemoveDichVu(int MaDV)
+        {
+            var dichVu = await _unitOfWork.DichVus.GetFirstOrDefaultAsync(x => x.MaDV == MaDV);
+            if (dichVu == null)
+            {
+                throw new Exception("Dịch vụ không tồn tại.");
+            }
+            await _unitOfWork.DichVus.DeleteAsync(dichVu);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
     }
 }

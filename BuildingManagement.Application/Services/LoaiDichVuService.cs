@@ -20,36 +20,47 @@ namespace BuildingManagement.Application.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<LoaiDVDto> CreateNewLoaiDV(CreateLoaiDVDto loaiDV, string name)
-        {
-            var checkLDV = await _unitOfWork.LoaiDichVus.GetFirstOrDefaultAsync(x => x.TenLDV == loaiDV.TenLDV);
-            if(checkLDV != null)
-            {
-                return null;
-            }    
-            var newLDV = _mapper.Map<dvLoaiDV>(loaiDV);
-            newLDV.NguoiTao = name;
-            await _unitOfWork.LoaiDichVus.AddAsync(newLDV);
-            await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<LoaiDVDto>(newLDV);
-        }
 
-        public async Task<bool> DeleteLoaiDV(int MaLDV)
+        public async Task<CreateLoaiDVDto> CreateLoaiDichVu(CreateLoaiDVDto dto, string tennv)
         {
-            var checkLDV = await _unitOfWork.LoaiDichVus.GetFirstOrDefaultAsync(x => x.MaLDV == MaLDV);
-            if (checkLDV != null)
+            var LoaiDichVu = await _unitOfWork.LoaiDichVus.GetFirstOrDefaultAsync(x => x.TenLDV == dto.TenLDV && x.MaTN == dto.MaTN);
+            if (LoaiDichVu != null)
             {
-                await _unitOfWork.LoaiDichVus.DeleteAsync(checkLDV);
-                await _unitOfWork.SaveChangesAsync();
-                return true;
+                throw new Exception("Loại dịch vụ đã tồn tại.");
             }
-            return false;
+            var newLoaiDichVu = _mapper.Map<dvLoaiDV>(dto);
+            newLoaiDichVu.NguoiTao = tennv;
+            await _unitOfWork.LoaiDichVus.AddAsync(newLoaiDichVu);
+            await _unitOfWork.SaveChangesAsync();
+            return dto;
         }
 
-        public async Task<IEnumerable<LoaiDVDto>> GetDSLoaiDV()
+
+        public async Task<bool> DeleteLoaiDichVu(int MaLDV)
         {
-            var dsLoaiDV = await _unitOfWork.LoaiDichVus.GetAllAsync();
-            return _mapper.Map<IEnumerable<LoaiDVDto>>(dsLoaiDV);
+            var LoaiDichVu = await _unitOfWork.LoaiDichVus.GetFirstOrDefaultAsync(x => x.MaLDV == MaLDV);
+            if (LoaiDichVu == null)
+            {
+                throw new Exception("Loại dịch vụ không tồn tại.");
+            }
+            await _unitOfWork.LoaiDichVus.DeleteAsync(LoaiDichVu);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
+
+
+        public async Task<List<GetDSLoaiDichVu>> GetDSLoaiDichVu()
+        {
+            var dsLoaiDichVu = await _unitOfWork.LoaiDichVus.GetDSLoaiDichVu();
+            return dsLoaiDichVu;
+        }
+
+        public async Task<List<GetDSLoaiDichVu>> GetDSLoaiDichVuByMaTN(int MaTN)
+        {
+            var dsLoaiDichVu = await _unitOfWork.LoaiDichVus.GetDSLoaiDichVuByMaTN(MaTN);
+            return dsLoaiDichVu;
+        }
+
+        
     }
 }

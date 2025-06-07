@@ -52,9 +52,9 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpPut("UpdateNhanVienInPhongBan")]
-        public async Task<IActionResult> UpdateNhanVienInPhongBan(List<int> dsPhongBan, int maNV)
+        public async Task<IActionResult> UpdateNhanVienInPhongBan(UpdateNhanVienPhongBan dto)
         {
-            var result = await _nhanVienService.UpdatePhongBanNhanVien(dsPhongBan, maNV);
+            var result = await _nhanVienService.UpdatePhongBanNhanVien(dto.dsPhongBan, dto.MaNV);
             if (!result)
             {
                 return NotFound("Không tìm thấy nhân viên hoặc phòng ban để cập nhật");
@@ -74,9 +74,9 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpPut("UpdateNhanVienRole")]
-        public async Task<IActionResult> UpdateNhanVienRole(List<int> dsRole, int maNV)
+        public async Task<IActionResult> UpdateNhanVienRole(UpdateNhanVienRole dto)
         {
-            var result = await _nhanVienService.UpdateRoleNhanVien(dsRole, maNV);
+            var result = await _nhanVienService.UpdateRoleNhanVien(dto.dsRole, dto.MaNV);
             if (!result)
             {
                 return NotFound("Không tìm thấy nhân viên hoặc vai trò để cập nhật");
