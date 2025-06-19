@@ -22,9 +22,9 @@ namespace BuildingManagement.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<DichVuNuocDongHoDto> CreateNewDongHo(CreateDichVuNuocDongHoDto dto, string name)
+        public async Task<CreateDongHoDto> CreateNewDongHo(CreateDongHoDto dto, string name)
         {
-            var checkDongHo = _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.SoDongHo == dto.SoDH);
+            var checkDongHo = _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.SoDongHo == dto.SoDongHo);
             if(checkDongHo != null)
             {
                 return null;
@@ -33,26 +33,26 @@ namespace BuildingManagement.Application.Services
             newDongHo.NguoiTao = name;
             await _unitOfWork.NuocDongHos.AddAsync(newDongHo);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<DichVuNuocDongHoDto>(newDongHo);
+            return dto;
 
         }
 
-        public async Task<DichVuNuocDongHoDto> GetDongHoNuocByMaMB(int MaMB)
+        public async Task<DongHoDTO> GetDongHoNuocByMaMB(int MaMB)
         {
             var dsDongHo = await _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.MaMB == MaMB);
             if (dsDongHo != null)
             {
-                return _mapper.Map<DichVuNuocDongHoDto>(dsDongHo);
+                return _mapper.Map<DongHoDTO>(dsDongHo);
             }
             return null;
         }
 
-        public async Task<IEnumerable<DichVuNuocDongHoDto>> GetDSDongHo()
+        public async Task<IEnumerable<DongHoDTO>> GetDSDongHo()
         {
             var dsDongHo = await _unitOfWork.NuocDongHos.GetAllAsync();
             if (dsDongHo != null)
             {
-                return _mapper.Map<IEnumerable<DichVuNuocDongHoDto>>(dsDongHo);
+                return _mapper.Map<IEnumerable<DongHoDTO>>(dsDongHo);
             }
             return null;
         }

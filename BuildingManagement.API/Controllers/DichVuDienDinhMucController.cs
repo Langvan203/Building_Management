@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Request;
+﻿using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,10 +24,32 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpPost("CreateNewDinhMuc")]
-        public async Task<IActionResult> CreateNewDinhMuc(CreateDichVuDienDinhMucDto dto)
+        public async Task<IActionResult> CreateNewDinhMuc(CreateDinhMuc dto)
         {
             var newDinhMuc = await _dienDinhMucService.CreateNewDinhMuc(dto, Name);
             return Ok(newDinhMuc);
+        }
+
+        [HttpPut("UpdateDinhMuc")]
+        public async Task<IActionResult> UpdateDinhMuc([FromBody]DinhMucDTO dto)
+        {
+            var updatedDinhMuc = await _dienDinhMucService.UpdateDienDinhMuc(dto, Name);
+            if (updatedDinhMuc)
+            {
+                return Ok("Cập nhật định mức điện thành công");
+            }
+            return NotFound("Dịch vụ điện định mức không tồn tại.");
+        }
+
+        [HttpDelete("RemoveDinhMuc/{MaDM}")]
+        public async Task<IActionResult> RemoveDinhMuc(int MaDM)
+        {
+            var result = await _dienDinhMucService.RemoveDienDinhMuc(MaDM);
+            if (result)
+            {
+                return Ok("Xóa dịch vụ điện định mức thành công.");
+            }
+            return NotFound("Dịch vụ điện định mức không tồn tại.");
         }
     }
 }

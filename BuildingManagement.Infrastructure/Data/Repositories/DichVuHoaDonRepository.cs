@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Response;
+﻿using BuildingManagement.Application.DTOs.Request;
+using BuildingManagement.Application.DTOs.Response;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Domain.Ultility;
@@ -16,6 +17,39 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
     {
         public DichVuHoaDonRepository(BuildingManagementDbContext context) : base(context)
         {
+        }
+
+        public async Task<List<HoaDonDTO>> GetDSHoaDon()
+        {
+            var dsHoaDon = await _context.dvHoaDons.Include(x => x.dvDichVuSuDung).ThenInclude(x => x.dvDichVu).AsSplitQuery().ToListAsync();
+            var hoaDonDtos = dsHoaDon.Select(x => new HoaDonDTO
+            {
+                MaHD = x.MaHD,
+                MaMB = x.MaMB,
+                MaDVSD = x.MaDVSD,
+                DaThanhToan = x.DaThanhToan,
+                IsThanhToan = x.IsThanhToan,
+                TenDVSD = x.dvDichVuSuDung?.dvDichVu?.TenDV,
+                //dichVuNuocs = x.dvDichVuNuocs.Select(n => new DichVuNuoc
+                //{
+                //    MaNuoc = n.MaNuoc,
+                //    MaDM = n.MaDM,
+                //    ChiSoDau = n.ChiSoDau,
+                //    ChiSoCuoi = n.ChiSoCuoi,
+                //    SoTieuThu = n.SoTieuThu,
+                //    ThanhTien = n.ThanhTien
+                //}).ToList(),
+            }).ToList();
+
+            //var dvSD = await _context.dvDichVuSuDungs.Include(x => x.dvDichVu).AsSplitQuery().ToListAsync();
+            //var dvNuoc = dvSD.Select(x => x.dvDichVu).Where(x => x.MaLDV == 2).Select(x => x.MaDV).ToList();
+            //if(dvNuoc.Count != 0)
+            //{
+            //    var dsNuocKhachHang = await _context.dvNuocs.Where(x => dvNuoc.Contains(x => x))
+            //}    
+            //var dvDien = dvSD.Select(x => x.dvDichVu).Where(x => x.MaLDV == 1).ToList();
+            //var dsKhach = dvSD.Select(x => x.dvDichVu).Where(x => x.MaLDV != 1 && x.MaLDV != 2).ToList();
+            return hoaDonDtos;
         }
 
         public async Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync()

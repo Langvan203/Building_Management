@@ -36,6 +36,19 @@ namespace BuildingManagement.API.Controllers
                 return Unauthorized(ex.Message);
             }
         }
+        [HttpPost("CustomerLogin")]
+        public async Task<IActionResult> CustomerLogin([FromBody] LoginDto dto)
+        {
+            try
+            {
+                var token = await _authenticateService.KhachHangLogin(dto);
+                return Ok(token);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(ex.Message);
+            }
+        }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {

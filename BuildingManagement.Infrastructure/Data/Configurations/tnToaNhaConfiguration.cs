@@ -70,6 +70,16 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(tn => tn.tnToaNha)
                 .HasForeignKey(tn => tn.MaTN)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDienDongHos)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvNuocDongHos)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

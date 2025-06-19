@@ -1,5 +1,6 @@
 ﻿using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ namespace BuildingManagement.API.Controllers
             _dichVuLoaiDichVuService = dichVuLoaiDichVuService;
         }
         [HttpGet("GetDSLoaiDV")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var dsLDV = await _dichVuLoaiDichVuService.GetDSLoaiDichVu();

@@ -24,9 +24,23 @@ namespace BuildingManagement.Application.DTOs.Request
         public string QuocTich { get; set; }
         public string CtyTen { get; set; }
         public string SoFax { get; set; }
+        public string TenTN { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public string TenKN { get; set; }
+        public int MaTL { get; set; }
+        public string TenTL { get; set; }
+        public List<MatBangSoHuu> matBangSoHuus { get; set; } = new List<MatBangSoHuu>();
     }
 
-    public class CreateKhachHangDto
+    public class MatBangSoHuu
+    {
+        public int MaMB { get; set; }
+        public string MaVT { get; set; }
+        public decimal DienTichBanGiao { get; set; }
+    }
+
+        public class CreateKhachHangDto
     {
         public int MaKH { get; set; }
         public string HoTen { get; set; }

@@ -10,8 +10,9 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuDienDongHoService
     {
-        Task<IEnumerable<DichVuDienDongHoDto>> GetDSDongHo();
-        Task<DichVuDienDongHoDto> CreateNewDongHo(CreateDichVuDienDongHoDto dto, string name);
-        Task<DichVuDienDongHoDto> GetDongHoDienByMaMB(int MaMB);
+        Task<PagedResult<DongHoDTO>> GetDSDienDongHo(int pageNumber);
+        Task<CreateDongHoDto> CreateDienDongHo(CreateDongHoDto dto, string name);
+        Task<bool> UpdateDienDongHo(UpdateDongHoDto dto, string name);
+        Task<bool> RemoveDienDongHo(int MaDH);
     }
 }

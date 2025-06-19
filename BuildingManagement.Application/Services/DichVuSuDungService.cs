@@ -25,7 +25,7 @@ namespace BuildingManagement.Application.Services
 
         public async Task<DichVuSuDungDto> CreateDichVuSuDung(CreateDichVuSuDungDto dto, string name)
         {
-            var checkDVSuDung = _unitOfWork.DichVuSuDungs.GetFirstOrDefaultAsync(x => x.MaDV == dto.MaDV && x.MaKH == dto.MaKH 
+            var checkDVSuDung = await _unitOfWork.DichVuSuDungs.GetFirstOrDefaultAsync(x => x.MaDV == dto.MaDV && x.MaKH == dto.MaKH 
                                         && x.NgayBatDauTinhPhi.Month == dto.NgayBatDauTinhPhi.Month && x.NgayBatDauTinhPhi.Year == dto.NgayBatDauTinhPhi.Year);
             if(checkDVSuDung != null)
             {
@@ -44,10 +44,32 @@ namespace BuildingManagement.Application.Services
             return dsDVSuDung;
         }
 
+
+
         public async Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDung()
         {
             var dsDVSuDung = await _unitOfWork.DichVuSuDungs.GetAllAsync();
             return _mapper.Map<IEnumerable<DichVuSuDungDto>>(dsDVSuDung);
+        }
+
+        public Task<List<GetDSDichVuSuDung>> GetDSDichVuSuDungByCuDan(int MaKH)
+        {
+            var dsDVSuDung = _unitOfWork.DichVuSuDungs.GetDSDichVuSuDungByCuDan(MaKH);
+            if (dsDVSuDung == null)
+            {
+                return Task.FromResult(new List<GetDSDichVuSuDung>());
+            }
+            return dsDVSuDung;
+        }
+
+        public Task<List<GetAllDSDichVuSuDung>> GetAllDSDichVuSuDungs()
+        {
+            var dsDVSuDung = _unitOfWork.DichVuSuDungs.GetAllDSDichVuSuDungs();
+            if (dsDVSuDung == null)
+            {
+                return Task.FromResult(new List<GetAllDSDichVuSuDung>());
+            }
+            return dsDVSuDung;
         }
     }
 }

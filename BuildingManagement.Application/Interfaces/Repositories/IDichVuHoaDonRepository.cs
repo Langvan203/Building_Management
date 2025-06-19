@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Response;
+﻿using BuildingManagement.Application.DTOs.Request;
+using BuildingManagement.Application.DTOs.Response;
 using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     {
         Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync();
         Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync();
+        Task<List<HoaDonDTO>> GetDSHoaDon();
+            
     }
 }

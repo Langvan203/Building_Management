@@ -11,5 +11,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     public interface IDichVuSuDungRepository : IRepository<dvDichVuSuDung>
     {
         Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDungByMaKH(int MaKH);
+        Task<List<GetDSDichVuSuDung>> GetDSDichVuSuDungByCuDan(int MaKH);
+        Task<List<GetAllDSDichVuSuDung>> GetAllDSDichVuSuDungs();
     }
 }

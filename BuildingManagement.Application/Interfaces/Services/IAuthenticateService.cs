@@ -13,6 +13,7 @@ namespace BuildingManagement.Application.Interfaces.Services
     public interface IAuthenticateService
     {
         Task<LoginResponseDto> Login(LoginDto loginDto);
+        Task<KhacHangLoginResponseDto> KhachHangLogin(LoginDto dto);
         Task<RegisterResponseDto> Register(RegisterDto registerDto);
         bool VerifyOTP(string email, string token);
         Task<string> RequestForgotPassword(string email);

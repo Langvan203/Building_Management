@@ -33,6 +33,16 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithOne(tn => tn.tnTangLau)
                 .HasForeignKey(tn => tn.MaTL)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvNuocDongHos)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDienDongHos)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

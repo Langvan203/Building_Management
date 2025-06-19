@@ -52,6 +52,7 @@ namespace BuildingManagement.Application.Services
             }
             var token = await _JwtTokenService.CreateToken(loginDto);
             var nvRole = nv.Roles;
+            var nvPermissions = nvRole != null ? nvRole.SelectMany(x => x.Permissions).ToList() : new List<Permission>();
             return new LoginResponseDto
             {
                 AccessToken = token,
@@ -60,6 +61,22 @@ namespace BuildingManagement.Application.Services
                 Email = nv.Email,
                 UserName = nv.UserName,
                 RoleName = nvRole != null ? nvRole.Select(x => x.RoleName).ToList() : new List<string>(),
+                Permissions = nvPermissions != null ? nvPermissions.Select(x => x.PermissionName).ToList() : new List<string>()
+            };
+        }
+
+        public async Task<KhacHangLoginResponseDto> KhachHangLogin(LoginDto loginDto)
+        {
+            var nv = await _unitOfWork.KhachHangs.GetKhachHangInfo(loginDto);
+            if (nv == null)
+            {
+                throw new UnauthorizedAccessException("Email sai hoặc mật khẩu không đúng");
+            }
+            var token = await _JwtTokenService.CreateToken(loginDto);
+            return new KhacHangLoginResponseDto
+            {
+                AccessToken = token,
+                KhachHangDto = _mapper.Map<KhachHangDto>(nv)
             };
         }
 
@@ -172,6 +189,7 @@ namespace BuildingManagement.Application.Services
             return isValid;
         }
         
+
         
     }
 }

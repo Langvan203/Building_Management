@@ -16,15 +16,15 @@ namespace BuildingManagement.API.Controllers
             _nuocDongHoService = nuocDongHoService;
         }
 
-        [HttpGet("GetDSDongHo")]
+        [HttpGet("GetDSNuocDongHo")]
         public async Task<IActionResult> GetDSDongHo()
         {
             var dsDongHo = await _nuocDongHoService.GetDSDongHo();
             return Ok(dsDongHo);
         }
 
-        [HttpPost("CreateNewDongHo")]
-        public async Task<IActionResult> CreateNewDongHo(CreateDichVuNuocDongHoDto dto)
+        [HttpPost("CreateNuocDongHo")]
+        public async Task<IActionResult> CreateNewDongHo(CreateDongHoDto dto)
         {
             var newDongHo = await _nuocDongHoService.CreateNewDongHo(dto, Name);
             return Ok(newDongHo);

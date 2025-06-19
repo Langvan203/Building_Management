@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
@@ -22,41 +23,52 @@ namespace BuildingManagement.Application.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<DichVuDienDongHoDto> CreateNewDongHo(CreateDichVuDienDongHoDto dto, string name)
+        public async Task<CreateDongHoDto> CreateDienDongHo(CreateDongHoDto dto, string name)
         {
-            var checkDongHoDien = await _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.SoDongHo == dto.SoDongHo);
-            if(checkDongHoDien == null)
+            var checkDongHo = await _unitOfWork.DienDongHos.CheckThemDongHoDien(dto);
+            if(checkDongHo)
             {
-                var newDh = _mapper.Map<dvDienDongHo>(dto);
-                newDh.NguoiTao = name;
-                await _unitOfWork.DienDongHos.AddAsync(newDh);
+                var dienDongHo = _mapper.Map<dvDienDongHo>(dto);
+                dienDongHo.NguoiTao = name;
+                await _unitOfWork.DienDongHos.AddAsync(dienDongHo);
                 await _unitOfWork.SaveChangesAsync();
-                return _mapper.Map<DichVuDienDongHoDto>(newDh);
+                return dto;
             }
             return null;
         }
 
-        public Task<DichVuNuocDongHoDto> CreateNewDongHo(CreateDichVuNuocDongHoDto dto, string name)
+        public async Task<PagedResult<DongHoDTO>> GetDSDienDongHo(int pageNumber)
         {
-            throw new NotImplementedException();
+            var dsDongHo = await _unitOfWork.DienDongHos.GetDSDongHoDienPaged(pageNumber);
+            return dsDongHo;
         }
 
-        public async Task<DichVuDienDongHoDto> GetDongHoDienByMaMB(int MaMB)
+        public async Task<bool> RemoveDienDongHo(int MaDH)
         {
-            var checkDongHoDien = await _unitOfWork.DienDongHos.GetFirstOrDefaultAsync(x => x.MaMB == MaMB);
-            if(checkDongHoDien != null)
+            var checkDongHo = await _unitOfWork.DienDongHos.CheckDongHo(MaDH);
+            if (checkDongHo != null)
             {
-                return _mapper.Map<DichVuDienDongHoDto>(checkDongHoDien);
+                await _unitOfWork.DienDongHos.DeleteAsync(checkDongHo);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
             }
-            return null;
+            return false;
         }
 
-        public async Task<IEnumerable<DichVuDienDongHoDto>> GetDSDongHo()
+        public async Task<bool> UpdateDienDongHo(UpdateDongHoDto dto, string name)
         {
-            var dsDongHo = await _unitOfWork.DienDongHos.GetAllAsync();
-            return _mapper.Map<IEnumerable<DichVuDienDongHoDto>>(dsDongHo);
+            var checkDongHo = await _unitOfWork.DienDongHos.CheckDongHo(dto.MaDH);
+            if (checkDongHo != null)
+            {
+                checkDongHo.ChiSoSuDung = dto.ChiSoSuDung;
+                checkDongHo.TrangThai = dto.TrangThai;
+                checkDongHo.NguoiSua = name;
+                checkDongHo.UpdatedDate = DateTime.Now;
+                await _unitOfWork.DienDongHos.UpdateAsync(checkDongHo);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
-
-       
     }
 }

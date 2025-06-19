@@ -46,6 +46,7 @@ namespace BuildingManagement.Infrastructure.Data.Context
         public DbSet<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
         public DbSet<tnycTrangThai> tnycTrangThais { get; set; }
         public DbSet<nvDanhGia> nvDanhGias { get; set; }
+        public DbSet<Permission> permissions { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

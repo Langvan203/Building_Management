@@ -16,29 +16,43 @@ namespace BuildingManagement.API.Controllers
             _dichVuDienDongHoService = dichVuDienDongHoService;
         }
 
-        [HttpGet("GetDSDongHo")]
-        public async Task<IActionResult> GetDSDongHo()
+        [HttpGet("GetDSDienDongHo")]
+        public async Task<IActionResult> GetDSDongHo(int pageNumber)
         {
-            var dsDongHo = await _dichVuDienDongHoService.GetDSDongHo();
+            var dsDongHo = await _dichVuDienDongHoService.GetDSDienDongHo(pageNumber);
             return Ok(dsDongHo);
         }
 
-        [HttpPost("CreateNewDongHo")]
-        public async Task<IActionResult> CreateNewDongHo(CreateDichVuDienDongHoDto dto)
+        [HttpPost("CreateDienDongHo")]
+        public async Task<IActionResult> CreateNewDongHo(CreateDongHoDto dto)
         {
-            var newDongHo = await _dichVuDienDongHoService.CreateNewDongHo(dto, Name);
-            return Ok(newDongHo);
+            var newDongHo = await _dichVuDienDongHoService.CreateDienDongHo(dto, Name);
+            if (newDongHo != null)
+            {
+                return Ok("Thêm mới đồng hồ điện thành công");
+            }
+            return BadRequest("Thêm mới đồng hồ điện thất bại, có thể đã tồn tại đồng hồ điện với số đồng hồ và mã MB này");
         }
 
-        [HttpGet("GetDongHoDienByMaMB")]
-        public async Task<IActionResult> GetDongHoDienByMaMB(int MaMB)
+        [HttpPut("UpdateDienDongHo")]
+        public async Task<IActionResult> UpdateDongHoDien(UpdateDongHoDto dto)
         {
-            var checkDongHoDien = await _dichVuDienDongHoService.GetDongHoDienByMaMB(MaMB);
+            var checkDongHoDien = await _dichVuDienDongHoService.UpdateDienDongHo(dto, Name);
             if (checkDongHoDien != null)
             {
-                return Ok(checkDongHoDien);
+                return Ok("Cập nhật đồng hồ điện thành công");
             }
-            return NotFound("Không tìm thấy đồng hồ điện với mã MB này");
+            return BadRequest("Không thể cập nhật đồng hồ điện này");
+        }
+        [HttpDelete("RemoveDienDongHo/{MaDH}")]
+        public async Task<IActionResult> RemoveDongHoDien(int MaDH)
+        {
+            var checkRemove = await _dichVuDienDongHoService.RemoveDienDongHo(MaDH);
+            if (checkRemove)
+            {
+                return Ok("Xóa đồng hồ điện thành công");
+            }
+            return BadRequest("Không thể xóa đồng hồ điện này, có thể không tồn tại");
         }
     }
 }

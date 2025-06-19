@@ -12,5 +12,7 @@ namespace BuildingManagement.Application.Interfaces.Services
         Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDung();
         Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDungByMaKH(int MaKH);
         Task<DichVuSuDungDto> CreateDichVuSuDung(CreateDichVuSuDungDto dto, string name);
+        Task<List<GetDSDichVuSuDung>> GetDSDichVuSuDungByCuDan(int MaKH);
+        Task<List<GetAllDSDichVuSuDung>> GetAllDSDichVuSuDungs();
     }
 }

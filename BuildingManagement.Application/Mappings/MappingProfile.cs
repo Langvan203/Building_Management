@@ -37,10 +37,10 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<CreateLoaiDVDto, dvLoaiDV>();
 
             CreateMap<dvDienDinhMuc, DichVuDienDinhMucDto>();
-            CreateMap<CreateDichVuDienDinhMucDto, dvDienDinhMuc>();
+            CreateMap<CreateDinhMuc, dvDienDinhMuc>();
 
-            CreateMap<dvDienDongHo, DichVuDienDongHoDto>();
-            CreateMap<CreateDichVuDienDongHoDto, dvDienDongHo>();
+            CreateMap<dvDienDongHo, DongHoDTO>();
+            CreateMap<CreateDongHoDto, dvDienDongHo>();
 
             CreateMap<dvgxLoaiXe, DichVuGuiXeLoaiXeDto>();
             CreateMap<CreateDichVuGuiXeLoaiXeDto, dvgxLoaiXe>();
@@ -52,7 +52,7 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<CreateDichVuDienDto, dvDien>();
 
             CreateMap<dvNuocDinhMuc, DichVuNuocDinhMucDto>();
-            CreateMap<CreateDichVuDienDinhMucDto, dvNuocDinhMuc>();
+            CreateMap<CreateDinhMuc, dvNuocDinhMuc>();
 
             CreateMap<dvNuoc, DichVuNuocDto>();
             CreateMap<CreateDichVuNuocDto, dvNuoc>();

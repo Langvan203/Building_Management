@@ -13,6 +13,9 @@ namespace BuildingManagement.Domain.Entities
         public int MaDM { get; set; }
         public string TenDM { get; set; }
         public decimal DonGiaDinhMuc { get; set; }
+        public int ChiSoDau { get; set; }
+        public int ChiSoCuoi { get; set; }
+        public string? Description { get; set; }
 
 
         //Navigation 

@@ -175,7 +175,26 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CreateBuilding", policy =>
+    {
+        policy.RequireClaim("permissions", "building.create");
+    });
+
+    options.AddPolicy("UpdateBuilding", policy =>
+    {
+        policy.RequireClaim("permissions", "building.update");
+    });
+    options.AddPolicy("DeleteBuilding", policy =>
+    {
+        policy.RequireClaim("permissions", "building.delete");
+    });
+    options.AddPolicy("ViewBuilding", policy =>
+    {
+        policy.RequireClaim("permissions", "building.view");
+    });
+});
 
 
 
@@ -191,12 +210,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+app.UseRouting();
 // Configure the HTTP request pipeline.
 app.UseCors("AllowFrontend");
-
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

@@ -24,7 +24,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         public async Task<tnNhanVien> ThongTinNhanVien(LoginDto loginDto)
         {
 
-            var nv = await _context.tnNhanViens.Include(x => x.Roles)
+            var nv = await _context.tnNhanViens.Include(x => x.Roles).ThenInclude(x => x.Permissions)
             .FirstOrDefaultAsync(x => x.Email == loginDto.Email);
             if (nv!=null && HashPassWord.VerifyPassword(nv.PasswordHash, loginDto.Password))
             {
@@ -40,6 +40,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 .ThenInclude(tn => tn.tnToaNha)
              .Include(pb => pb.tnToaNhas)
              .Include(role => role.Roles)
+                .ThenInclude(permission => permission.Permissions)
              .AsSplitQuery()
              .ToListAsync();
             var dsNhanVien = ds.Select(nv => new GetDSNhanVienDto
@@ -65,7 +66,8 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 Roles = nv.Roles.Select(role => new NhanVienRoles
                 {
                     RoleID = role.RoleID.ToString(),
-                    RoleName = role.RoleName
+                    RoleName = role.RoleName,
+                    Permission = role.Permissions.Select(x => x.PermissionName).ToList()
                 }).ToList()
             }).ToList();
             return dsNhanVien;

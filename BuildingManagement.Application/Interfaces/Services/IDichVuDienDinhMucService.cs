@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Request;
+﻿using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,9 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuDienDinhMucService
     {
-        Task<IEnumerable<DichVuDienDinhMucDto>> GetDSDinhMucDien();
-        Task<DichVuDienDinhMucDto> CreateNewDinhMuc(CreateDichVuDienDinhMucDto dto, string name);
+        Task<List<DinhMucDTO>> GetDSDinhMucDien();
+        Task<CreateDinhMuc> CreateNewDinhMuc(CreateDinhMuc dto, string name);
+        Task<bool> UpdateDienDinhMuc(DinhMucDTO dto, string name);
+        Task<bool> RemoveDienDinhMuc(int MaDM);
     }
 }

@@ -25,7 +25,7 @@ namespace BuildingManagement.API.Controllers
         [HttpPost("CreateNewDichVuSuDung")]
         public async Task<IActionResult> CreateNewDichVuSuDung(CreateDichVuSuDungDto dto)
         {
-            var newDichVuSuDung = await _dichVuSuDungSerivce.CreateDichVuSuDung(dto,Name);
+            var newDichVuSuDung = await _dichVuSuDungSerivce.CreateDichVuSuDung(dto, Name);
             return Ok(newDichVuSuDung);
         }
 
@@ -38,6 +38,29 @@ namespace BuildingManagement.API.Controllers
                 return Ok(checkDichVuSuDung);
             }
             return NotFound("Không tìm thấy dịch vụ sử dụng với mã MB này");
+        }
+
+        [HttpGet("GetDSSuDungDichVuByCuDan")]
+        public async Task<IActionResult> GetDSSuDungDichVuByCuDan()
+        {
+            var dsDichVuSuDung = await _dichVuSuDungSerivce.GetDSDichVuSuDungByCuDan(Id);
+            if (dsDichVuSuDung != null)
+            {
+                return Ok(dsDichVuSuDung);
+            }
+            return NotFound("Không tìm thấy dịch vụ sử dụng với mã Cu Dan này");
+
+        }
+
+        [HttpGet("GetAllDichVuSuDung")]
+        public async Task<IActionResult> GetAllDichVuSuDung()
+        {
+            var dsDichVuSuDung = await _dichVuSuDungSerivce.GetAllDSDichVuSuDungs();
+            if (dsDichVuSuDung != null)
+            {
+                return Ok(dsDichVuSuDung);
+            }
+            return NotFound("Không tìm thấy dịch vụ sử dụng nào");
         }
     }
 }

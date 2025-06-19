@@ -129,7 +129,7 @@ namespace BuildingManagement.Infrastructure.Data
             _dienDinhMuc = new DichVuDienDinhMucRepository(_context);
             _dichVuSuDung = new DichVuSuDungRepository(_context, mapper);
             _hoaDon = new DichVuHoaDonRepository(_context);
-            _khachHang = new KhachHangRepository(_context);
+            _khachHang = new KhachHangRepository(_context, mapper);
             _phongBan = new PhongBanRepository(_context);
             _phieuThu = new PhieuThuRepository(_context);
             _chiTietBaoTri = new NKBTChiTietBaoTriRepository(_context);

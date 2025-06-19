@@ -1,5 +1,6 @@
 ﻿using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpGet("GetDSDichVu")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDSDichVu()
         {
             var dsDichVu = await _dichVuService.GetDSDichVu();

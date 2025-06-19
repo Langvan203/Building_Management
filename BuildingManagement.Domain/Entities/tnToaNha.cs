@@ -38,6 +38,8 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
         public ICollection<tnbtHeThong> tnbtHeThongs { get; set; }
         public ICollection<tnPhongBan> tnPhongBans { get; set; }
+        public ICollection<dvDienDongHo> dvDienDongHos { get; set; }
+        public ICollection<dvNuocDongHo> dvNuocDongHos { get; set; }
 
     }
 }

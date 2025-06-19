@@ -71,6 +71,7 @@ namespace BuildingManagement.Application.DTOs
     {
         public string RoleID { get; set; }
         public string RoleName { get; set; }
+        public List<string> Permission { get; set; } 
     }
 
     public class UpdateNhanVienToaNha

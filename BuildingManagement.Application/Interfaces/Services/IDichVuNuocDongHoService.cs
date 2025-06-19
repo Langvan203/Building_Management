@@ -9,8 +9,8 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuNuocDongHoService
     {
-        Task<IEnumerable<DichVuNuocDongHoDto>> GetDSDongHo();
-        Task<DichVuNuocDongHoDto> CreateNewDongHo(CreateDichVuNuocDongHoDto dto, string name);
-        Task<DichVuNuocDongHoDto> GetDongHoNuocByMaMB(int MaMB);
+        Task<IEnumerable<DongHoDTO>> GetDSDongHo();
+        Task<CreateDongHoDto> CreateNewDongHo(CreateDongHoDto dto, string name);
+        Task<DongHoDTO> GetDongHoNuocByMaMB(int MaMB);
     }
 }

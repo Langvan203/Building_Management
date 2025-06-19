@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Response;
+﻿using BuildingManagement.Application.DTOs.Request;
+using BuildingManagement.Application.DTOs.Response;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Application.Interfaces.Services;
 using System;
@@ -16,6 +17,12 @@ namespace BuildingManagement.Application.Services
         public DichVuHoaDonService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+        }
+
+        public async Task<List<HoaDonDTO>> GetDSHoaDon()
+        {
+            var dsHoaDon = await _unitOfWork.HoaDons.GetDSHoaDon();
+            return dsHoaDon;
         }
 
         public Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync()

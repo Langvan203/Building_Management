@@ -28,6 +28,7 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpGet("GetDSToaNha")]
+        [Authorize(Policy = "ViewBuilding")]
         public async Task<IActionResult> GetDSToaNha()
         {
          
