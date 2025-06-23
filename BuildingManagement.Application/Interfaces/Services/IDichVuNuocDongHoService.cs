@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Application.DTOs.Request;
+﻿using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.DTOs.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,11 @@ namespace BuildingManagement.Application.Interfaces.Services
 {
     public interface IDichVuNuocDongHoService
     {
-        Task<IEnumerable<DongHoDTO>> GetDSDongHo();
-        Task<CreateDongHoDto> CreateNewDongHo(CreateDongHoDto dto, string name);
-        Task<DongHoDTO> GetDongHoNuocByMaMB(int MaMB);
+        Task<PagedResult<DongHoDTO>> GetDSNuocDongHo(int pageNumber);
+        Task<CreateDongHoDto> CreateNuocDongHo(CreateDongHoDto dto, string name);
+        Task<bool> UpdateNuocDongHo(UpdateDongHoDto dto, string name);
+        Task<bool> RemoveNuocDongHo(int MaDH);
+        Task<bool> GhiChiSoMoi(int MaDH, int ChiSoMoi, string name);
+        Task<bool> UpdateTrangThai(int MaDH, bool TrangThai, string Name);
     }
 }

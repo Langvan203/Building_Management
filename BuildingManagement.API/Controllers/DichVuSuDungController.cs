@@ -16,51 +16,101 @@ namespace BuildingManagement.API.Controllers
             _dichVuSuDungSerivce = dichVuSuDungSerivce;
         }
 
-        [HttpGet("GetDSDichVuSuDung")]
-        public async Task<IActionResult> GetDSDichVuSuDung()
+        [HttpGet("GetDSYeuCauSuDung")]
+        public async Task<IActionResult> GetDSYeuCauSuDung(int pageNumber, DateTime ngayBatDau, DateTime ngayKetThuc, int pageSize = 15)
         {
-            var dsDichVuSuDung = await _dichVuSuDungSerivce.GetDSDichVuSuDung();
-            return Ok(dsDichVuSuDung);
-        }
-        [HttpPost("CreateNewDichVuSuDung")]
-        public async Task<IActionResult> CreateNewDichVuSuDung(CreateDichVuSuDungDto dto)
-        {
-            var newDichVuSuDung = await _dichVuSuDungSerivce.CreateDichVuSuDung(dto, Name);
-            return Ok(newDichVuSuDung);
+            var result = await _dichVuSuDungSerivce.GetDSYeuCauSuDung(pageNumber, ngayBatDau, ngayKetThuc, pageSize);
+            return Ok(result);
         }
 
-        [HttpGet("GetDichVuSuDungByMaKH")]
-        public async Task<IActionResult> GetDichVuSuDungByMaMB(int MaKH)
+        [HttpPost("DuyetYeuCau")]
+        public async Task<IActionResult> DuyetYeuCau(int MaDVSD)
         {
-            var checkDichVuSuDung = await _dichVuSuDungSerivce.GetDSDichVuSuDungByMaKH(MaKH);
-            if (checkDichVuSuDung != null)
+            var result = await _dichVuSuDungSerivce.DuyetYeuCau(MaDVSD);
+            if (result)
             {
-                return Ok(checkDichVuSuDung);
+                return Ok("Yêu cầu đã được duyệt thành công.");
             }
-            return NotFound("Không tìm thấy dịch vụ sử dụng với mã MB này");
+            return NotFound("Không tìm thấy yêu cầu dịch vụ sử dụng.");
         }
 
-        [HttpGet("GetDSSuDungDichVuByCuDan")]
-        public async Task<IActionResult> GetDSSuDungDichVuByCuDan()
+        [HttpPost("TuChoiYeuCau")]
+        public async Task<IActionResult> TuChoiYeuCau(int MaDVSD)
         {
-            var dsDichVuSuDung = await _dichVuSuDungSerivce.GetDSDichVuSuDungByCuDan(Id);
-            if (dsDichVuSuDung != null)
+            var result = await _dichVuSuDungSerivce.TuChoiYeuCau(MaDVSD);
+            if (result)
             {
-                return Ok(dsDichVuSuDung);
+                return Ok("Yêu cầu đã được từ chối thành công.");
             }
-            return NotFound("Không tìm thấy dịch vụ sử dụng với mã Cu Dan này");
-
+            return NotFound("Không tìm thấy yêu cầu dịch vụ sử dụng.");
         }
 
-        [HttpGet("GetAllDichVuSuDung")]
-        public async Task<IActionResult> GetAllDichVuSuDung()
+        [HttpGet("GetDSDangSuDung")]
+        public async Task<IActionResult> GetDSDangSuDung(int pageNumber, int pageSize = 15)
         {
-            var dsDichVuSuDung = await _dichVuSuDungSerivce.GetAllDSDichVuSuDungs();
-            if (dsDichVuSuDung != null)
+            var result = await _dichVuSuDungSerivce.GetDSDangSuDung(pageNumber, pageSize);
+            return Ok(result);
+        }
+
+        [HttpPost("CreateDichVuSuDung")]
+        public async Task<IActionResult> CreateDichVuSuDung([FromBody] CreateDichVuSuDungDto createDichVuSuDungDto)
+        {
+            var result = await _dichVuSuDungSerivce.CreateDichVuSuDung(createDichVuSuDungDto, Name);
+            if (result != null)
             {
-                return Ok(dsDichVuSuDung);
+                return Ok(result);
             }
-            return NotFound("Không tìm thấy dịch vụ sử dụng nào");
+            return BadRequest("Đăng ký dịch vụ sử dụng đã tồn tại hoặc thông tin không hợp lệ.");
+        }
+
+        [HttpPost("NgungSuDung")]
+        public async Task<IActionResult> NgungSuDung(int MaDVSD)
+        {
+            var result = await _dichVuSuDungSerivce.NgungSuDung(MaDVSD);
+            if (result)
+            {
+                return Ok("Dịch vụ sử dụng đã được ngừng thành công.");
+            }
+            return NotFound("Không tìm thấy dịch vụ sử dụng với mã này.");
+        }
+
+        [HttpPost("TiepTucSuDung")]
+        public async Task<IActionResult> TiepTucSuDung(int MaDVSD)
+        {
+            var result = await _dichVuSuDungSerivce.TiepTucSuDung(MaDVSD);
+            if (result)
+            {
+                return Ok("Dịch vụ sử dụng đã được tiếp tục thành công.");
+            }
+            return NotFound("Không tìm thấy dịch vụ sử dụng với mã này.");
+        }
+
+        [HttpGet("GetThongKeSuDung")]
+        public async Task<IActionResult> GetThongKeSuDung(int pageNumber, DateTime ngayBatDau, DateTime ngayKetThuc, int pageSize = 15)
+        {
+            var result = await _dichVuSuDungSerivce.GetThongKeSuDung(pageNumber, ngayBatDau, ngayKetThuc, pageSize);
+            return Ok(result);
+        }
+
+        [HttpGet("ExportThongKeToExcel")]
+        public async Task<IActionResult> ExportThongKeToExcel(DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            var fileContent = await _dichVuSuDungSerivce.ExportThongKeToExcel(ngayBatDau, ngayKetThuc);
+            if (fileContent != null)
+            {
+                return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ThongKeSuDung.xlsx");
+            }
+            return BadRequest("Không có dữ liệu để xuất.");
+        }
+        [HttpPost("DuyetSangHoaDon")]
+        public async Task<IActionResult> DuyetSangHoaDon(int MaDVSD)
+        {
+            var result = await _dichVuSuDungSerivce.DuyetSangHoaDon(MaDVSD, Name);
+            if (result)
+            {
+                return Ok("Đã duyệt sang hóa đơn thành công.");
+            }
+            return NotFound("Không tìm thấy dịch vụ sử dụng với mã này.");
         }
     }
 }

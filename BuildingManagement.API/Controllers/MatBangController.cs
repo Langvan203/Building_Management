@@ -124,5 +124,16 @@ namespace BuildingManagement.API.Controllers
             }
             return Ok(result);
         }
+
+        [HttpGet("GetDanhSachMatBangForFilters")]
+        public async Task<IActionResult> GetDanhSachMatBangForFilters()
+        {
+            var dsMatBang = await _matBangService.GetDanhSachMatBangForFilters();
+            if (dsMatBang == null)
+            {
+                return NotFound("Không tìm thấy danh sách mặt bằng nào");
+            }
+            return Ok(dsMatBang);
+        }
     }
 }

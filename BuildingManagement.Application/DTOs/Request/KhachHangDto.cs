@@ -68,5 +68,8 @@ namespace BuildingManagement.Application.DTOs.Request
         public int Id { get; set; }
         public string Name { get; set; }
         public string Contract { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnMatBang> tnMatBangs { get; set; }
         public ICollection<dvNuocDongHo> dvNuocDongHos { get; set; }
         public ICollection<dvDienDongHo> dvDienDongHos { get; set; }
+        public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
 
 
     }

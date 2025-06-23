@@ -28,6 +28,9 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 Id = x.MaKH,
                 Name = x.IsCaNhan == true ? x.HoTen : x.CtyTen,
                 Contract = x.DienThoai,
+                MaTN = x.tnToaNha.MaTN != null ? x.tnToaNha.MaTN : 0,
+                MaKN = x.tnKhoiNha.MaKN != null ? x.tnKhoiNha.MaKN : 0,
+                MaTL = x.tnTangLau.MaTL != null ? x.tnTangLau.MaTL : 0,
             }).ToListAsync();
             return dsKH;
         }

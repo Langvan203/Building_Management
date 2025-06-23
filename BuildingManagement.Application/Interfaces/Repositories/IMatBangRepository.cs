@@ -15,6 +15,7 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task<IEnumerable<MatBangDto>> GetDSMatBangByMaLMB(int MaLMB, int MaTN);
         Task<IEnumerable<MatBangDto>> GetDSMatBangByMaTT(int MaTT, int MaTN);
         Task<IEnumerable<MatBangDto>> GetDSMatBangByMaTN(int MaTN);
+        Task<List<DanhSachMatBangForFilter>> GetDanhSachMatBangForFilters();
         Task<List<DanhSachMatBangDTO>> GetDSMatBang();
     }
 }

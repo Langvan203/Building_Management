@@ -61,6 +61,10 @@
               "target": "Package",
               "version": "[14.0.0, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "JWT": {
               "target": "Package",
               "version": "[11.0.0, )"
@@ -232,6 +236,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"

@@ -19,6 +19,12 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         {
         }
 
+        public Task<bool> CheckTonTaiDichVuSuDung(int MaDVSD)
+        {
+            var exists = _context.dvHoaDons.AnyAsync(x => x.MaDVSD == MaDVSD);
+            return exists;
+        }
+
         public async Task<List<HoaDonDTO>> GetDSHoaDon()
         {
             var dsHoaDon = await _context.dvHoaDons.Include(x => x.dvDichVuSuDung).ThenInclude(x => x.dvDichVu).AsSplitQuery().ToListAsync();

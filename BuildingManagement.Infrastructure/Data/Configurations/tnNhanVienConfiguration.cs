@@ -53,6 +53,25 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                     }
                 );
 
+            builder.HasMany(tn => tn.tnycYeuCaus)
+                .WithMany(tn => tn.tnNhanViens)
+                .UsingEntity<Dictionary<string, object>>("YeuCau_NhanVien", tn =>
+                    tn.HasOne<tnycYeuCauSuaChua>()
+                    .WithMany()
+                    .HasForeignKey("MaYC")
+                    .OnDelete(DeleteBehavior.Cascade),
+
+                    tn => tn.HasOne<tnNhanVien>()
+                    .WithMany()
+                    .HasForeignKey("MaNV")
+                    .OnDelete(DeleteBehavior.Cascade),
+
+                    tn =>
+                    {
+                        tn.HasKey("MaYC", "MaNV");
+                    }
+                );
+
             builder.HasMany(tn => tn.nvDanhGias)
                 .WithOne(tn => tn.tnNhanVien)
                 .HasForeignKey(tn => tn.MaNV)

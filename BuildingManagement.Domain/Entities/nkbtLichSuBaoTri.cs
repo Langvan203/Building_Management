@@ -11,12 +11,13 @@ namespace BuildingManagement.Domain.Entities
     {
         [Key]
         public int MaLichSu { get; set; }
-        public string GhiChi { get; set; }
-
+        public string TieuDe { get; set; }
+        public string GhiChu { get; set; }
         // FK
         public int MaHeThong { get; set; }
-        
+        public int MaKeHoach { get; set; }
         //Navigation 
         public tnbtHeThong tnbtHeThong { get; set; }
+        public nkbtKeHoachBaoTri nkbtKeHoachBaoTri { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<nkbtLichSuBaoTri> builder)
         {
             builder.HasKey(nk => nk.MaLichSu);
+
         }
     }
 }

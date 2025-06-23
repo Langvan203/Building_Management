@@ -20,6 +20,21 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             _mapper = mapper;
         }
 
+        public async Task<List<DanhSachMatBangForFilter>> GetDanhSachMatBangForFilters()
+        {
+            var dsMatBang = await _context.tnMatBangs.Where(x => x.MaKH != null).Select(x => new DanhSachMatBangForFilter
+            {
+                MaMB = x.MaMB,
+                MaTN = x.MaTN,
+                MaKN = x.MaKN == null ? 0 : (int)x.MaKN,
+                MaTL = x.MaTL,
+                MaVT = x.MaVT,
+                MaKH = x.MaKH == null ? 0 : (int)x.MaKH,
+                TenKH = x.tnKhachHang.IsCaNhan ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
+            }).ToListAsync();
+            return dsMatBang;
+        }
+
         public async Task<List<DanhSachMatBangDTO>> GetDSMatBang()
         {
             var dsMatBang = await _context.tnMatBangs.Include(x => x.mbLoaiMB)

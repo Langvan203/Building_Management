@@ -17,6 +17,7 @@ namespace BuildingManagement.Domain.Entities
         public decimal DaThanhToan { get; set; }
         public decimal ConNo { get; set; }
         public decimal TienBVMT { get; set; }
+        public decimal TienVAT { get; set; }
         public decimal PhaiThu { get; set; }
         public bool IsThanhToan { get; set; }
         public string GhiChu { get; set; }

@@ -32,6 +32,8 @@ namespace BuildingManagement.Application.DTOs.Request
     {
         public DateTime NgayBatDauTinhPhi { get; set; }
         public DateTime NgayKetThucTinhPhi { get; set; }
+        public bool IsDuyet { get; set; } = true;
+        public bool TrangThaiSuDung { get; set; } = true;
         public decimal ThanhTien { get; set; }
         public string GhiChu { get; set; }
         public decimal TienBVMT { get; set; }
@@ -42,6 +44,7 @@ namespace BuildingManagement.Application.DTOs.Request
         public int MaMB { get; set; }
         public int MaKN { get; set; }
         public int MaTL { get; set; }
+        public int MaTN { get; set; }
     }
 
     public class GetDSDichVuSuDung
@@ -59,19 +62,77 @@ namespace BuildingManagement.Application.DTOs.Request
         public bool TrangThai { get; set; }
     }
 
-    public class GetAllDSDichVuSuDung
+    public class GetDSDangSuDung
     {
         public int MaDVSD { get; set; }
-        public DateTime NgayBatDauTinhPhi { get; set; }
-        public string GhiChu { get; set; }
         public string TenDV { get; set; }
+        public DateTime NgayBatDauSuDung { get; set; }
+        public DateTime NgayDenHanThanhToan { get; set; }
         public bool TrangThai { get; set; }
-        public int MaLDV { get; set; }
         public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+        public string MaVT { get; set; }
         public int MaKH { get; set; }
         public string TenKH { get; set; }
-        public int MaTL { get; set; }
-        public int MaKN { get; set; }
+        public int MaLDV { get; set; }
+    }
+
+    public class GetDSYeuCauSuDung
+    {
+        public int MaDVSD { get; set; }
+        public DateTime RequestDate { get; set; }
+        public string TenDV { get; set; }
+        public int MaDV { get; set; }
+        public int TrangThai { get; set; }
+        public string GhiChu { get; set; }
+        public int MaMB { get; set; }
         public string MaVT { get; set; }
+        public int MaKH { get; set; }
+        public string TenKH { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+    }
+
+    public class GetThongKeSuDung
+    {
+        public int MaDVSD { get; set; }
+        public DateTime NgayBatDauSuDung { get; set; }
+        public DateTime NgayDenHanThanhToan { get; set; }
+        public decimal TienVAT { get; set; }
+        public decimal TienBVMT { get; set; }
+        public decimal ThanhTien { get; set; }
+        public int MaDV { get; set; }
+        public string TenDV { get; set; }
+        public int MaKH { get; set; }
+        public string TenKH { get; set; }
+        public int MaTN { get; set; }
+        public int MaMB { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+        public string MaVT { get; set; }
+        public bool IsDuyetHoaDon { get; set; }
+        public int MaLDV { get; set; }
+    }
+
+    public class DuyetSangHoaDon
+    {
+        public decimal ThueVAT { get; set; }
+        public decimal ThueBVMT { get; set; }
+        public decimal TienTruocVAT { get; set; }
+        public decimal DaThanhToan { get; set; } = 0;
+        public decimal ConNo { get; set; }
+        public decimal TienBVMT { get; set; }
+        public decimal TienVAT { get; set; }
+        public decimal PhaiThu { get; set; }
+        public bool IsThanhToan { get; set; } = false;
+        public string GhiChu { get; set; }
+        public int MaDVSD { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+        public int MaKH { get; set; }
+        public int MaMB { get; set; }
     }
 }

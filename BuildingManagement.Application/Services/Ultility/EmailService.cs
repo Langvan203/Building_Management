@@ -42,5 +42,26 @@ namespace BuildingManagement.Application.Services.Ultility
             await client.DisconnectAsync(true, cancellationToken);
         }
 
+        public async Task SendEmailWithAtachFileAsync(string to, string subject, string htmlContent, string filePath, CancellationToken cancellationToken = default)
+        {
+            var message = new MimeMessage();
+            message.From.Add(MailboxAddress.Parse(_emailSettings.From));
+            message.To.Add(MailboxAddress.Parse(to));
+            message.Subject = subject;
+            var builder = new BodyBuilder
+            {
+                HtmlBody = htmlContent
+            };
+            builder.Attachments.Add(filePath);
+            message.Body = builder.ToMessageBody();
+            using var client = new MailKit.Net.Smtp.SmtpClient();
+            var secureSocket = _emailSettings.UseSsl ? SecureSocketOptions.StartTls : SecureSocketOptions.Auto;
+            await client.ConnectAsync(_emailSettings.Host, _emailSettings.Port, secureSocket);
+            await client.AuthenticateAsync(_emailSettings.UserName, _emailSettings.Password);
+            
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
+
+        }
     }
 }

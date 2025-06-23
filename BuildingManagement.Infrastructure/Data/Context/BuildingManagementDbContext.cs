@@ -82,6 +82,15 @@ namespace BuildingManagement.Infrastructure.Data.Context
                 new dvLoaiDV { MaLDV = 5, TenLDV = "Dịch vụ Gym", Icon = "<Dumbbell className=\"h-5 w-5 text-green-500\" />", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28), IsEssential = false, MoTa = "Dịch vụ phòng tập Gym cho cư dân" }
                 );
 
+
+            modelBuilder.Entity<nkbtTrangThai>().HasData(
+                new nkbtTrangThai { MaTrangThai = 1, TenTrangThai = "Chưa thực hiện", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new nkbtTrangThai { MaTrangThai = 2, TenTrangThai = "Đang thực hiện", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new nkbtTrangThai { MaTrangThai = 3, TenTrangThai = "Đã hoàn thành", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) },
+                new nkbtTrangThai { MaTrangThai = 4, TenTrangThai = "Đã hủy", NguoiTao = "Admin", NguoiSua = "", CreatedDate = new DateTime(2025, 04, 28) }
+                );
+
+
         }
     }
 }

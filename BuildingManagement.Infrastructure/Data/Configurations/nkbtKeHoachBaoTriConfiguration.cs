@@ -15,10 +15,6 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
         {
             builder.HasKey(nk => nk.MaKeHoach);
 
-            builder.HasOne(nk => nk.nkbtTrangThai)
-                .WithOne(nk => nk.nkbtKeHoachBaoTri)
-                .HasForeignKey<nkbtKeHoachBaoTri>(nk => nk.MaTrangThai);
-
             builder.HasMany(nk => nk.nkbtChiTietBaoTris)
                 .WithOne(nk => nk.nkbtKeHoachBaoTri)
                 .HasForeignKey(nk => nk.MaKeHoach);
@@ -41,6 +37,13 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                         nk.HasKey("MaNV", "MaKeHoach");
                     }
                 );
+
+            builder.HasMany(nk => nk.nkbtLichSuBaoTris)
+                .WithOne(nk => nk.nkbtKeHoachBaoTri)
+                .HasForeignKey(nk => nk.MaKeHoach)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
+
     }
 }

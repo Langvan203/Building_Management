@@ -1,4 +1,6 @@
-﻿using BuildingManagement.Application.Interfaces.Repositories;
+﻿using AutoMapper;
+using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Infrastructure.Data.Context;
 using System;
@@ -11,8 +13,20 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
 {
     public class NKBTChiTietBaoTriRepository : Repository<nkbtChiTietBaoTri>, INKBTChiTietBaoTriRepository
     {
-        public NKBTChiTietBaoTriRepository(BuildingManagementDbContext context) : base(context)
+        private readonly IMapper _mapper;
+        public NKBTChiTietBaoTriRepository(BuildingManagementDbContext context, IMapper mapper) : base(context)
         {
+            _mapper = mapper;
+        }
+
+        public async Task<bool> CreateChiTietBaoTri(int MaKeHoach, List<CreateChiTietBaoTriDto> dsCongViec)
+        {
+            var newChiTietBaoTri = _mapper.Map<List<nkbtChiTietBaoTri>>(dsCongViec);
+            newChiTietBaoTri.ForEach(x => x.MaKeHoach = MaKeHoach);
+
+            await _context.nkbtChiTietBaoTris.AddRangeAsync(newChiTietBaoTri);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
     

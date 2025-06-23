@@ -14,6 +14,6 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync();
         Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync();
         Task<List<HoaDonDTO>> GetDSHoaDon();
-            
+        Task<bool> CheckTonTaiDichVuSuDung(int MaDVSD);            
     }
 }

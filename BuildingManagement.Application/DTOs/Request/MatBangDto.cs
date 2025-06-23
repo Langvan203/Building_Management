@@ -44,7 +44,18 @@ namespace BuildingManagement.Application.DTOs.Request
         public string TenTL { get; set; }
     }
 
-    public class CreateMatBangDto
+    public class DanhSachMatBangForFilter
+    {
+        public int MaMB { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+        public int MaKH { get; set; }
+        public string TenKH { get; set; }
+        public string MaVT { get; set; }
+    }
+
+        public class CreateMatBangDto
     {
         public int MaTN { get; set; }
         public int MaKN { get; set; }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BuildingManagement.Application.DTOs;
 using BuildingManagement.Application.DTOs.Request;
 using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
@@ -20,57 +21,140 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllDSDichVuSuDung>> GetAllDSDichVuSuDungs()
+        public async Task<dvDichVuSuDung> CheckDangKySuDung(int MaKH, int MaMB, int MaDV, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            var dsDichVu = await _context.dvDichVuSuDungs.Include(x => x.dvDichVu)
-                .Include(x => x.tnKhachHang)
-                .Include(x => x.tnToaNha)
-                .Include(x => x.tnKhoiNha)
-                .Include(x => x.tnTangLau)
-                .Include(x => x.tnMatBang)
-                .AsSingleQuery().ToListAsync();
-            var dsDichVuDTO = dsDichVu.Select(x => new GetAllDSDichVuSuDung
+            var dvSuDungNew = await _context.dvDichVuSuDungs.Where(x => x.MaKH == MaKH && x.MaMB == MaMB && x.MaDV == MaDV && x.TrangThaiSuDung == true && x.NgayBatDauTinhPhi == ngayBatDau && x.NgayKetThucTinhPhi == x.NgayKetThucTinhPhi).FirstOrDefaultAsync();
+            if(dvSuDungNew == null)
+            {
+                return null;
+            }
+            return dvSuDungNew;
+        }
+
+        public async Task<dvDichVuSuDung> CheckDichVuSuDung(int MaDVSD)
+        {
+            var dvSuDung = await _context.dvDichVuSuDungs.Where(x => x.MaDVSD == MaDVSD).FirstOrDefaultAsync();
+            if (dvSuDung == null)
+            {
+                return null;
+            }
+            return dvSuDung;
+        }
+
+        public async Task<dvDichVuSuDung> CheckDichVuSuDungIncludeManyTable(int MaDVSD)
+        {
+            var dvSuDung = await _context.dvDichVuSuDungs.Where(x => x.MaDVSD == MaDVSD).Include(x => x.dvDichVu).Include(x => x.tnKhachHang).FirstOrDefaultAsync();
+            if (dvSuDung == null)
+            {
+                return null;
+            }
+            return dvSuDung;
+        }
+
+        public async Task<PagedResult<GetDSDangSuDung>> GetDSDangSuDung(int pageNumber, int pageSize = 15)
+        {
+            var dsDangSuDung = _context.dvDichVuSuDungs.Select(x => new GetDSDangSuDung
             {
                 MaDVSD = x.MaDVSD,
-                MaKH = x.tnKhachHang.MaKH,
-                MaLDV = x.dvDichVu.MaLDV,
-                NgayBatDauTinhPhi = x.NgayBatDauTinhPhi,
-                TrangThai = x.IsDuyet,
-                GhiChu = x.GhiChu,
                 TenDV = x.dvDichVu.TenDV,
-                TenKH = x.tnKhachHang.IsCaNhan ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
-                MaKN = (int)x.tnKhachHang.MaKN,
-                MaTL = (int)x.tnKhachHang.MaTL,
-                MaTN = (int)x.tnKhachHang.MaTN,
                 MaVT = x.tnMatBang.MaVT,
-            }).ToList();
-            return dsDichVuDTO;
+                MaTN = (int)x.MaTN,
+                MaKN = (int)x.MaKN,
+                MaTL = (int)x.MaTL,
+                TrangThai =(bool)x.TrangThaiSuDung,
+                NgayBatDauSuDung = x.NgayBatDauTinhPhi,
+                NgayDenHanThanhToan = x.NgayKetThucTinhPhi,
+                MaKH = (int)x.MaKH,
+                TenKH = x.tnKhachHang.IsCaNhan ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
+                MaLDV = x.dvDichVu.MaLDV
+            });
+
+            var totalCount = await dsDangSuDung.CountAsync();
+            var totalPage = (int)Math.Ceiling((double)totalCount / pageSize);
+            var items = await dsDangSuDung.OrderByDescending(x => x.NgayBatDauSuDung).Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                .ToListAsync();
+
+            return new PagedResult<GetDSDangSuDung>
+            {
+                Data = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                TotalPages = totalPage,
+            };
         }
 
-        public async Task<List<GetDSDichVuSuDung>> GetDSDichVuSuDungByCuDan(int MaKH)
+        public async Task<PagedResult<GetDSYeuCauSuDung>> GetDSYeuCauSuDung(int pageNumber, DateTime ngayBatDau, DateTime ngayKetThuc, int pageSize = 15)
         {
-            var dsDichVu = await _context.dvDichVuSuDungs.Where(x => x.MaKH == MaKH).Include(x => x.dvDichVu).AsSingleQuery().ToListAsync();
-            var dsDichVuDTO = dsDichVu.Select(x => new GetDSDichVuSuDung
+            var dsYeuCauSuDung = _context.dvDichVuSuDungs.Where(x => x.IsRequestByResident == true && x.CreatedDate >= ngayBatDau && x.CreatedDate <= ngayKetThuc).Include(x => x.dvDichVu)
+                .Select(x => new GetDSYeuCauSuDung
+                {
+                    MaDVSD = x.MaDVSD,
+                    MaDV = x.MaDV,
+                    TenDV = x.dvDichVu.TenDV,
+                    MaMB = x.MaMB,
+                    MaVT = x.tnMatBang.MaVT,
+                    MaKH = (int)x.MaKH,
+                    TenKH = x.tnKhachHang.IsCaNhan ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
+                    RequestDate = x.CreatedDate,
+                    GhiChu = x.GhiChu,
+                    MaTN = (int)x.MaTN,
+                    MaKN = (int)x.MaKN,
+                    MaTL = (int)x.MaTL,
+                    TrangThai = x.IsDuyet
+                });
+            
+            var totalCount = await dsYeuCauSuDung.CountAsync();
+            var totalPage = (int)Math.Ceiling((double)totalCount / pageSize);
+            var items = await dsYeuCauSuDung.OrderByDescending(x => x.RequestDate).Skip((pageNumber-1)*pageSize).Take(pageSize)
+                .ToListAsync();
+
+            return new PagedResult<GetDSYeuCauSuDung>
+            {
+                Data = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                TotalPages = totalPage
+            };
+
+        }
+
+        public async Task<PagedResult<GetThongKeSuDung>> GetThongKeSuDung(int pageNumber, DateTime ngayBatDau, DateTime ngayKetThuc, int pageSize = 15)
+        {
+            var thongKeSuDung = _context.dvDichVuSuDungs.Where(x => x.NgayBatDauTinhPhi >= ngayBatDau && x.NgayKetThucTinhPhi <= ngayKetThuc).Select(x => new GetThongKeSuDung
             {
                 MaDVSD = x.MaDVSD,
-                NgayBatDauTinhPhi = x.NgayBatDauTinhPhi,
-                NgayKetThucTinhPhi = x.NgayKetThucTinhPhi,
-                TienBVMT = x.TienBVMT,
+                NgayBatDauSuDung = x.NgayBatDauTinhPhi,
+                NgayDenHanThanhToan = x.NgayKetThucTinhPhi,
                 TienVAT = x.TienVAT,
-                TrangThai = x.IsDuyet,
+                TienBVMT = x.TienBVMT,
                 ThanhTien = x.ThanhTien,
-                GhiChu = x.GhiChu,
+                MaDV = x.MaDV,
                 TenDV = x.dvDichVu.TenDV,
-                DonGia = x.dvDichVu.DonGia,
-                DonViTinh = x.dvDichVu.DonViTinh
-            }).ToList();
-            return dsDichVuDTO;
-        }
+                MaKH = (int)x.MaKH,
+                TenKH = x.tnKhachHang.IsCaNhan ? x.tnKhachHang.HoTen : x.tnKhachHang.CtyTen,
+                MaTN = (int)x.MaTN,
+                MaKN = (int)x.MaKN,
+                MaTL = (int)x.MaTL,
+                MaMB = x.MaMB,
+                MaVT = x.tnMatBang.MaVT,
+                IsDuyetHoaDon = (bool)x.IsChuyenHoaDon,
+                MaLDV = x.dvDichVu.MaLDV
+            });
+            var totalCount = await thongKeSuDung.CountAsync();
+            var totalPage = (int)Math.Ceiling((double)totalCount / pageSize);
+            var items = await thongKeSuDung.OrderByDescending(x => x.NgayBatDauSuDung).Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                .ToListAsync();
 
-        public async Task<IEnumerable<DichVuSuDungDto>> GetDSDichVuSuDungByMaKH(int MaKH)
-        {
-            var dsDVSuDung = await _context.dvDichVuSuDungs.Where(x => x.MaKH == MaKH).ToListAsync();
-            return _mapper.Map<IEnumerable<DichVuSuDungDto>>(dsDVSuDung);
+            return new PagedResult<GetThongKeSuDung>
+            {
+                Data = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                TotalPages = totalPage
+            };
         }
     }
     

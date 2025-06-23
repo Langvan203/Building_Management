@@ -204,7 +204,13 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDuyet")
+                    b.Property<bool?>("IsChuyenHoaDon")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("IsDuyet")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsRequestByResident")
                         .HasColumnType("bit");
 
                     b.Property<int>("MaDV")
@@ -247,6 +253,9 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.Property<decimal>("TienVAT")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool?>("TrangThaiSuDung")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -383,13 +392,13 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MaKH")
+                    b.Property<int?>("MaKH")
                         .HasColumnType("int");
 
                     b.Property<int?>("MaKN")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaMB")
+                    b.Property<int?>("MaMB")
                         .HasColumnType("int");
 
                     b.Property<int?>("MaTL")
@@ -423,7 +432,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaKN");
 
                     b.HasIndex("MaMB")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[MaMB] IS NOT NULL");
 
                     b.HasIndex("MaTL");
 
@@ -495,6 +505,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("TienTruocVAT")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TienVAT")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -739,13 +752,13 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MaKH")
+                    b.Property<int?>("MaKH")
                         .HasColumnType("int");
 
                     b.Property<int?>("MaKN")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaMB")
+                    b.Property<int?>("MaMB")
                         .HasColumnType("int");
 
                     b.Property<int?>("MaTL")
@@ -779,7 +792,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaKN");
 
                     b.HasIndex("MaMB")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[MaMB] IS NOT NULL");
 
                     b.HasIndex("MaTL");
 
@@ -987,6 +1001,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<int>("MaKeHoach")
                         .HasColumnType("int");
 
+                    b.Property<int>("MaTrangThai")
+                        .HasColumnType("int");
+
                     b.Property<string>("NguoiSua")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1002,6 +1019,8 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.HasIndex("MaKeHoach");
 
+                    b.HasIndex("MaTrangThai");
+
                     b.ToTable("nkbtChiTietBaoTris");
                 });
 
@@ -1016,11 +1035,21 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("LoaiBaoTri")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaHeThong")
                         .HasColumnType("int");
 
                     b.Property<int>("MaTrangThai")
                         .HasColumnType("int");
+
+                    b.Property<string>("MoTaCongViec")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayBaoTri")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("NguoiSua")
                         .IsRequired()
@@ -1029,6 +1058,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<string>("NguoiTao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TanSuat")
+                        .HasColumnType("int");
 
                     b.Property<string>("TenKeHoach")
                         .IsRequired()
@@ -1041,8 +1073,7 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.HasIndex("MaHeThong");
 
-                    b.HasIndex("MaTrangThai")
-                        .IsUnique();
+                    b.HasIndex("MaTrangThai");
 
                     b.ToTable("nkbtKeHoachBaoTris");
                 });
@@ -1058,11 +1089,14 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("GhiChi")
+                    b.Property<string>("GhiChu")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaHeThong")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaKeHoach")
                         .HasColumnType("int");
 
                     b.Property<string>("NguoiSua")
@@ -1073,12 +1107,18 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TieuDe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("MaLichSu");
 
                     b.HasIndex("MaHeThong");
+
+                    b.HasIndex("MaKeHoach");
 
                     b.ToTable("nkbtLichSuBaoTris");
                 });
@@ -1112,6 +1152,44 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasKey("MaTrangThai");
 
                     b.ToTable("nkbtTrangThais");
+
+                    b.HasData(
+                        new
+                        {
+                            MaTrangThai = 1,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Chưa thực hiện",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaTrangThai = 2,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Đang thực hiện",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaTrangThai = 3,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Đã hoàn thành",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaTrangThai = 4,
+                            CreatedDate = new DateTime(2025, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NguoiSua = "",
+                            NguoiTao = "Admin",
+                            TenTrangThai = "Đã hủy",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nvDanhGia", b =>
@@ -1636,11 +1714,19 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("MaMB")
                         .HasColumnType("int");
 
                     b.Property<int?>("MaTN")
                         .HasColumnType("int");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NguoiSua")
                         .IsRequired()
@@ -1650,9 +1736,20 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NhanHieu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TenHeThong")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -1746,8 +1843,14 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("GhiChu")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdTrangThai")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaHeThong")
                         .HasColumnType("int");
@@ -1755,11 +1858,21 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Property<int>("MaKH")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MaKN")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MaMB")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MaTL")
                         .HasColumnType("int");
 
                     b.Property<int>("MaTN")
                         .HasColumnType("int");
+
+                    b.Property<string>("MoTa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("MucDoYeuCau")
                         .HasColumnType("int");
@@ -1776,6 +1889,10 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TieuDe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -1787,7 +1904,11 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.HasIndex("MaKH");
 
+                    b.HasIndex("MaKN");
+
                     b.HasIndex("MaMB");
+
+                    b.HasIndex("MaTL");
 
                     b.HasIndex("MaTN");
 
@@ -1852,6 +1973,21 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasIndex("MaNV");
 
                     b.ToTable("ToaNha_NhanVien");
+                });
+
+            modelBuilder.Entity("YeuCau_NhanVien", b =>
+                {
+                    b.Property<int>("MaYC")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaNV")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaYC", "MaNV");
+
+                    b.HasIndex("MaNV");
+
+                    b.ToTable("YeuCau_NhanVien");
                 });
 
             modelBuilder.Entity("BaoTri_NhanVien", b =>
@@ -1957,8 +2093,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasOne("BuildingManagement.Domain.Entities.tnKhachHang", "tnKhachHang")
                         .WithMany("dvDienDongHo")
                         .HasForeignKey("MaKH")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnKhoiNha", "tnKhoiNha")
                         .WithMany("dvDienDongHos")
@@ -1967,9 +2102,7 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnMatBang", "tnMatBang")
                         .WithOne("dvDienDongHo")
-                        .HasForeignKey("BuildingManagement.Domain.Entities.dvDienDongHo", "MaMB")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BuildingManagement.Domain.Entities.dvDienDongHo", "MaMB");
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnTangLau", "tnTangLau")
                         .WithMany("dvDienDongHos")
@@ -2072,8 +2205,7 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.HasOne("BuildingManagement.Domain.Entities.tnKhachHang", "tnKhachHang")
                         .WithMany("dvNuocDongHo")
                         .HasForeignKey("MaKH")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnKhoiNha", "tnKhoiNha")
                         .WithMany("dvNuocDongHos")
@@ -2082,9 +2214,7 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnMatBang", "tnMatBang")
                         .WithOne("dvNuocDongHo")
-                        .HasForeignKey("BuildingManagement.Domain.Entities.dvNuocDongHo", "MaMB")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BuildingManagement.Domain.Entities.dvNuocDongHo", "MaMB");
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnTangLau", "tnTangLau")
                         .WithMany("dvNuocDongHos")
@@ -2142,7 +2272,15 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BuildingManagement.Domain.Entities.nkbtTrangThai", "nkbtTrangThai")
+                        .WithMany("nkbtChiTietBaoTris")
+                        .HasForeignKey("MaTrangThai")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("nkbtKeHoachBaoTri");
+
+                    b.Navigation("nkbtTrangThai");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", b =>
@@ -2154,9 +2292,9 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("BuildingManagement.Domain.Entities.nkbtTrangThai", "nkbtTrangThai")
-                        .WithOne("nkbtKeHoachBaoTri")
-                        .HasForeignKey("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", "MaTrangThai")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("nkbtKeHoachBaoTris")
+                        .HasForeignKey("MaTrangThai")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("nkbtTrangThai");
@@ -2171,6 +2309,14 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .HasForeignKey("MaHeThong")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", "nkbtKeHoachBaoTri")
+                        .WithMany("nkbtLichSuBaoTris")
+                        .HasForeignKey("MaKeHoach")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("nkbtKeHoachBaoTri");
 
                     b.Navigation("tnbtHeThong");
                 });
@@ -2346,9 +2492,19 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BuildingManagement.Domain.Entities.tnKhoiNha", "tnKhoiNha")
+                        .WithMany("tnycYeuCauSuaChuas")
+                        .HasForeignKey("MaKN")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("BuildingManagement.Domain.Entities.tnMatBang", "tnMatBang")
                         .WithMany("tnycYeuCauSuaChuas")
                         .HasForeignKey("MaMB")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("BuildingManagement.Domain.Entities.tnTangLau", "tnTangLau")
+                        .WithMany("tnycYeuCauSuaChuas")
+                        .HasForeignKey("MaTL")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("BuildingManagement.Domain.Entities.tnToaNha", "tnToaNha")
@@ -2359,7 +2515,11 @@ namespace BuildingManagement.Infrastructure.Migrations
 
                     b.Navigation("tnKhachHang");
 
+                    b.Navigation("tnKhoiNha");
+
                     b.Navigation("tnMatBang");
+
+                    b.Navigation("tnTangLau");
 
                     b.Navigation("tnToaNha");
 
@@ -2428,6 +2588,21 @@ namespace BuildingManagement.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("YeuCau_NhanVien", b =>
+                {
+                    b.HasOne("BuildingManagement.Domain.Entities.tnNhanVien", null)
+                        .WithMany()
+                        .HasForeignKey("MaNV")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BuildingManagement.Domain.Entities.tnycYeuCauSuaChua", null)
+                        .WithMany()
+                        .HasForeignKey("MaYC")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BuildingManagement.Domain.Entities.dvDichVu", b =>
                 {
                     b.Navigation("dvDichVuSuDungs");
@@ -2486,12 +2661,15 @@ namespace BuildingManagement.Infrastructure.Migrations
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtKeHoachBaoTri", b =>
                 {
                     b.Navigation("nkbtChiTietBaoTris");
+
+                    b.Navigation("nkbtLichSuBaoTris");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.nkbtTrangThai", b =>
                 {
-                    b.Navigation("nkbtKeHoachBaoTri")
-                        .IsRequired();
+                    b.Navigation("nkbtChiTietBaoTris");
+
+                    b.Navigation("nkbtKeHoachBaoTris");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnKhachHang", b =>
@@ -2526,6 +2704,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("tnMatBangs");
 
                     b.Navigation("tnTangLaus");
+
+                    b.Navigation("tnycYeuCauSuaChuas");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnMatBang", b =>
@@ -2565,6 +2745,8 @@ namespace BuildingManagement.Infrastructure.Migrations
                     b.Navigation("tnKhachHangs");
 
                     b.Navigation("tnMatBangs");
+
+                    b.Navigation("tnycYeuCauSuaChuas");
                 });
 
             modelBuilder.Entity("BuildingManagement.Domain.Entities.tnToaNha", b =>

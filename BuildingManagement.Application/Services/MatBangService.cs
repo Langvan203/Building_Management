@@ -55,7 +55,7 @@ namespace BuildingManagement.Application.Services
                     {
                         NgayBatDauTinhPhi = DateTime.Now,
                         NgayKetThucTinhPhi = DateTime.Now.AddMonths(1),
-                        IsDuyet = false,
+                        IsDuyet = 1,
                         ThanhTien = newMB.DienTichBG * dvPQL.DonGia + newMB.DienTichBG * dvPQL.DonGia * dvPQL.TyLeVAT + dvPQL.DonGia * dvPQL.TyLeBVMT,
                         GhiChu = "Thêm phí quản lý tự động",
                         MaDV = dvPQL.MaDV,
@@ -81,6 +81,12 @@ namespace BuildingManagement.Application.Services
                 await _unitOfWork.RollbackAsync();
                 throw new Exception("Lỗi thêm mặt bằng", ex);
             }
+        }
+
+        public async Task<List<DanhSachMatBangForFilter>> GetDanhSachMatBangForFilters()
+        {
+            var dsMatBang = await _unitOfWork.MatBangs.GetDanhSachMatBangForFilters();
+            return dsMatBang;
         }
 
         public async Task<List<DanhSachMatBangDTO>> GetDSMatBang()

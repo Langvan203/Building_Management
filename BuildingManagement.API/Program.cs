@@ -18,15 +18,16 @@ using BuildingManagement.Application.Services.Ultility;
 using BuildingManagement.API.Filter;
 using System.Security.Claims;
 using BuildingManagement.Application.Chat;
+using OfficeOpenXml;
 
 
 var builder = WebApplication.CreateBuilder(args);
+ExcelPackage.License.SetNonCommercialPersonal("Lăng Thảo Văn"); ; // Set your commercial license key here
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
-
 
 // add EmailSetting
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Smtp"));
@@ -108,6 +109,7 @@ builder.Services.AddScoped<IDichVuSuDungSerivce, DichVuSuDungService>();
 builder.Services.AddScoped<IPhongBanService, PhongBanService>();
 builder.Services.AddScoped<IDichVuService, DichVuService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IYeuCauBaoTriService, YeuCauBaoTriService>();
 
 // ultility service
 builder.Services.AddTransient<IEmailService, EmailService>();

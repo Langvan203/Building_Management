@@ -52,7 +52,30 @@ namespace BuildingManagement.API.Controllers
             {
                 return Ok("Xóa đồng hồ điện thành công");
             }
-            return BadRequest("Không thể xóa đồng hồ điện này, có thể không tồn tại");
+            return BadRequest("Không thể xóa đồng hồ điện này, có thể đồng hồ đang hoạt động");
+        }
+
+        [HttpPost("UpdateChiSoMoi")]
+        public async Task<IActionResult> GhiChiSoMoi(int MaDH, int ChiSoMoi)
+        {
+            var ghiChiSo = await _dichVuDienDongHoService.GhiChiSoMoi(MaDH, ChiSoMoi, Name);
+            if (ghiChiSo)
+            {
+                return Ok("Ghi chhỉ số mới cho đồng hồ thành công");
+            }
+            return BadRequest("Ghi chỉ số mới thất bại, chỉ số mới phải lớn hơn chỉ số cũ");
+        }
+
+        [HttpPost("UpdateTrangThai")]
+        public async Task<IActionResult> UpdateTrangThai(int MaDH, bool TrangThai)
+        {
+            var checkUpdate = await _dichVuDienDongHoService.UpdateTrangThai(MaDH, TrangThai, Name);
+            if (checkUpdate)
+            {
+                return Ok("Cập nhật trạng thái đồng hồ thành công");
+            }
+            return BadRequest("Không thể cập nhật trạng thái đồng hồ này, có thể không tồn tại");
+
         }
     }
 }

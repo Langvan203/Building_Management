@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BuildingManagement.Application.Services
 {
@@ -43,11 +44,30 @@ namespace BuildingManagement.Application.Services
             return dsDongHo;
         }
 
+        public async Task<bool> GhiChiSoMoi(int MaDH, int ChiSoMoi, string name)
+        {
+            var checkDongHo = await _unitOfWork.DienDongHos.CheckDongHo(MaDH);
+            if(checkDongHo != null && ChiSoMoi > checkDongHo.ChiSoSuDung)
+            {
+                checkDongHo.ChiSoSuDung = ChiSoMoi;
+                checkDongHo.NguoiSua = name;
+                await _unitOfWork.DienDongHos.UpdateAsync(checkDongHo);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
+
+        }
+
         public async Task<bool> RemoveDienDongHo(int MaDH)
         {
             var checkDongHo = await _unitOfWork.DienDongHos.CheckDongHo(MaDH);
             if (checkDongHo != null)
             {
+                if (checkDongHo.TrangThai == true)
+                {
+                    return false;
+                }
                 await _unitOfWork.DienDongHos.DeleteAsync(checkDongHo);
                 await _unitOfWork.SaveChangesAsync();
                 return true;
@@ -63,6 +83,21 @@ namespace BuildingManagement.Application.Services
                 checkDongHo.ChiSoSuDung = dto.ChiSoSuDung;
                 checkDongHo.TrangThai = dto.TrangThai;
                 checkDongHo.NguoiSua = name;
+                checkDongHo.UpdatedDate = DateTime.Now;
+                await _unitOfWork.DienDongHos.UpdateAsync(checkDongHo);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> UpdateTrangThai(int MaDH, bool TrangThai, string Name)
+        {
+            var checkDongHo = await _unitOfWork.DienDongHos.CheckDongHo(MaDH);
+            if (checkDongHo != null)
+            {
+                checkDongHo.TrangThai = TrangThai;
+                checkDongHo.NguoiSua = Name;
                 checkDongHo.UpdatedDate = DateTime.Now;
                 await _unitOfWork.DienDongHos.UpdateAsync(checkDongHo);
                 await _unitOfWork.SaveChangesAsync();

@@ -1,6 +1,8 @@
-﻿using BuildingManagement.Application.Interfaces.Repositories;
+﻿using BuildingManagement.Application.DTOs;
+using BuildingManagement.Application.Interfaces.Repositories;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,18 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
     {
         public NKBTTrangThaiBaoTriRepository(BuildingManagementDbContext context) : base(context)
         {
+        }
+
+        public async Task<List<TrangThaiBaoTriDto>> GetDSTrangThai()
+        {
+            var dsTrangThai = await _context.nkbtTrangThais
+                .Select(tt => new TrangThaiBaoTriDto
+                {
+                    MaTrangThai = tt.MaTrangThai,
+                    TenTrangThai = tt.TenTrangThai
+                }).ToListAsync();
+
+            return dsTrangThai;
         }
     }
     

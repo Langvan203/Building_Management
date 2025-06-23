@@ -9,5 +9,6 @@ namespace BuildingManagement.Application.Interfaces.Services.Ultility
     public interface IEmailService
     {
         Task SendEmailAsync(string to, string subject, string htmlContent, CancellationToken cancellationToken = default);
+        Task SendEmailWithAtachFileAsync(string to, string subject, string htmlContent, string filePath, CancellationToken cancellationToken = default);
     }
 }

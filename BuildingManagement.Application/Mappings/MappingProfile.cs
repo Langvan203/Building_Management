@@ -70,6 +70,13 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<CreatePhongBanDto, tnPhongBan>();
 
             CreateMap<CreateNhanVienDto, tnNhanVien>();
+            CreateMap<DuyetSangHoaDon, dvHoaDon>();
+
+            CreateMap<CreateHeThong, tnbtHeThong>();
+
+            CreateMap<CreateKeHoachBaoTriDto, nkbtKeHoachBaoTri>();
+
+            CreateMap<CreateChiTietBaoTriDto, nkbtChiTietBaoTri>();
         }
     }
 }

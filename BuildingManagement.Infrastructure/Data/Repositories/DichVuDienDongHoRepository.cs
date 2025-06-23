@@ -46,14 +46,14 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                 {
                     MaDH = dh.MaDH,
                     SoDongHo = dh.SoDongHo,
-                    MaMB = dh.MaMB,
-                    MaVT = dh.tnMatBang.MaVT,
-                    TenKH = dh.tnKhachHang.IsCaNhan ? dh.tnKhachHang.HoTen : dh.tnKhachHang.CtyTen,
+                    MaMB = dh.MaMB == null ? 0 : (int)dh.MaMB,
+                    MaVT = dh.MaMB == null ? "Chưa có  vị trí" : dh.tnMatBang.MaVT,
+                    TenKH = dh.MaKH != null ? dh.tnKhachHang.IsCaNhan ? dh.tnKhachHang.HoTen : dh.tnKhachHang.CtyTen : "Chưa có khách hàng",
                     ChiSoSuDung = dh.ChiSoSuDung,
                     TrangThai = dh.TrangThai,
-                    MaTN = dh.tnMatBang.MaTN,
-                    MaTL = dh.tnMatBang.MaTL,
-                    MaKN = (int)dh.tnMatBang.MaKN,
+                    MaTN = dh.MaMB != null ? (int)dh.MaTN : 0,
+                    MaTL = dh.MaMB != null ? (int)dh.MaTL : 0,
+                    MaKN = dh.MaMB != null ? (int)dh.MaKN : 0,
                     UpdatedDate = dh.UpdatedDate
                 });
 

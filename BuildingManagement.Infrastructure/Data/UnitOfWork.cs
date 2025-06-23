@@ -132,7 +132,7 @@ namespace BuildingManagement.Infrastructure.Data
             _khachHang = new KhachHangRepository(_context, mapper);
             _phongBan = new PhongBanRepository(_context);
             _phieuThu = new PhieuThuRepository(_context);
-            _chiTietBaoTri = new NKBTChiTietBaoTriRepository(_context);
+            _chiTietBaoTri = new NKBTChiTietBaoTriRepository(_context, mapper);
             _heThong = new NKBTHeThongRepository(_context);
             _keHoachBaoTri = new NKBTKeHoachBaoTriRepository(_context);
             _lichSuBaoTri = new NKBTLichSuBaoTriRepository(_context);

@@ -72,5 +72,10 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         {
             return await _context.Set<T>().Where(predicate).ToListAsync();
         }
+
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            await _context.Set<T>().AddRangeAsync(entities);
+        }
     }
 }
