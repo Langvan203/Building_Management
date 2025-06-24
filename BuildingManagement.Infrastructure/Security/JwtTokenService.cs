@@ -30,25 +30,53 @@ namespace BuildingManagement.Infrastructure.Security
         public async Task<string> CreateToken(LoginDto loginDto)
         {
             var nv = await _unitOfWork.NhanViens.ThongTinNhanVien(loginDto);
-            var roles = nv.Roles.Select(x => x.RoleName).ToList();
-            var claims = new List<Claim>()
+            if(nv != null)
+            {
+                var roles = nv.Roles.Select(x => x.RoleName).ToList();
+                var permissions = nv.Roles.SelectMany(x => x.Permissions).ToList();
+                var permissionName = permissions.Select(x => x.PermissionName).ToList();
+                var claims = new List<Claim>()
             {
                 new Claim(JwtRegisteredClaimNames.Sub, nv.MaNV.ToString()),
                 new Claim(ClaimTypes.Email, nv.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Name, nv.TenNV.ToString())
+                new Claim(ClaimTypes.Name, nv.TenNV.ToString())
             };
-            claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(
-                issuer: _jwtConfig.Issuer,
-                audience: _jwtConfig.Audience,
-                claims = claims,
-                expires: DateTime.UtcNow.AddHours(_jwtConfig.ExpiryHours),
-                signingCredentials: creds
-                );
-            return new JwtSecurityTokenHandler().WriteToken(token); 
+                claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
+                foreach(var item in permissionName)
+                {
+                    claims.Add(new Claim("permissions", item));
+                }    
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                var token = new JwtSecurityToken(
+                    issuer: _jwtConfig.Issuer,
+                    audience: _jwtConfig.Audience,
+                    claims = claims,
+                    expires: DateTime.UtcNow.AddMonths(1),
+                    signingCredentials: creds
+                    );
+                return new JwtSecurityTokenHandler().WriteToken(token);
+            }
+            else
+            {
+                var kh = await _unitOfWork.KhachHangs.GetKhachHangInfo(loginDto);
+                var claims = new List<Claim>() {
+                    new Claim(JwtRegisteredClaimNames.Sub, kh.MaKH.ToString()),
+                    new Claim(ClaimTypes.Email, kh.Email),
+                    new Claim(ClaimTypes.Name, kh.HoTen.ToString())
+                };
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                var token = new JwtSecurityToken(
+                    issuer: _jwtConfig.Issuer,
+                    audience: _jwtConfig.Audience,
+                    claims = claims,
+                    expires: DateTime.UtcNow.AddMonths(1),
+                    signingCredentials: creds
+                    );
+                return new JwtSecurityTokenHandler().WriteToken(token);
+            }    
         }
 
         public ClaimsPrincipal ValidateToken(string token)
@@ -63,7 +91,8 @@ namespace BuildingManagement.Infrastructure.Security
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret)),
                 ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero
+                ClockSkew = TimeSpan.Zero,
+                
             };
             return tokenHandler.ValidateToken(token, parameters, out _);
         }

@@ -18,6 +18,36 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
             builder.HasMany(tn => tn.tnMatBangs)
                 .WithOne(tn => tn.tnTangLau)
                 .HasForeignKey(tn => tn.MaTL);
+
+            builder.HasMany(tn => tn.tnKhachHangs)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDichVuSuDungs)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvHoaDons)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvNuocDongHos)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDienDongHos)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnycYeuCauSuaChuas)
+                .WithOne(tn => tn.tnTangLau)
+                .HasForeignKey(tn => tn.MaTL)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

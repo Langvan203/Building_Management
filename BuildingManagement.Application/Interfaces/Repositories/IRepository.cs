@@ -12,9 +12,13 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task<bool> ExistsAsync(Expression<Func<T,bool>> predicate);
+        Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
+        Task<IEnumerable<T>> GetAllConditionAsync(Expression<Func<T, bool>> predicate);
         Task AddAsync(T entity);
+        Task AddRangeAsync(IEnumerable<T> entities);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
+        Task DeleteEntityRelationship(T entity);
         
     }
 }

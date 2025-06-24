@@ -13,8 +13,8 @@ namespace BuildingManagement.Domain.Entities
         public int MaTrangThai { get; set; }
         public string TenTrangThai { get; set; }
 
-
         //Navigation
-        public nkbtKeHoachBaoTri nkbtKeHoachBaoTri { get; set; }
+        public ICollection<nkbtKeHoachBaoTri> nkbtKeHoachBaoTris { get; set; }
+        public ICollection<nkbtChiTietBaoTri> nkbtChiTietBaoTris { get; set; }
     }
 }

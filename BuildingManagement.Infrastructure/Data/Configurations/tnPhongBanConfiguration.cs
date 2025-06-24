@@ -19,6 +19,7 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
                 .WithMany(pb => pb.tnPhongBans)
                 .UsingEntity<Dictionary<string, object>>(
                 "PhongBan_NhanVien",
+
                     pb => pb.HasOne<tnNhanVien>()
                     .WithMany()
                     .HasForeignKey("MaNV")

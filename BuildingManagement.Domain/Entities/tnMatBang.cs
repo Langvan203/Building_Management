@@ -15,7 +15,7 @@ namespace BuildingManagement.Domain.Entities
         public decimal DienTichBG { get; set; }
         public decimal DienTichThongThuy { get; set; }
         public decimal DienTichTimTuong { get; set; }
-        public bool IsBanGiao { get; set; }
+        
         public string SoHopDong { get; set; }
         public DateTime? NgayBanGiao { get; set; }
         public DateTime? NgayHetHanChoThue { get; set; }
@@ -24,6 +24,9 @@ namespace BuildingManagement.Domain.Entities
         public int MaTL { get; set; }
         public int? MaKH { get; set; }
         public int MaLMB { get; set; }
+        public int MaTrangThai { get; set; }
+        public int MaTN { get; set; }
+        public int? MaKN { get; set; }
 
         // Navigation
         public dvDienDongHo dvDienDongHo { get; set; }  
@@ -33,6 +36,10 @@ namespace BuildingManagement.Domain.Entities
 
         public tnTangLau tnTangLau { get; set; }
 
+        public tnToaNha tnToaNha { get; set; }
+
+        public tnKhoiNha tnKhoiNha { get; set; }
+
         public tnKhachHang tnKhachHang { get; set; }
         
         public mbLoaiMB mbLoaiMB { get; set; }
@@ -40,5 +47,7 @@ namespace BuildingManagement.Domain.Entities
         public ICollection<tnbtHeThong> tnbtHeThongs { get; set; }
         public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
         public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
+        public ICollection<dvHoaDon>  dvHoaDons { get; set; }
+        public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
     }
 }

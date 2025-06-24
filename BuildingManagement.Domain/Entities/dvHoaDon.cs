@@ -17,15 +17,26 @@ namespace BuildingManagement.Domain.Entities
         public decimal DaThanhToan { get; set; }
         public decimal ConNo { get; set; }
         public decimal TienBVMT { get; set; }
+        public decimal TienVAT { get; set; }
         public decimal PhaiThu { get; set; }
         public bool IsThanhToan { get; set; }
         public string GhiChu { get; set; }
-
+        public DateTime NgayDenHan { get; set; }
         //FK
         public int MaDVSD { get; set; }
+        public int? MaTN { get; set; }
+        public int? MaKN { get; set; }
+        public int? MaTL { get; set; }
+        public int? MaKH { get; set; }
+        public int? MaMB { get; set; }
 
         // Navigation 
         public dvDichVuSuDung dvDichVuSuDung { get; set; }
         public ICollection<ptPhieuThu> ptPhieuThus { get; set; }
+        public tnToaNha tnToaNha { get; set; }
+        public tnKhoiNha tnKhoiNha { get; set; }
+        public tnTangLau tnTangLau { get; set; }
+        public tnKhachHang tnKhachHang { get; set; }
+        public tnMatBang tnMatBang { get; set; }
     }
 }

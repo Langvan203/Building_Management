@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildingManagement.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BuildingManagement.Domain.Entities
         [Key]
         public int MaKN { get; set; }
         public string TenKN { get; set; }
-
+        public int? TrangThaiKhoiNha { get; set; }
         //FK
         public int MaTN { get; set; }
         
@@ -20,5 +21,14 @@ namespace BuildingManagement.Domain.Entities
         public tnToaNha tnToaNha { get; set; }
 
         public ICollection<tnTangLau> tnTangLaus { get; set; }
+        public ICollection<tnKhachHang> tnKhachHangs { get; set; }
+        public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
+        public ICollection<dvHoaDon> dvHoaDons { get; set; }
+        public ICollection<tnMatBang> tnMatBangs { get; set; }
+        public ICollection<dvNuocDongHo> dvNuocDongHos { get; set; }
+        public ICollection<dvDienDongHo> dvDienDongHos { get; set; }
+        public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
+
+
     }
 }

@@ -14,6 +14,10 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<mbTrangThai> builder)
         {
             builder.HasKey(tt => tt.MaTrangThai);
+
+            builder.HasMany(x => x.tnMatBangs)
+                .WithOne(x => x.mbTrangThai)
+                .HasForeignKey(x => x.MaTrangThai);
         }
     }
 }

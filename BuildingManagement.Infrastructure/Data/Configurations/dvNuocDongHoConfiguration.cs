@@ -24,6 +24,7 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
             builder.HasMany(dv => dv.dvNuocs)
                 .WithOne(dv => dv.dvNuocDongHo)
                 .HasForeignKey(dv => dv.MaDH);
+
         }
     }
 }

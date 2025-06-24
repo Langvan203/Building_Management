@@ -28,11 +28,20 @@ namespace BuildingManagement.Domain.Entities
         public string SoFax { get; set; }
 
         // FK
-
+        public int? MaTN { get; set; }
+        public int? MaKN { get; set; }
+        public int? MaTL { get; set; }
         // Navigation
         public ICollection<tnMatBang> tnMatBangs { get; set; }
         public ICollection<tnycYeuCauSuaChua> tnycYeuCauSuaChuas { get; set; }
         public ICollection<dvgxTheXe> dvgxTheXes { get; set; }
         public ICollection<dvDichVuSuDung> dvDichVuSuDungs { get; set; }
+        public ICollection<dvHoaDon> dvHoaDons { get; set; }
+
+        public ICollection<dvDienDongHo> dvDienDongHo { get; set; }
+        public ICollection<dvNuocDongHo> dvNuocDongHo { get; set; }
+        public tnToaNha tnToaNha { get; set; }
+        public tnKhoiNha tnKhoiNha { get; set; }
+        public tnTangLau tnTangLau { get; set; }
     }
 }

@@ -17,7 +17,69 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
 
             builder.HasMany(tn => tn.tnKhoiNhas)
                 .WithOne(tn => tn.tnToaNha)
-                .HasForeignKey(tn => tn.MaTN);
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnTangLaus)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.HasMany(tn => tn.tnMatBangs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnKhachHangs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDichVus)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvLoaiDVs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDichVuSuDungs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvHoaDons)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnycYeuCauSuaChuas)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnbtHeThongs)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.tnPhongBans)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvDienDongHos)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(tn => tn.dvNuocDongHos)
+                .WithOne(tn => tn.tnToaNha)
+                .HasForeignKey(tn => tn.MaTN)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

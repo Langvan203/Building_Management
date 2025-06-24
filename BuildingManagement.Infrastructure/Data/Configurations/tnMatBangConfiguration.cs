@@ -17,11 +17,12 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
 
             builder.HasMany(mb => mb.tnbtHeThongs)
                 .WithOne(mb => mb.tnMatBang)
-                .HasForeignKey(mb => mb.MaMB);
+                .HasForeignKey(mb => mb.MaMB)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(mb => mb.mbTrangThai)
-                .WithOne(mb => mb.tnMatBang)
-                .HasForeignKey<mbTrangThai>(tt => tt.MaTrangThai);
+            //builder.HasMany(mb => mb.mbTrangThai)
+            //    .WithOne(mb => mb.tnMatBang)
+            //    .HasForeignKey<mbTrangThai>(tt => tt.MaTrangThai);
 
             builder.HasMany(mb => mb.dvDichVuSuDungs)
                 .WithOne(mb => mb.tnMatBang)
@@ -30,6 +31,17 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
             builder.HasMany(mb => mb.dvgxTheXes)
                 .WithOne(mb => mb.tnMatBang)
                 .HasForeignKey(mb => mb.MaMB);
+
+            builder.HasMany(dv => dv.dvHoaDons)
+                .WithOne(tn => tn.tnMatBang)
+                .HasForeignKey(tn => tn.MaMB)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            builder.HasMany(yc => yc.tnycYeuCauSuaChuas)
+                .WithOne(tn => tn.tnMatBang)
+                .HasForeignKey(tn => tn.MaMB)
+                .OnDelete(DeleteBehavior.NoAction);
 
         }
     }

@@ -49,7 +49,33 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             return Task.CompletedTask;
         }
 
-       
+        public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).FirstOrDefaultAsync();
+        }
 
+        public async Task DeleteEntityRelationship(T entity)
+        {
+            var findEntity = await _context.Set<T>().Include(e => e).FirstOrDefaultAsync(e => e.Equals(entity));
+            if (findEntity != null)
+            {
+                _context.Set<T>().Remove(findEntity);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Entity not found");
+            }
+        }
+
+        public async Task<IEnumerable<T>> GetAllConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).ToListAsync();
+        }
+
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            await _context.Set<T>().AddRangeAsync(entities);
+        }
     }
 }

@@ -12,10 +12,12 @@ namespace BuildingManagement.Domain.Entities
         [Key]
         public int Id { get; set; }
         public string GhiChu { get; set; }
-
         //FK
         public int MaKeHoach { get; set; }
+        public int MaTrangThai { get; set; }
         //Navigation
         public nkbtKeHoachBaoTri nkbtKeHoachBaoTri { get; set; }
+        public nkbtTrangThai nkbtTrangThai { get; set; }
+
     }
 }

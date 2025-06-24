@@ -12,12 +12,21 @@ namespace BuildingManagement.Domain.Entities
         [Key]
         public int MaDH { get; set; }
         public string SoDongHo { get; set; }
-
+        public int ChiSoSuDung { get; set; }
+        public bool TrangThai { get; set; }
         //FK
-        public int MaMB { get; set; }
+        public int? MaMB { get; set; }
+        public int? MaKH { get; set; }
+        public int? MaTN { get; set; }
+        public int? MaKN { get; set; }
+        public int? MaTL { get; set; }
 
         //Navigation 
         public tnMatBang tnMatBang { get; set; }
+        public tnToaNha tnToaNha { get; set; }
+        public tnKhoiNha tnKhoiNha { get; set; }
+        public tnTangLau tnTangLau { get; set; }
         public ICollection<dvDien> dvDiens { get; set; }    
+        public tnKhachHang tnKhachHang { get; set; }
     }
 }

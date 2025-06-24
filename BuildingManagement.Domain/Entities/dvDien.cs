@@ -16,7 +16,8 @@ namespace BuildingManagement.Domain.Entities
         public decimal SoTieuThu { get; set; }
         public decimal ThanhTien { get; set; }
         public bool IsThanhToan { get; set; }
-
+        public DateTime NgayBatDauSuDung { get; set; }
+        public DateTime NgayDenHang { get; set; }
         //FK
         public int MaDH { get; set; }
         public int MaDM { get; set; }

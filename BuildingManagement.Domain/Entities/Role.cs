@@ -14,5 +14,6 @@ namespace BuildingManagement.Domain.Entities
         public string RoleName { get; set; }
 
         public ICollection<tnNhanVien> tnNhanViens { get; set; }
+        public ICollection<Permission> Permissions { get; set; }
     }
 }

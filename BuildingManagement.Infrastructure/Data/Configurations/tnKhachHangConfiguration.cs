@@ -31,6 +31,25 @@ namespace BuildingManagement.Infrastructure.Data.Configurations
             builder.HasMany(dv => dv.dvDichVuSuDungs)
                 .WithOne(dv => dv.tnKhachHang)
                 .HasForeignKey(dv => dv.MaKH);
+
+            //builder.HasOne(dh => dh.dvDienDongHo)
+            //    .WithOne(dh => dh.tnKhachHang)
+            //    .HasForeignKey();
+
+            builder.HasMany(dv => dv.dvHoaDons)
+                .WithOne(tn => tn.tnKhachHang)
+                .HasForeignKey(tn => tn.MaKH)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(dh => dh.dvDienDongHo)
+                .WithOne(dh => dh.tnKhachHang)
+                .HasForeignKey(dh => dh.MaKH)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(dh => dh.dvNuocDongHo)
+                .WithOne(dh => dh.tnKhachHang)
+                .HasForeignKey(dh => dh.MaKH)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

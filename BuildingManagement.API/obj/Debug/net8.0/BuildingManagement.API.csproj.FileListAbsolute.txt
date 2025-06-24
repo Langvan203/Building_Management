@@ -178,7 +178,6 @@ B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\Buildin
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
@@ -187,3 +186,18 @@ B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\Buildin
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\MailKit.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\MediatR.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\MediatR.Contracts.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\MimeKit.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\JWT.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\EPPlus.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\EPPlus.Interfaces.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+B:\DoAn_2025\Backend-code\BuildingManagement\BuildingManagement.Solution\BuildingManagement.API\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll

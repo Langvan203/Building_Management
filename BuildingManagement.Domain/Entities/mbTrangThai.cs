@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BuildingManagement.Domain.Entities
 {
-    public class mbTrangThai
+    public class mbTrangThai : BaseEntity
     {
         [Key]
         public int MaTrangThai { get; set; }
         public string TenTrangThai { get; set; }
 
         // Navigation
-        public tnMatBang tnMatBang { get; set; }
+        public ICollection<tnMatBang> tnMatBangs { get; set; }
     }
 }

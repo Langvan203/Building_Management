@@ -1,4 +1,5 @@
-﻿using BuildingManagement.Domain.Entities;
+﻿using BuildingManagement.Application.DTOs.Request;
+using BuildingManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,10 @@ namespace BuildingManagement.Application.Interfaces.Repositories
 {
     public interface ITangLauRepository : IRepository<tnTangLau>
     {
-        Task<IEnumerable<tnTangLau>> GetTangLauByMaTN(int MaTN);
+        Task<IEnumerable<TangLauDto>> GetDSTangLau(int MaTN, int MaKN);
+        Task<bool> CheckTangLau(int MaKN, int MaTN);
+        Task<List<TangLauDto>> GetDSTangLau();
+        Task<List<TangLauFilter>> GetTangLauFilter();
+        Task<List<TangLauDto>> GetTangLauByKhoiNha(int MaKN);
     }
 }
