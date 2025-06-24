@@ -16,5 +16,6 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task<List<RevenueSummaryOverview>> GetRevenueSummariesOverviewAsync();
         Task<bool> CheckTonTaiDichVuSuDung(int MaDVSD);
         Task<PagedResult<GetDSHoaDon>> GetDSHoaDon(int pageNumber, DateTime NgayBatDau, DateTime NgayKetThu, int pageSize = 15);
+        Task<dvHoaDon> GetHoaDonByID(int MaHoaDon);
     }
 }

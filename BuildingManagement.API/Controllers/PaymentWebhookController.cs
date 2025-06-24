@@ -10,6 +10,7 @@ using BuildingManagement.Application;
 using BuildingManagement.Domain.Entities;
 using BuildingManagement.Application.Interfaces.Services.Ultility;
 using BuildingManagement.Application.Interfaces.Repositories;
+using AutoMapper;
 
 namespace BuildingManagement.Controllers
 {
@@ -24,6 +25,7 @@ namespace BuildingManagement.Controllers
         private readonly ILogger<PaymentWebhookController> _logger;
         private readonly IDichVuHoaDonService _hoaDonService;
         private readonly IUnitOfWork _unitOfwork;
+        private readonly IMapper _mapper;
 
         public PaymentWebhookController(
             IPaymentService paymentService,
@@ -32,10 +34,12 @@ namespace BuildingManagement.Controllers
             IHubContext<PaymentNotificationHub> hubContext,
             ILogger<PaymentWebhookController> logger,
             IDichVuHoaDonService hoaDonService,
-            IUnitOfWork unitOfwork
+            IUnitOfWork unitOfwork,
+            IMapper mapper
             )
         {
             _hoaDonService = hoaDonService;
+            _mapper = mapper;
             _paymentService = paymentService;
             _notificationService = notificationService;
             _emailService = emailService;
@@ -140,6 +144,7 @@ namespace BuildingManagement.Controllers
 
             // Lấy thông tin hóa đơn
             var invoice = await _hoaDonService.GetHoaDonByID(paymentInfo.MaHD);
+            var invoiceDto = _mapper.Map<GetDSHoaDon>(invoice);
             if (invoice == null)
             {
                 _logger.LogWarning($"Invoice not found for MaHD: {paymentInfo.MaHD}");
@@ -163,7 +168,7 @@ namespace BuildingManagement.Controllers
             switch (webhookData.Data.Status.ToUpper())
             {
                 case "PAID":
-                    await HandleSuccessfulPayment(webhookData, paymentInfo, invoice, notification);
+                    await HandleSuccessfulPayment(webhookData, paymentInfo, invoiceDto, notification);
                     break;
 
                 case "CANCELLED":
@@ -191,7 +196,7 @@ namespace BuildingManagement.Controllers
         private async Task HandleSuccessfulPayment(
             PayOSWebhookData webhookData,
             PaymentInfo paymentInfo,
-            dvHoaDon invoice,
+            GetDSHoaDon invoice,
             PaymentNotification notification)
         {
             try

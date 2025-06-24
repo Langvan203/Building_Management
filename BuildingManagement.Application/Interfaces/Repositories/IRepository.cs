@@ -19,6 +19,8 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
         Task DeleteEntityRelationship(T entity);
-        
+        void UpdateRangeAsync(IEnumerable<T> entities);
+        void DeleteRangeAsync(IEnumerable<T> entities);
+
     }
 }

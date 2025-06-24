@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BuildingManagement.Infrastructure.Data.Repositories
 {
-    public class Repository<T> :IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly BuildingManagementDbContext _context;
 
@@ -38,7 +38,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async  Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
@@ -76,6 +76,16 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         public async Task AddRangeAsync(IEnumerable<T> entities)
         {
             await _context.Set<T>().AddRangeAsync(entities);
+        }
+
+        public void UpdateRangeAsync(IEnumerable<T> entities)
+        {
+            _context.Set<T>().UpdateRange(entities);
+        }
+
+        public void DeleteRangeAsync(IEnumerable<T> entities)
+        {
+            _context.Set<T>().RemoveRange(entities);
         }
     }
 }

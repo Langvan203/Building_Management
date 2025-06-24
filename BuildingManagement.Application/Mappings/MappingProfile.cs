@@ -77,6 +77,7 @@ namespace BuildingManagement.Application.Mappings
             CreateMap<CreateKeHoachBaoTriDto, nkbtKeHoachBaoTri>();
 
             CreateMap<CreateChiTietBaoTriDto, nkbtChiTietBaoTri>();
+            CreateMap<dvHoaDon, GetDSHoaDon>();
         }
     }
 }
