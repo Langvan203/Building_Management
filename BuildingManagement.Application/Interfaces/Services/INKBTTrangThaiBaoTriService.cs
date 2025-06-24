@@ -10,5 +10,6 @@ namespace BuildingManagement.Application.Interfaces.Services
     public interface INKBTTrangThaiBaoTriService
     {
         Task<List<TrangThaiBaoTriDto>> GetDSTrangThai();
+        Task<List<TrangThaiBaoTriDto>> GetDSTrangThaiYeuCau();
     }
 }

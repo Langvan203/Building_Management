@@ -50,4 +50,11 @@ namespace BuildingManagement.Application.DTOs
         public int MaNV { get; set; }
         public string TenNV { get; set; }
     }
+
+    public class GiaoViecYeuCauChoNhanVien
+    {
+        public int MaYC { get; set; }
+        public List<int> DanhSachNhanVien { get; set; } = new List<int>();
+        public bool IsSendNotification { get; set; } = true; // Mặc định là true, có thể thay đổi khi cần thiết
+    }
 }

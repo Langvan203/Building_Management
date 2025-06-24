@@ -27,5 +27,11 @@ namespace BuildingManagement.Application.Services
             }
             return dsTrangThai;
         }
+
+        public async Task<List<TrangThaiBaoTriDto>> GetDSTrangThaiYeuCau()
+        {
+            var dsTrangThai = await _unitOfWork.TrangThaiBaoTris.GetDSTrangThaiYeuCau();
+            return dsTrangThai;
+        }
     }
 }

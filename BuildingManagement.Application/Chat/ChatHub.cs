@@ -1,16 +1,12 @@
-﻿using System;
+﻿
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 
 namespace BuildingManagement.Application.Chat
 {
-    public class ChatHub : Hub
+    public class ChatHub: Hub
     {
         private static readonly ConcurrentDictionary<string, OnlineUser> OnelineUsers = new();
         private static readonly ConcurrentDictionary<string, List<string>> UserConnections = new();

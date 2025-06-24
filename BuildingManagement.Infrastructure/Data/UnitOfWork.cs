@@ -24,6 +24,7 @@ namespace BuildingManagement.Infrastructure.Data
         private readonly KhoiNhaRepository _khoiNha;
         private readonly LoaiDichVuRepository _loaiDichVu;
         private readonly RoleRepository _role;
+        private readonly PaymenInforRepository paymenInforRepository;
 
         private readonly IDichVuRepository _dichVu;
         private readonly IDichVuDienDongHoRepository _dienDongHo;
@@ -45,7 +46,10 @@ namespace BuildingManagement.Infrastructure.Data
         private readonly INKBTLichSuBaoTriRepository _lichSuBaoTri;
         private readonly INKBTTrangThaiBaoTriRepository _trangThaiBaoTri;
         private readonly IYeuCauBaoTriRepository _yeuCauBaoTri;
+        private readonly IPaymenInforRepository _paymenInfor;
+        private readonly IPaymentNotification _paymentNotification;
         private IDbContextTransaction _transaction;
+
 
         private readonly IMapper _mapper;
 
@@ -106,6 +110,9 @@ namespace BuildingManagement.Infrastructure.Data
 
         public IPhongBanRepository PhongBans => _phongBan;
 
+        public IPaymenInforRepository PaymentInfors => paymenInforRepository;
+        public IPaymentNotification PaymentNotifications => _paymentNotification;
+
         public UnitOfWork(BuildingManagementDbContext context, IMapper mapper)
         {
             _context = context;
@@ -139,6 +146,8 @@ namespace BuildingManagement.Infrastructure.Data
             _trangThaiBaoTri = new NKBTTrangThaiBaoTriRepository(_context);
             _yeuCauBaoTri = new YeuCauBaoTriRepository(_context);
             _role = new RoleRepository(_context);
+            paymenInforRepository = new PaymenInforRepository(_context);
+            _paymentNotification = new PaymentNotificationRepository(_context);
         }
         public async Task<int> SaveChangesAsync()
         {

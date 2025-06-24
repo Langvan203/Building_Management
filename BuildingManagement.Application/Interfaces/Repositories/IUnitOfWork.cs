@@ -37,7 +37,8 @@ namespace BuildingManagement.Application.Interfaces.Repositories
         IPhongBanRepository PhongBans { get; }
         IMatBangRepository MatBangs { get; }
         IRoleRepository Roles { get; }
-
+        IPaymenInforRepository PaymentInfors { get; }
+        IPaymentNotification PaymentNotifications { get; }
 
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();

@@ -71,6 +71,7 @@ namespace BuildingManagement.Application.Services
                         MaTN = getDVSD.MaTN,
                         MaKH = getDVSD.MaKH,
                         MaMB = getDVSD.MaMB,
+                        NgayDenHan = getDVSD.NgayKetThucTinhPhi,
                     };
                     await _unitOfWork.HoaDons.AddAsync(newHoaDon);
                 }

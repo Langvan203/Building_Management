@@ -47,6 +47,9 @@ namespace BuildingManagement.Infrastructure.Data.Context
         public DbSet<tnycTrangThai> tnycTrangThais { get; set; }
         public DbSet<nvDanhGia> nvDanhGias { get; set; }
         public DbSet<Permission> permissions { get; set; }
+        public DbSet<PaymentInfo> paymentInfo { get; set; }
+        public DbSet<PaymentNotification> paymentMethods { get; set; }
+        public DbSet<PayOSConfiguration> payOSConfigurations { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -25,7 +25,17 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
                     MaTrangThai = tt.MaTrangThai,
                     TenTrangThai = tt.TenTrangThai
                 }).ToListAsync();
+            return dsTrangThai;
+        }
 
+        public async Task<List<TrangThaiBaoTriDto>> GetDSTrangThaiYeuCau()
+        {
+            var dsTrangThai = await _context.tnycTrangThais
+                .Select(tt => new TrangThaiBaoTriDto
+                {
+                    MaTrangThai = tt.IdTrangThai,
+                    TenTrangThai = tt.TenTrangThai
+                }).ToListAsync();
             return dsTrangThai;
         }
     }

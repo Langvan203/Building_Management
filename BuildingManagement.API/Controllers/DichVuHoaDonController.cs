@@ -15,9 +15,9 @@ namespace BuildingManagement.API.Controllers
         }
 
         [HttpGet("GetDSHoaDon")]
-        public async Task<IActionResult> GetDSHoaDon()
+        public async Task<IActionResult> GetDSHoaDon(int pageNumber, DateTime NgayBatDau, DateTime NgayKetThuc, int pageSize = 15)
         {
-            var dsHoaDon = await _dichVuHoaDonService.GetDSHoaDon();
+            var dsHoaDon = await _dichVuHoaDonService.GetDSHoaDon(pageNumber, NgayBatDau,NgayKetThuc,pageSize);
             return Ok(dsHoaDon);
         }
     }

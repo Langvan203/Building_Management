@@ -19,5 +19,12 @@ namespace BuildingManagement.API.Controllers
             var result = await _trangThaiBaoTriService.GetDSTrangThai();
             return Ok(result);
         }
+
+        [HttpGet("GetDSTrangThaiYeuCau")]
+        public async Task<IActionResult> GetDSTrangThaiYeuCau()
+        {
+            var result = await _trangThaiBaoTriService.GetDSTrangThaiYeuCau();
+            return Ok(result);
+        }
     }
 }

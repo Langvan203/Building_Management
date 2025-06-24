@@ -21,7 +21,7 @@ namespace BuildingManagement.Domain.Entities
         public decimal PhaiThu { get; set; }
         public bool IsThanhToan { get; set; }
         public string GhiChu { get; set; }
-
+        public DateTime NgayDenHan { get; set; }
         //FK
         public int MaDVSD { get; set; }
         public int? MaTN { get; set; }

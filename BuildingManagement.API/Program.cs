@@ -19,12 +19,18 @@ using BuildingManagement.API.Filter;
 using System.Security.Claims;
 using BuildingManagement.Application.Chat;
 using OfficeOpenXml;
+using BuildingManagement.Application.Interfaces;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 
 var builder = WebApplication.CreateBuilder(args);
 ExcelPackage.License.SetNonCommercialPersonal("Lăng Thảo Văn"); ; // Set your commercial license key here
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    options.JsonSerializerOptions.WriteIndented = true;
+}); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
@@ -110,7 +116,10 @@ builder.Services.AddScoped<IPhongBanService, PhongBanService>();
 builder.Services.AddScoped<IDichVuService, DichVuService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IYeuCauBaoTriService, YeuCauBaoTriService>();
-
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddHostedService<PaymentNotificationBackgroundService>();
 // ultility service
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddScoped<IOTPService, OTPService>();
@@ -126,8 +135,13 @@ builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 // add signalR
 builder.Services.AddSignalR(options =>
 {
-    options.EnableDetailedErrors = true; // Bật chi tiết lỗi
+    options.EnableDetailedErrors = true;
+    options.KeepAliveInterval = TimeSpan.FromSeconds(15);
+    options.ClientTimeoutInterval = TimeSpan.FromSeconds(60);
 });
+
+builder.Services.AddHttpClient();
+
 builder.Host.ConfigureLogging(logging =>
 {
     logging.ClearProviders();
@@ -162,18 +176,31 @@ builder.Services.AddSwaggerGen(options =>
             new string[] {}
         }
     });
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
 
 });
 
+
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowSpecificOrigins", builder =>
     {
-        policy.WithOrigins("http://localhost:3000")
-              .AllowAnyMethod()
-              .AllowAnyHeader()
-              .AllowCredentials() // Quan trọng!
-              .SetIsOriginAllowed(_ => true); // Có thể cần thiết trong môi trường dev
+        builder
+            .WithOrigins(
+                "http://localhost:3000",
+                "https://localhost:3000",
+                "http://localhost:3001",
+                "https://localhost:3001"
+            )
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
     });
 });
 
@@ -214,7 +241,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 // Configure the HTTP request pipeline.
-app.UseCors("AllowFrontend");
+app.UseCors("AllowSpecificOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>

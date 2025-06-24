@@ -18,6 +18,12 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
 
         }
 
+        public async Task<tnycYeuCauSuaChua> CheckYeuCauIncludeNhanVien(int MaYC)
+        {
+            var yeuCau = await _context.tnycYeuCauSuaChuas.Where(x => x.MaYC == MaYC).Include(x => x.tnNhanViens).FirstOrDefaultAsync();
+            return yeuCau;
+        }
+
         public async Task<PagedResult<YeuCauSuaChuaDTO>> GetDSYeuCauSuaChua(int pageNumber, int pageSize = 10)
         {
             var dsYeuCau = _context.tnycYeuCauSuaChuas.Select(x => new YeuCauSuaChuaDTO
@@ -53,7 +59,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
 
             var totalRecords = await dsYeuCau.CountAsync();
             var items = await dsYeuCau
-                .Skip((pageNumber - 1) * pageSize)
+                .OrderByDescending(x => x.NgayYeuCau).Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
             var totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);

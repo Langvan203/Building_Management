@@ -96,4 +96,40 @@ namespace BuildingManagement.Application.DTOs.Request
         public string SoTaiKhoan { get; set; }
         public string NganHangThanhToan { get; set; }
     }
+
+    public class GetDSHoaDon
+    {
+        public int MaHD { get; set; }
+        public int MaTN { get; set; }
+        public int MaKN { get; set; }
+        public int MaTL { get; set; }
+        public int MaMB { get; set; }
+        public int MaKH { get; set; }
+        public string TenTN { get; set; }
+        public string NganHangThanhToan { get; set; }
+        public string SoTaiKhoan { get; set; }
+        public string acqId { get; set; }
+        public string TenTaiKhoan { get; set; }
+        public string EmailKhachHang { get; set; }
+        public string TenKN { get; set; }
+        public string TenTL { get; set; }
+        public string MaVT { get; set; }
+        public string TenKhachHang { get; set; }
+        public Decimal PhaiThu { get; set; }
+        public bool IsThanhToan { get; set; }
+        public DateTime NgayThanhToan { get; set; }
+        public List<HoaDonDetail> HoaDonDetails { get; set; }
+    }
+
+    public class HoaDonDetail
+    {
+        public int MaHD { get; set; }
+        public int MaDVSD { get; set; }
+        public string TenDichVu { get; set; }
+        public Decimal TienVAT { get; set; }
+        public Decimal TienBVMT { get; set; }
+        public Decimal ThanhTien { get; set; }
+        public Decimal ThueVAT { get; set; }
+        public Decimal ThueBVMT { get; set; }
+    }
 }

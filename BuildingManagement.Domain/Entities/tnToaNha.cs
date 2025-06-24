@@ -23,7 +23,9 @@ namespace BuildingManagement.Domain.Entities
         public string SoTaiKhoan { get; set; }
         public string NoiDungChuyenKhoan { get; set; }
         public int? TrangThaiToaNha { get; set; }
-       
+        public string TenTaiKhoan { get; set; }
+        public string acqId { get; set; }
+
 
         // Navigation
         public ICollection<tnNhanVien> tnNhanViens { get; set; }

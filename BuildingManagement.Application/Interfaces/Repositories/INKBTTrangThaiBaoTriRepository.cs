@@ -11,5 +11,6 @@ namespace BuildingManagement.Application.Interfaces.Repositories
     public interface INKBTTrangThaiBaoTriRepository : IRepository<nkbtTrangThai>
     {
         Task<List<TrangThaiBaoTriDto>> GetDSTrangThai();
+        Task<List<TrangThaiBaoTriDto>> GetDSTrangThaiYeuCau();
     }
 }
