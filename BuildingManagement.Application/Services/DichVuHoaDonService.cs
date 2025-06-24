@@ -43,7 +43,7 @@ namespace BuildingManagement.Application.Services
 
         public async Task<dvHoaDon> GetHoaDonByID(int MaHoaDon)
         {
-            var hoaDon = await _unitOfWork.HoaDons.GetByIdAsync(MaHoaDon);
+            var hoaDon = await _unitOfWork.HoaDons.GetHoaDonByID(MaHoaDon);
             if (hoaDon == null)
             {
                 throw new KeyNotFoundException($"Hóa đơn với mã {MaHoaDon} không tồn tại.");

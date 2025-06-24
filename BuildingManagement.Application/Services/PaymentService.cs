@@ -77,10 +77,10 @@ namespace BuildingManagement.Application.Services
                     description = request.Description,
                     returnUrl = request.ReturnUrl ?? $"{_configuration["AppSettings:BaseUrl"]}/payment/success",
                     cancelUrl = request.CancelUrl ?? $"{_configuration["AppSettings:BaseUrl"]}/payment/cancel",
-                    buyerName = invoice.TenKhachHang,
-                    buyerEmail = invoice.Email ?? "",
-                    buyerPhone = invoice.SoDienThoai ?? "",
-                    buyerAddress = $"{invoice.TenTN}, {invoice.TenTL}, {invoice.TenKN}",
+                    buyerName = invoice.tnKhachHang.IsCaNhan ? invoice.tnKhachHang.HoTen : invoice.tnKhachHang.CtyTen,
+                    buyerEmail = invoice.tnKhachHang.Email ?? "",
+                    buyerPhone = invoice.tnKhachHang.DienThoai ?? "",
+                    buyerAddress = $"{invoice.MaTN}, {invoice.MaTL}, {invoice.MaKN}",
                     expiredAt = (int)DateTimeOffset.UtcNow.AddMinutes(request.ExpiredAt).ToUnixTimeSeconds(),
                     items = new List<PayOSItem>
                     {
@@ -200,21 +200,7 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var payments = await _unitOfWork.PaymentInfors
-                    .Where(p => p.MaHD == maHD)
-                    .OrderByDescending(p => p.CreatedAt)
-                    .Select(p => new PaymentHistoryResponse
-                    {
-                        OrderCode = p.OrderCode,
-                        MaHD = p.MaHD,
-                        Amount = p.Amount,
-                        Status = p.Status,
-                        CreatedAt = p.CreatedAt,
-                        PaidAt = p.PaidAt,
-                        TransactionId = p.TransactionId
-                    })
-                    .ToListAsync();
-
+                var payments = await _unitOfWork.PaymentInfors.GetHistoryPaymentByMaHD(maHD);
                 return payments;
             }
             catch (Exception ex)
@@ -227,16 +213,15 @@ namespace BuildingManagement.Application.Services
         public async Task<PaymentInfo?> GetPaymentByOrderCodeAsync(string orderCode)
         {
             return await _unitOfWork.PaymentInfors
-                .Include(p => p.HoaDon)
-                .FirstOrDefaultAsync(p => p.OrderCode == orderCode);
+                .GetByIdIncludeTable(orderCode);
         }
 
         public async Task<bool> UpdatePaymentStatusAsync(string orderCode, string status, string? transactionId = null)
         {
             try
             {
-                var payment = await _context.PaymentInfos
-                    .FirstOrDefaultAsync(p => p.OrderCode == orderCode);
+                var payment = await _unitOfWork.PaymentInfors
+                    .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
 
                 if (payment == null)
                     return false;
@@ -254,7 +239,7 @@ namespace BuildingManagement.Application.Services
                     payment.CancelledAt = DateTime.UtcNow;
                 }
 
-                await _context.SaveChangesAsync();
+                await _unitOfWork.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
@@ -268,8 +253,8 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var payment = await _context.PaymentInfos
-                    .FirstOrDefaultAsync(p => p.OrderCode == orderCode);
+                var payment = await _unitOfWork.PaymentInfors
+                    .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
 
                 if (payment == null || payment.Status != "PENDING")
                     return false;
@@ -281,7 +266,7 @@ namespace BuildingManagement.Application.Services
                 {
                     payment.Status = "CANCELLED";
                     payment.CancelledAt = DateTime.UtcNow;
-                    await _context.SaveChangesAsync();
+                    await _unitOfWork.SaveChangesAsync();
                 }
 
                 return cancelled;

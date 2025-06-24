@@ -9,6 +9,6 @@ namespace BuildingManagement.Application.Interfaces.Repositories
 {
     public interface IPaymentNotification : IRepository<PaymentNotification>
     {
-
+        Task<PaymentNotification> GetByConditionUser(int userID);
     }
 }

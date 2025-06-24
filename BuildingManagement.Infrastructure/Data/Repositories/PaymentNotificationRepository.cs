@@ -14,6 +14,11 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         public PaymentNotificationRepository(BuildingManagementDbContext context) : base(context)
         {
         }
+
+        public Task<PaymentNotification> GetByConditionUser(int userID)
+        {
+            throw new NotImplementedException();
+        }
         // Additional methods specific to PaymentNotification can be added here
     }
 }

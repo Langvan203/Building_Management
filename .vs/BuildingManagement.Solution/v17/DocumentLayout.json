@@ -3,52 +3,96 @@
   "WorkspaceRootPath": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\paymentnotificationbackgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\paymentnotificationbackgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EDF06528-734B-4188-A133-E5C4D7AF9A8D}|BuildingManagement.API\\BuildingManagement.API.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.api\\controllers\\paymentwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDF06528-734B-4188-A133-E5C4D7AF9A8D}|BuildingManagement.API\\BuildingManagement.API.csproj|solutionrelative:buildingmanagement.api\\controllers\\paymentwebhookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.domain\\entities\\paymentnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|solutionrelative:buildingmanagement.domain\\entities\\paymentnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\paymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\paymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\ipaymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\ipaymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.domain\\entities\\paymentinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|solutionrelative:buildingmanagement.domain\\entities\\paymentinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\paymentnotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\paymentnotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\dichvunuocdinhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\dichvunuocdinhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\ipaymentnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\ipaymentnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\services\\idichvuhoadonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\services\\idichvuhoadonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\services\\dichvuhoadonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\services\\dichvuhoadonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\dichvuhoadonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\dichvuhoadonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.application\\interfaces\\repositories\\idichvuhoadonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CBFFC52-60DC-48F8-ACC8-DD242795CB8B}|BuildingManagement.Application\\BuildingManagement.Application.csproj|solutionrelative:buildingmanagement.application\\interfaces\\repositories\\idichvuhoadonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.domain\\entities\\dvhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2326F563-6588-4836-A062-CEB96C94B26F}|BuildingManagement.Domain\\BuildingManagement.Domain.csproj|solutionrelative:buildingmanagement.domain\\entities\\dvhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\configurations\\dvhoadonconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\configurations\\dvhoadonconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EDF06528-734B-4188-A133-E5C4D7AF9A8D}|BuildingManagement.API\\BuildingManagement.API.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDF06528-734B-4188-A133-E5C4D7AF9A8D}|BuildingManagement.API\\BuildingManagement.API.csproj|solutionrelative:buildingmanagement.api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\paymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\paymeninforrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\dichvunuocdinhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|solutionrelative:buildingmanagement.infrastructure\\data\\repositories\\dichvunuocdinhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80161009-7123-40A0-81A6-CA0D1F3C3E87}|BuildingManagement.Infrastructure\\BuildingManagement.Infrastructure.csproj|b:\\doan_2025\\backend-code\\buildingmanagement\\buildingmanagement.solution\\buildingmanagement.infrastructure\\data\\repositories\\yeucaubaotrirepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,17 +106,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 335,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "PaymenInforRepository.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\PaymenInforRepository.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\PaymenInforRepository.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\PaymenInforRepository.cs",
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Repositories\\PaymenInforRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAuwCYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:51:12.135Z",
               "IsPinned": true,
@@ -80,20 +124,167 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Application\\Mappings\\MappingProfile.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "BuildingManagement.Application\\Mappings\\MappingProfile.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAewE8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:39:55.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentNotification.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\PaymentNotification.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Domain\\Entities\\PaymentNotification.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\PaymentNotification.cs",
+              "RelativeToolTip": "BuildingManagement.Domain\\Entities\\PaymentNotification.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:17:36.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PaymentInfo.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\PaymentInfo.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Domain\\Entities\\PaymentInfo.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\PaymentInfo.cs",
+              "RelativeToolTip": "BuildingManagement.Domain\\Entities\\PaymentInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:30:15.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\Repository.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\Repository.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Repositories\\Repository.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:25:57.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IRepository.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Repositories\\IRepository.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IRepository.cs",
+              "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:25:42.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IDichVuHoaDonRepository.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IDichVuHoaDonRepository.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Repositories\\IDichVuHoaDonRepository.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IDichVuHoaDonRepository.cs",
+              "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IDichVuHoaDonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:13:18.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DichVuHoaDonService.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\DichVuHoaDonService.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Application\\Services\\DichVuHoaDonService.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\DichVuHoaDonService.cs",
+              "RelativeToolTip": "BuildingManagement.Application\\Services\\DichVuHoaDonService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:12:55.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "dvHoaDon.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\dvHoaDon.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Domain\\Entities\\dvHoaDon.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Domain\\Entities\\dvHoaDon.cs",
+              "RelativeToolTip": "BuildingManagement.Domain\\Entities\\dvHoaDon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:12:54.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "dvHoaDonConfiguration.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Configurations\\dvHoaDonConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:12:53.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IDichVuHoaDonService.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Services\\IDichVuHoaDonService.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Services\\IDichVuHoaDonService.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Services\\IDichVuHoaDonService.cs",
+              "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Services\\IDichVuHoaDonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:12:23.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DichVuHoaDonRepository.cs",
+              "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuHoaDonRepository.cs",
+              "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuHoaDonRepository.cs",
+              "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuHoaDonRepository.cs",
+              "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuHoaDonRepository.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T18:12:34.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAMwCcAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAMwCcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:55:54.067Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 22,
               "Title": "DichVuNuocDinhMucRepository.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuNuocDinhMucRepository.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuNuocDinhMucRepository.cs",
@@ -101,12 +292,11 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Repositories\\DichVuNuocDinhMucRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T17:55:13.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T17:55:13.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PaymentNotificationRepository.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\PaymentNotificationRepository.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\PaymentNotificationRepository.cs",
@@ -119,98 +309,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "IPaymentNotification.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IPaymentNotification.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Repositories\\IPaymentNotification.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IPaymentNotification.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IPaymentNotification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:54:30.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "NotificationService.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\NotificationService.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Services\\NotificationService.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\NotificationService.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Services\\NotificationService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADMAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAALwAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:53:55.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "PaymentService.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\PaymentService.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Services\\PaymentService.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\PaymentService.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Services\\PaymentService.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAowFkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAewMoAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:52:42.335Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PaymentNotificationBackgroundService.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\PaymentNotificationBackgroundService.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Services\\PaymentNotificationBackgroundService.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Services\\PaymentNotificationBackgroundService.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Services\\PaymentNotificationBackgroundService.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAowDoAAAB0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:52:16.853Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\UnitOfWork.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\UnitOfWork.cs",
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\UnitOfWork.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJUAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAowHEAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:52:13.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "BuildingManagement.API\\Controllers\\PaymentController.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\Controllers\\PaymentController.cs",
               "RelativeToolTip": "BuildingManagement.API\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAB8AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowBMAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:52:03.969Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PaymentWebhookController.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\Controllers\\PaymentWebhookController.cs",
               "RelativeDocumentMoniker": "BuildingManagement.API\\Controllers\\PaymentWebhookController.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.API\\Controllers\\PaymentWebhookController.cs",
               "RelativeToolTip": "BuildingManagement.API\\Controllers\\PaymentWebhookController.cs",
-              "ViewState": "AgIAANMAAAAAAAAAAAAAAN0AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAAAKoAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:52:00.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 23,
               "Title": "YeuCauBaoTriRepository.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Infrastructure\\Data\\Repositories\\YeuCauBaoTriRepository.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Infrastructure\\Data\\Repositories\\YeuCauBaoTriRepository.cs",
@@ -218,22 +408,17 @@
               "RelativeToolTip": "BuildingManagement.Infrastructure\\Data\\Repositories\\YeuCauBaoTriRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T17:51:30.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2025-06-24T17:51:30.205Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IPaymenInforRepository.cs",
               "DocumentMoniker": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IPaymenInforRepository.cs",
               "RelativeDocumentMoniker": "BuildingManagement.Application\\Interfaces\\Repositories\\IPaymenInforRepository.cs",
               "ToolTip": "B:\\DoAn_2025\\Backend-code\\BuildingManagement\\BuildingManagement.Solution\\BuildingManagement.Application\\Interfaces\\Repositories\\IPaymenInforRepository.cs",
               "RelativeToolTip": "BuildingManagement.Application\\Interfaces\\Repositories\\IPaymenInforRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T17:51:04.862Z",
               "EditorCaption": ""

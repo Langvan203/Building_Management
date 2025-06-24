@@ -49,17 +49,12 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var query = _unitOfwork.PaymentNotifications
-
-                if (!string.IsNullOrEmpty(userId))
-                {
-                    query = query.Where(n => n.UserId == userId || string.IsNullOrEmpty(n.UserId));
-                }
-
-                var notifications = await query
+                var query = await _unitOfwork.PaymentNotifications.GetAllConditionAsync(x => x.UserId == userId || string.IsNullOrEmpty(x.UserId));
+               
+                var notifications = query
                     .OrderByDescending(n => n.CreatedAt)
                     .Take(limit)
-                    .ToListAsync();
+                    .ToList();
 
                 return notifications;
             }
@@ -74,17 +69,12 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var query = _context.PaymentNotifications
-                    .Where(n => !n.IsRead);
+                var query = await _unitOfwork.PaymentNotifications
+                    .GetAllConditionAsync(n => !n.IsRead);
 
-                if (!string.IsNullOrEmpty(userId))
-                {
-                    query = query.Where(n => n.UserId == userId || string.IsNullOrEmpty(n.UserId));
-                }
-
-                var notifications = await query
+                var notifications = query
                     .OrderByDescending(n => n.CreatedAt)
-                    .ToListAsync();
+                    .ToList();
 
                 return notifications;
             }
@@ -99,14 +89,15 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var notification = await _context.PaymentNotifications
-                    .FirstOrDefaultAsync(n => n.Id == notificationId);
+                var notification = await _unitOfwork.PaymentNotifications
+                    .GetFirstOrDefaultAsync(n => n.Id == notificationId);
 
                 if (notification == null)
                     return false;
 
                 notification.IsRead = true;
-                await _context.SaveChangesAsync();
+                await _unitOfwork.PaymentNotifications.UpdateAsync(notification);
+                await _unitOfwork.SaveChangesAsync();
 
                 return true;
             }
@@ -121,22 +112,17 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var query = _context.PaymentNotifications
-                    .Where(n => !n.IsRead);
+                var query = await _unitOfwork.PaymentNotifications.GetAllConditionAsync(n => !n.IsRead);
 
-                if (!string.IsNullOrEmpty(userId))
-                {
-                    query = query.Where(n => n.UserId == userId || string.IsNullOrEmpty(n.UserId));
-                }
-
-                var notifications = await query.ToListAsync();
+                var notifications =  query.ToList();
 
                 foreach (var notification in notifications)
                 {
                     notification.IsRead = true;
                 }
 
-                await _context.SaveChangesAsync();
+                _unitOfwork.PaymentNotifications.UpdateRangeAsync(notifications);
+                await _unitOfwork.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
@@ -150,15 +136,15 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var query = _context.PaymentNotifications
-                    .Where(n => !n.IsRead);
+                var query = await _unitOfwork.PaymentNotifications
+                    .GetAllConditionAsync(n => !n.IsRead);
 
                 if (!string.IsNullOrEmpty(userId))
                 {
                     query = query.Where(n => n.UserId == userId || string.IsNullOrEmpty(n.UserId));
                 }
 
-                return await query.CountAsync();
+               return query.Count();
             }
             catch (Exception ex)
             {
@@ -171,14 +157,14 @@ namespace BuildingManagement.Application.Services
         {
             try
             {
-                var notification = await _context.PaymentNotifications
-                    .FirstOrDefaultAsync(n => n.Id == notificationId);
+                var notification = await _unitOfwork.PaymentNotifications
+                    .GetFirstOrDefaultAsync(n => n.Id == notificationId);
 
                 if (notification == null)
                     return false;
 
-                _context.PaymentNotifications.Remove(notification);
-                await _context.SaveChangesAsync();
+               await _unitOfwork.PaymentNotifications.DeleteAsync(notification);
+                await _unitOfwork.SaveChangesAsync();
 
                 return true;
             }
@@ -195,14 +181,13 @@ namespace BuildingManagement.Application.Services
             {
                 var cutoffDate = DateTime.UtcNow.AddDays(-daysToKeep);
 
-                var oldNotifications = await _context.PaymentNotifications
-                    .Where(n => n.CreatedAt < cutoffDate)
-                    .ToListAsync();
+                var oldNotifications = await _unitOfwork.PaymentNotifications
+                    .GetAllConditionAsync(n => n.CreatedAt < cutoffDate);
 
                 if (oldNotifications.Any())
                 {
-                    _context.PaymentNotifications.RemoveRange(oldNotifications);
-                    await _context.SaveChangesAsync();
+                    _unitOfwork.PaymentNotifications.DeleteRangeAsync(oldNotifications);
+                    await _unitOfwork.SaveChangesAsync();
 
                     
                 }

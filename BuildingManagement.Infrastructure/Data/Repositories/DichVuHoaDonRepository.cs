@@ -104,6 +104,12 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             return pagedResult;
         }
 
+        public Task<dvHoaDon> GetHoaDonByID(int MaHoaDon)
+        {
+            var hoaDon = _context.dvHoaDons.Where(x => x.MaHD == MaHoaDon).Include(x => x.tnKhachHang).FirstOrDefaultAsync();
+            return hoaDon;
+        }
+
         public async Task<IEnumerable<RevenueSummaryResponseDto>> GetRevenueSummariesAsync()
         {
             IEnumerable<RevenueSummaryResponseDto> revenueSummaries;
