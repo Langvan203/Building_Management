@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Building_Management
 =======
 <p align="center">
@@ -19,7 +19,7 @@
 - [Liên hệ](#📫-liên-hệ)
 
 ## Giới thiệu 🎯
-AwesomeProject là…
+Building management project là một project đa mô hình sử dụng cho ứng dụng quản lý tòa nhà chung cư.
 
 ## Cài đặt 🚀
 <details>
@@ -30,4 +30,3 @@ AwesomeProject là…
   cd repo
   npm install
   npm start
->>>>>>> master
