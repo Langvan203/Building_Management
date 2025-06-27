@@ -21,6 +21,8 @@ using BuildingManagement.Application.Chat;
 using OfficeOpenXml;
 using BuildingManagement.Application.Interfaces;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using BuildingManagement.Infrastructure;
+using BuildingManagement.Application;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +30,6 @@ ExcelPackage.License.SetNonCommercialPersonal("Lăng Thảo Văn"); ; // Set you
 // Add services to the container.
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.PropertyNamingPolicy = null;
     options.JsonSerializerOptions.WriteIndented = true;
 }); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -64,7 +65,7 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSetting.Secret)),
 
         RoleClaimType = ClaimTypes.Role,
-        NameClaimType = ClaimTypes.NameIdentifier
+        NameClaimType = ClaimTypes.Name
     };
 
     options.Events = new JwtBearerEvents
@@ -75,7 +76,8 @@ builder.Services.AddAuthentication(options =>
             var path = context.HttpContext.Request.Path;
 
             // Nếu request đến SignalR hub và có token trong query string
-            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chatHub"))
+            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chatHub") ||
+             path.StartsWithSegments("/hubs/payment-notifications"))
             {
                 context.Token = accessToken;
             }
@@ -118,7 +120,6 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IYeuCauBaoTriService, YeuCauBaoTriService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddHostedService<PaymentNotificationBackgroundService>();
 // ultility service
 builder.Services.AddTransient<IEmailService, EmailService>();
@@ -138,6 +139,7 @@ builder.Services.AddSignalR(options =>
     options.EnableDetailedErrors = true;
     options.KeepAliveInterval = TimeSpan.FromSeconds(15);
     options.ClientTimeoutInterval = TimeSpan.FromSeconds(60);
+    options.HandshakeTimeout = TimeSpan.FromSeconds(30);
 });
 
 builder.Services.AddHttpClient();
@@ -200,7 +202,8 @@ builder.Services.AddCors(options =>
             )
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials();
+            .AllowCredentials()
+            .SetIsOriginAllowed((host) => true); ;
     });
 });
 
@@ -248,6 +251,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
     endpoints.MapHub<ChatHub>("/chatHub");
+    endpoints.MapHub<PaymentNotificationHub>("/hubs/payment-notifications");
 });
 
 

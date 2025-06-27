@@ -9,7 +9,7 @@ namespace BuildingManagement.Application.DTOs
     public class CreatePaymentResponse
     {
         public string PaymentLinkId { get; set; } = string.Empty;
-        public string OrderCode { get; set; } = string.Empty;
+        public long OrderCode { get; set; }
         public string QrCode { get; set; } = string.Empty;
         public string CheckoutUrl { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;

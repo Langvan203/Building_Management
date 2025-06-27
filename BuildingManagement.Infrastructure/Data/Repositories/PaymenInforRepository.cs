@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,13 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
     {
         public PaymenInforRepository(BuildingManagementDbContext context) : base(context)
         {
+        }
+
+        public async Task<List<PaymentInfo>> GetByConditionIncludeTableHoaDon(Expression<Func<PaymentInfo, bool>> predicate)
+        {
+            var dsPaymentInfo = await _context.paymentInfo.Where(predicate)
+                .Include(x => x.HoaDon).ThenInclude(x => x.tnKhachHang).ToListAsync();
+            return dsPaymentInfo;
         }
 
         public async Task<PaymentInfo> GetByIdIncludeTable(string orderCode)

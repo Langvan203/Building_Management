@@ -336,6 +336,216 @@ namespace BuildingManagement.Controllers
                 return StatusCode(500, new { success = false, message = "Lỗi khi gửi thông báo test" });
             }
         }
+        [HttpPost("ProcessCompletedPayment/{orderCode}")]
+        public async Task<IActionResult> ProcessCompletedPayment(string orderCode)
+        {
+            try
+            {
+                _logger.LogInformation($"Processing completed payment for order {orderCode} by user {GetCurrentUserId()}");
+
+                // 1. Xử lý thanh toán
+                var result = await _paymentService.ProcessCompletedPaymentAsync(orderCode);
+
+                if (!result)
+                {
+                    _logger.LogWarning($"Failed to process completed payment for order {orderCode}");
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Không thể xử lý thanh toán hoặc thanh toán chưa hoàn thành"
+                    });
+                }
+
+                // 2. Lấy thông tin payment để gửi SignalR
+                var paymentInfo = await _paymentService.GetPaymentByOrderCodeAsync(orderCode);
+                if (paymentInfo != null)
+                {
+                    // 3. Gửi thông báo qua SignalR
+                    await _hubContext.SendPaymentStatusUpdateAsync(
+                        orderCode,
+                        "PAID",
+                        GetCurrentUserId()
+                    );
+
+                    // 4. Gửi thông báo cập nhật hóa đơn
+                    await _hubContext.SendInvoiceStatusUpdateAsync(
+                        paymentInfo.MaHD,
+                        true,
+                        GetCurrentUserId()
+                    );
+
+                    _logger.LogInformation($"Payment {orderCode} processed successfully, notifications sent");
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Xử lý thanh toán thành công",
+                    data = new
+                    {
+                        orderCode = orderCode,
+                        processedAt = DateTime.UtcNow
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error processing completed payment {orderCode}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Lỗi hệ thống khi xử lý thanh toán"
+                });
+            }
+        }
+        [HttpPost("SyncPaymentStatus/{orderCode}")]
+        public async Task<IActionResult> SyncPaymentStatus(string orderCode)
+        {
+            try
+            {
+                _logger.LogInformation($"Syncing payment status for order {orderCode} by user {GetCurrentUserId()}");
+
+                var result = await _paymentService.SyncPaymentStatusFromPayOSAsync(orderCode);
+
+                if (!result)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Không thể đồng bộ trạng thái thanh toán"
+                    });
+                }
+
+                // Lấy trạng thái mới
+                var status = await _paymentService.GetPaymentStatusAsync(orderCode);
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Đồng bộ trạng thái thành công",
+                    data = status
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error syncing payment status for order {orderCode}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Lỗi hệ thống khi đồng bộ trạng thái"
+                });
+            }
+        }
+        [HttpPost("ManualProcessPayment")]
+        [Authorize(Roles = "Administrator,Manager")]
+        public async Task<IActionResult> ManualProcessPayment([FromBody] ManualProcessPaymentRequest request)
+        {
+            try
+            {
+                _logger.LogInformation($"Manual processing payment for order {request.OrderCode} by admin {GetCurrentUserId()}");
+
+                // 1. Kiểm tra quyền admin
+                if (!IsCurrentUserAdmin())
+                {
+                    return Forbid("Chỉ admin mới có thể xử lý thanh toán thủ công");
+                }
+
+                // 2. Đồng bộ trạng thái từ PayOS trước
+                var syncResult = await _paymentService.SyncPaymentStatusFromPayOSAsync(request.OrderCode);
+                if (!syncResult)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Không thể đồng bộ trạng thái từ PayOS"
+                    });
+                }
+
+                // 3. Xử lý thanh toán
+                var processResult = await _paymentService.ProcessCompletedPaymentAsync(request.OrderCode);
+                if (!processResult)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Không thể xử lý thanh toán. Kiểm tra lại trạng thái thanh toán."
+                    });
+                }
+
+                // 4. Ghi log cho audit
+                _logger.LogWarning($"Manual payment processing executed by admin {GetCurrentUserName()} for order {request.OrderCode}");
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Xử lý thanh toán thủ công thành công",
+                    processedBy = GetCurrentUserName(),
+                    processedAt = DateTime.UtcNow
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error in manual payment processing for order {request.OrderCode}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Lỗi hệ thống khi xử lý thanh toán thủ công"
+                });
+            }
+        }
+        [HttpGet("GetPendingPayments")]
+        [Authorize(Roles = "Administrator,Manager")]
+        public async Task<IActionResult> GetPendingPayments([FromQuery] int limit = 50)
+        {
+            try
+            {
+                // Lấy danh sách payments có status PAID nhưng hóa đơn chưa được cập nhật
+                // Implementation phụ thuộc vào cấu trúc database
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Chức năng đang phát triển",
+                    data = new List<object>()
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting pending payments");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Lỗi hệ thống"
+                });
+            }
+        }
+
+        [HttpPost]
+        [Route("SendEmailInvoices")]
+        public async Task<IActionResult> SendEmails([FromForm] string to, [FromForm] string subject,
+            [FromForm] string body,
+            [FromForm] IFormFile attachment)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(to) || string.IsNullOrEmpty(subject) || string.IsNullOrEmpty(body))
+                {
+                    return BadRequest(new { success = false, message = "Thông tin email không đầy đủ" });
+                }
+                var result = await _paymentService.SendEmailInvoice(to, subject, body, attachment);
+                if (!result)
+                {
+                    return StatusCode(500, new { success = false, message = "Lỗi khi gửi email" });
+                }
+                return Ok(new { success = true, message = "Email đã được gửi thành công" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error sending email invoices");
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống khi gửi email" });
+            }
+        }
+        /// <summary>
 
         #region Private Methods
 
@@ -353,7 +563,11 @@ namespace BuildingManagement.Controllers
         {
             return User.IsInRole("Administrator") || User.IsInRole("Manager");
         }
-
+        public class ManualProcessPaymentRequest
+        {
+            public string OrderCode { get; set; } = string.Empty;
+            public string Reason { get; set; } = string.Empty;
+        }
         #endregion
     }
 }

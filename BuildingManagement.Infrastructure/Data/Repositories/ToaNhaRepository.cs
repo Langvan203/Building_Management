@@ -96,7 +96,7 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
         {
             try
             {
-                var tnData = await _context.tnToaNhas.Include(x => x.dvHoaDons).ThenInclude(x => x.tnKhachHang).Include(x => x.tnMatBangs).Include(x => x.dvDichVus).Include(x => x.dvDichVuSuDungs).AsSplitQuery().ToListAsync();
+                var tnData = await _context.tnToaNhas.Include(x => x.dvHoaDons).ThenInclude(x => x.tnKhachHang).Include(x => x.tnMatBangs).Include(x => x.dvDichVus).Include(x => x.dvDichVuSuDungs).ThenInclude(x => x.dvDichVu).AsSplitQuery().ToListAsync();
                 // chi phi thang hien tai
                 var paidMonthlyRevenue = tnData.SelectMany(x => x.dvDichVuSuDungs.Where(x => x.CreatedDate.Month == DateTime.Now.Month && x.CreatedDate.Year == DateTime.Now.Year)).Sum(x => x.ThanhTien);
                 // chi phi thang truoc

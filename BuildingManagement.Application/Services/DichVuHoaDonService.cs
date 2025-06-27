@@ -21,6 +21,20 @@ namespace BuildingManagement.Application.Services
             _unitOfWork = unitOfWork;
         }
 
+        public async Task<bool> CapNhatDanhSachHoaDonTrangThaiThanhToan(IEnumerable<dvHoaDon> hoaDOn, bool TrangThaiThanhToan)
+        {
+            foreach(var item in hoaDOn)
+            {
+                item.IsThanhToan = TrangThaiThanhToan;
+                item.PhaiThu = 0;
+                item.DaThanhToan = hoaDOn.Sum(x => x.PhaiThu);
+                item.ConNo = 0;
+                await _unitOfWork.HoaDons.UpdateAsync(item);
+            }
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<bool> CapNhatTrangThaiThanhToan(int MaHoaDon, bool TrangThaiThanhToan)
         {
             var hoaDon = await _unitOfWork.HoaDons.GetByIdAsync(MaHoaDon);
@@ -38,6 +52,18 @@ namespace BuildingManagement.Application.Services
         public async Task<PagedResult<GetDSHoaDon>> GetDSHoaDon(int pageNumber, DateTime NgayBatDau, DateTime NgayKetThuc, int pageSize = 15)
         {
             var dsHoaDon = await _unitOfWork.HoaDons.GetDSHoaDon(pageNumber, NgayBatDau,NgayKetThuc,pageSize);
+            return dsHoaDon;
+        }
+
+        public async Task<PagedResult<GetDSHoaDon>> GetDSHoaDonByID(int id,int pageNumber, DateTime NgayBatDau, DateTime NgayKetThuc, int pageSize = 15)
+        {
+            var dsHoaDon = await _unitOfWork.HoaDons.GetDSHoaDonByID(id,pageNumber, NgayBatDau, NgayKetThuc, pageSize);
+            return dsHoaDon;
+        }
+
+        public Task<IEnumerable<dvHoaDon>> GetDSHoaDonByMaKH(int MaKH)
+        {
+            var dsHoaDon = _unitOfWork.HoaDons.GetAllConditionAsync(x => x.MaKH == MaKH);
             return dsHoaDon;
         }
 

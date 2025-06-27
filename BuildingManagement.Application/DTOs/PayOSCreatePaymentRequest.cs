@@ -8,7 +8,7 @@ namespace BuildingManagement.Application.DTOs
 {
     public class PayOSCreatePaymentRequest
     {
-        public string orderCode { get; set; } = string.Empty;
+        public long orderCode { get; set; }
         public decimal amount { get; set; }
         public string description { get; set; } = string.Empty;
         public string returnUrl { get; set; } = string.Empty;

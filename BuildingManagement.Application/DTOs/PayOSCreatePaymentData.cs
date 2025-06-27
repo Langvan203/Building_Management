@@ -13,7 +13,7 @@ namespace BuildingManagement.Application.DTOs
         public string accountName { get; set; } = string.Empty;
         public decimal amount { get; set; }
         public string description { get; set; } = string.Empty;
-        public string orderCode { get; set; } = string.Empty;
+        public long orderCode { get; set; }
         public string currency { get; set; } = string.Empty;
         public string paymentLinkId { get; set; } = string.Empty;
         public string status { get; set; } = string.Empty;

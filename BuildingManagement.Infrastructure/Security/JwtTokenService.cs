@@ -37,10 +37,12 @@ namespace BuildingManagement.Infrastructure.Security
                 var permissionName = permissions.Select(x => x.PermissionName).ToList();
                 var claims = new List<Claim>()
             {
+                new Claim(ClaimTypes.NameIdentifier, nv.MaNV.ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, nv.MaNV.ToString()),
                 new Claim(ClaimTypes.Email, nv.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Name, nv.TenNV.ToString())
+
             };
                 claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
                 foreach(var item in permissionName)
@@ -62,6 +64,7 @@ namespace BuildingManagement.Infrastructure.Security
             {
                 var kh = await _unitOfWork.KhachHangs.GetKhachHangInfo(loginDto);
                 var claims = new List<Claim>() {
+                    new Claim(ClaimTypes.NameIdentifier, kh.MaKH.ToString()),
                     new Claim(JwtRegisteredClaimNames.Sub, kh.MaKH.ToString()),
                     new Claim(ClaimTypes.Email, kh.Email),
                     new Claim(ClaimTypes.Name, kh.HoTen.ToString())
@@ -86,7 +89,7 @@ namespace BuildingManagement.Infrastructure.Security
             {
                 ValidateIssuer = true,
                 ValidIssuer = _jwtConfig.Issuer,
-                ValidateActor = true,
+                ValidateAudience = true,
                 ValidAudience = _jwtConfig.Audience,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret)),

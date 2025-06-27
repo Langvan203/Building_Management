@@ -1,5 +1,6 @@
 ﻿using BuildingManagement.Application.DTOs;
 using BuildingManagement.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,8 @@ namespace BuildingManagement.Application.Interfaces.Services
         Task<bool> CancelPaymentAsync(string orderCode);
         Task<string> GeneratePaymentSignatureAsync(PayOSCreatePaymentRequest request);
         Task<bool> VerifyWebhookSignatureAsync(string webhookData, string signature);
+        Task<bool> ProcessCompletedPaymentAsync(string orderCode);
+        Task<bool> SyncPaymentStatusFromPayOSAsync(string orderCode);
+        Task<bool> SendEmailInvoice(string to, string subject, string htmlContent, IFormFile file);
     }
 }

@@ -78,9 +78,10 @@ namespace BuildingManagement.Infrastructure.Data.Repositories
             await _context.Set<T>().AddRangeAsync(entities);
         }
 
-        public void UpdateRangeAsync(IEnumerable<T> entities)
+        public async Task UpdateRangeAsync(IEnumerable<T> entities)
         {
             _context.Set<T>().UpdateRange(entities);
+            await _context.SaveChangesAsync();
         }
 
         public void DeleteRangeAsync(IEnumerable<T> entities)

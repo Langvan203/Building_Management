@@ -9,7 +9,7 @@ namespace BuildingManagement.Application.DTOs
     public class PayOSPaymentStatusData
     {
         public string id { get; set; } = string.Empty;
-        public string orderCode { get; set; } = string.Empty;
+        public long orderCode { get; set; }
         public decimal amount { get; set; }
         public decimal amountPaid { get; set; }
         public decimal amountRemaining { get; set; }

@@ -11,6 +11,10 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Http;
 using BuildingManagement.Application.Interfaces.Repositories;
+using BuildingManagement.Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using BuildingManagement.Application.Interfaces.Services.Ultility;
+using Microsoft.AspNetCore.Http;
 
 namespace BuildingManagement.Application.Services
 {
@@ -21,17 +25,21 @@ namespace BuildingManagement.Application.Services
         private readonly ILogger<PaymentService> _logger;
         private readonly IDichVuHoaDonService _hoaDonService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IEmailService _emailServices;
+        private readonly INotificationService _notificationService;
         public PaymentService(
             IHttpClientFactory httpClientFactory,
             IConfiguration configuration,
             ILogger<PaymentService> logger,
-            IDichVuHoaDonService hoaDonService, IUnitOfWork unitOfWork)
+            IDichVuHoaDonService hoaDonService, IUnitOfWork unitOfWork, IEmailService emailServices, INotificationService notificationService)
         {
             _hoaDonService = hoaDonService;
             _httpClientFactory = httpClientFactory;
             _configuration = configuration;
             _logger = logger;
             _unitOfWork = unitOfWork;
+            _emailServices = emailServices;
+            _notificationService = notificationService;
         }
 
         public async Task<CreatePaymentResponse> CreatePaymentLinkAsync(CreatePaymentRequest request)
@@ -57,7 +65,7 @@ namespace BuildingManagement.Application.Services
                     return new CreatePaymentResponse
                     {
                         PaymentLinkId = existingPayment.PaymentLinkId,
-                        OrderCode = existingPayment.OrderCode,
+                        OrderCode = Int64.Parse(existingPayment.OrderCode),
                         QrCode = existingPayment.QrCode ?? "",
                         CheckoutUrl = existingPayment.CheckoutUrl ?? "",
                         Status = existingPayment.Status,
@@ -67,8 +75,17 @@ namespace BuildingManagement.Application.Services
                 }
 
                 // Tạo order code unique
-                var orderCode = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
-
+                var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                var orderCode = long.Parse($"{request.MaHD}{timestamp % 10000}"); // Kết hợp MaHD với 4 chữ số cuối của timestamp
+                if (orderCode > 9007199254740991)
+                {
+                    orderCode = Random.Shared.NextInt64(100000, 999999); // Fallback với số ngẫu nhiên 6 chữ số
+                }
+                var shortDescription = $"HD-{request.MaHD.ToString().PadLeft(4, '0')}";
+                if (shortDescription.Length > 25)
+                {
+                    shortDescription = shortDescription.Substring(0, 25);
+                }
                 // Tạo payment request cho PayOS
                 var payosRequest = new PayOSCreatePaymentRequest
                 {
@@ -107,7 +124,7 @@ namespace BuildingManagement.Application.Services
                 // Lưu thông tin payment vào database
                 var paymentInfo = new PaymentInfo
                 {
-                    OrderCode = orderCode,
+                    OrderCode = orderCode.ToString(),
                     MaHD = request.MaHD,
                     PaymentLinkId = payosResponse.data.paymentLinkId,
                     Amount = request.Amount,
@@ -127,7 +144,7 @@ namespace BuildingManagement.Application.Services
                 return new CreatePaymentResponse
                 {
                     PaymentLinkId = paymentInfo.PaymentLinkId,
-                    OrderCode = paymentInfo.OrderCode,
+                    OrderCode = Int64.Parse(paymentInfo.OrderCode),
                     QrCode = paymentInfo.QrCode ?? "",
                     CheckoutUrl = paymentInfo.CheckoutUrl ?? "",
                     Status = paymentInfo.Status,
@@ -222,10 +239,15 @@ namespace BuildingManagement.Application.Services
             {
                 var payment = await _unitOfWork.PaymentInfors
                     .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
-
-                if (payment == null)
+                    if (payment == null)
                     return false;
-
+                var hd = await _unitOfWork.HoaDons
+                                   .GetFirstOrDefaultAsync(h => h.MaHD == payment.MaHD);
+                var dsHoaDonUpdate = await _unitOfWork.HoaDons.GetAllConditionAsync(h => h.MaKH == hd.MaKH);
+                foreach(var item in dsHoaDonUpdate)
+                {
+                    await _unitOfWork.HoaDons.UpdateAsync(item);
+                }
                 payment.Status = status;
 
                 if (status == "PAID")
@@ -332,7 +354,6 @@ namespace BuildingManagement.Application.Services
                 // Set headers
                 httpClient.DefaultRequestHeaders.Add("x-client-id", _configuration["PayOS:ClientId"]);
                 httpClient.DefaultRequestHeaders.Add("x-api-key", _configuration["PayOS:ApiKey"]);
-                httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
 
                 var jsonContent = JsonSerializer.Serialize(request, new JsonSerializerOptions
                 {
@@ -341,7 +362,7 @@ namespace BuildingManagement.Application.Services
 
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                var response = await httpClient.PostAsync($"{_configuration["PayOS:BaseUrl"]}/v2/payment-requests", content);
+                var response = await httpClient.PostAsync($"https://api-merchant.payos.vn/v2/payment-requests", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -374,7 +395,7 @@ namespace BuildingManagement.Application.Services
                 httpClient.DefaultRequestHeaders.Add("x-client-id", _configuration["PayOS:ClientId"]);
                 httpClient.DefaultRequestHeaders.Add("x-api-key", _configuration["PayOS:ApiKey"]);
 
-                var response = await httpClient.GetAsync($"{_configuration["PayOS:BaseUrl"]}/v2/payment-requests/{orderCode}");
+                var response = await httpClient.GetAsync($"https://api-merchant.payos.vn/v2/payment-requests/{orderCode}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -416,6 +437,236 @@ namespace BuildingManagement.Application.Services
                 _logger.LogError(ex, $"Error calling PayOS cancel payment API for order {orderCode}");
                 return false;
             }
+        }
+        public async Task<bool> ProcessCompletedPaymentAsync(string orderCode)
+        {
+            try
+            {
+                _logger.LogInformation($"Processing completed payment for order {orderCode}");
+
+                // 1. Lấy payment info từ database
+                var paymentInfo = await _unitOfWork.PaymentInfors
+                    .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
+
+                if (paymentInfo == null)
+                {
+                    _logger.LogWarning($"Payment not found for order code: {orderCode}");
+                    return false;
+                }
+
+                // 2. Sync status từ PayOS
+                var syncResult = await SyncPaymentStatusFromPayOSAsync(orderCode);
+                if (!syncResult)
+                {
+                    _logger.LogWarning($"Failed to sync payment status from PayOS for order {orderCode}");
+                    return false;
+                }
+
+                // 3. Reload payment info sau khi sync
+                paymentInfo = await _unitOfWork.PaymentInfors
+                    .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
+
+                if (paymentInfo.Status != "PAID")
+                {
+                    _logger.LogWarning($"Payment {orderCode} is not in PAID status: {paymentInfo.Status}");
+                    return false;
+                }
+
+                // 4. Lấy thông tin hóa đơn
+                var invoice = await _hoaDonService.GetHoaDonByID(paymentInfo.MaHD);
+                var maKH = (int)invoice.MaKH;
+                var dsHoaDon = await _hoaDonService.GetDSHoaDonByMaKH(maKH);
+                if (invoice == null)
+                {
+                    _logger.LogWarning($"Invoice not found for MaHD: {paymentInfo.MaHD}");
+                    return false;
+                }
+
+                // 5. Kiểm tra nếu hóa đơn đã được thanh toán rồi
+                if (invoice.IsThanhToan)
+                {
+                    _logger.LogInformation($"Invoice {paymentInfo.MaHD} is already paid");
+                    return true; // Không phải lỗi, chỉ là đã xử lý rồi
+                }
+
+                await _unitOfWork.BeginTransactionAsync();
+
+                try
+                {
+                    // 6. Cập nhật trạng thái hóa đơn
+                    await _hoaDonService.CapNhatDanhSachHoaDonTrangThaiThanhToan(dsHoaDon, true);
+
+                    // 7. Tạo notification
+                    var notification = new PaymentNotification
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        MaHD = paymentInfo.MaHD,
+                        OrderCode = orderCode,
+                        Amount = paymentInfo.Amount,
+                        CustomerName = invoice.tnKhachHang?.HoTen ?? invoice.tnKhachHang?.CtyTen ?? "Unknown",
+                        Status = "PAID",
+                        PaymentTime = paymentInfo.PaidAt?.ToString("yyyy-MM-ddTHH:mm:ssZ") ?? DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"),
+                        TransactionId = paymentInfo.TransactionId,
+                        BankCode = paymentInfo.CounterAccountBankId,
+                        IsRead = false,
+                        CreatedAt = DateTime.UtcNow
+                    };
+
+                    // 8. Lưu notification (sử dụng interface từ dependency injection)
+                    if (_notificationService != null)
+                    {
+                        await _notificationService.CreateNotificationAsync(notification);
+                    }
+
+                    // 9. Gửi email xác nhận
+                    try
+                    {
+                        await SendPaymentConfirmationEmail(invoice, paymentInfo);
+                    }
+                    catch (Exception emailEx)
+                    {
+                        _logger.LogError(emailEx, $"Failed to send confirmation email for order {orderCode}");
+                        // Không throw - email failure không nên break payment process
+                    }
+
+                    await _unitOfWork.CommitTransactionAsync();
+
+                    _logger.LogInformation($"Successfully processed completed payment for order {orderCode}, invoice {paymentInfo.MaHD}");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    await _unitOfWork.RollbackAsync();
+                    _logger.LogError(ex, $"Transaction failed while processing payment {orderCode}");
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error processing completed payment for order {orderCode}");
+                return false;
+            }
+        }
+
+        private async Task SendPaymentConfirmationEmail(dvHoaDon invoice, PaymentInfo paymentInfo)
+        {
+            try
+            {
+                // Implement email sending logic here
+                // Hoặc sử dụng existing email service
+                if (_emailServices != null)
+                {
+                    var subject = $"Xác nhận thanh toán - Hóa đơn HD-{paymentInfo.MaHD.ToString().PadLeft(4, '0')}";
+                    var emailContent = GeneratePaymentConfirmationEmailContent(invoice, paymentInfo);
+
+                    await _emailServices.SendEmailAsync(invoice.tnKhachHang.Email, subject, emailContent);
+                    _logger.LogInformation($"Payment confirmation email would be sent for order {paymentInfo.OrderCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error sending payment confirmation email for order {paymentInfo.OrderCode}");
+                throw;
+            }
+        }
+
+
+        private string GeneratePaymentConfirmationEmailContent(object invoice, PaymentInfo paymentInfo)
+        {
+            // Generate email content
+            return $@"
+        <h2>Thanh toán thành công!</h2>
+        <p>Mã đơn hàng: {paymentInfo.OrderCode}</p>
+        <p>Số tiền: {paymentInfo.Amount:N0} VNĐ</p>
+        <p>Thời gian: {paymentInfo.PaidAt}</p>
+        <p>Mã giao dịch: {paymentInfo.TransactionId}</p>
+    ";
+        }
+        public async Task<bool> SyncPaymentStatusFromPayOSAsync(string orderCode)
+        {
+            try
+            {
+                _logger.LogInformation($"Syncing payment status from PayOS for order {orderCode}");
+
+                // 1. Lấy payment info từ database
+                var payment = await _unitOfWork.PaymentInfors
+                    .GetFirstOrDefaultAsync(p => p.OrderCode == orderCode);
+
+                if (payment == null)
+                {
+                    _logger.LogWarning($"Payment not found in database for order {orderCode}");
+                    return false;
+                }
+
+                // 2. Gọi PayOS API để lấy status mới nhất
+                var payosStatus = await CallPayOSGetPaymentStatusAsync(orderCode);
+
+                if (payosStatus == null || payosStatus.code != "00")
+                {
+                    _logger.LogWarning($"Failed to get payment status from PayOS for order {orderCode}");
+                    return false;
+                }
+
+                var payosData = payosStatus.data;
+
+                // 3. Cập nhật status từ PayOS nếu khác
+                bool updated = false;
+
+                if (payment.Status != payosData.status)
+                {
+                    payment.Status = payosData.status;
+                    updated = true;
+                    _logger.LogInformation($"Updated payment status for order {orderCode}: {payosData.status}");
+                }
+
+                // 4. Cập nhật thông tin transaction nếu đã thanh toán
+                if (payosData.status == "PAID" && payosData.transactions?.Any() == true)
+                {
+                    var transaction = payosData.transactions.First();
+
+                    if (payment.PaidAt == null)
+                    {
+                        payment.PaidAt = DateTime.UtcNow;
+                        updated = true;
+                    }
+
+                    if (string.IsNullOrEmpty(payment.TransactionId))
+                    {
+                        payment.TransactionId = transaction.reference;
+                        updated = true;
+                    }
+
+                    if (string.IsNullOrEmpty(payment.CounterAccountBankId))
+                    {
+                        payment.CounterAccountBankId = transaction.counterAccountBankId;
+                        payment.CounterAccountBankName = transaction.counterAccountBankName;
+                        payment.CounterAccountName = transaction.counterAccountName;
+                        payment.CounterAccountNumber = transaction.counterAccountNumber;
+                        updated = true;
+                    }
+                }
+
+                // 5. Lưu nếu có thay đổi
+                if (updated)
+                {
+                    await _unitOfWork.PaymentInfors.UpdateAsync(payment);
+                    await _unitOfWork.SaveChangesAsync();
+                    _logger.LogInformation($"Payment info updated for order {orderCode}");
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error syncing payment status from PayOS for order {orderCode}");
+                return false;
+            }
+        }
+
+        public async Task<bool> SendEmailInvoice(string to, string subject, string htmlContent, IFormFile file)
+        {
+            await _emailServices.SendEmailWithAttachFileAsync(to, subject, htmlContent, file);
+            return true;
         }
 
         #endregion

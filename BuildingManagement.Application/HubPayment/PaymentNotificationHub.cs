@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace BuildingManagement.Application
 {
-    [Authorize]
     public class PaymentNotificationHub : Hub
     {
         private readonly ILogger<PaymentNotificationHub> _logger;
@@ -85,15 +84,15 @@ namespace BuildingManagement.Application
         // Kiểm tra xem user có phải admin không
         private bool IsAdmin()
         {
-            return Context.User?.IsInRole("Administrator") == true ||
+            return Context.User?.IsInRole("Quản lý tòa nhà") == true ||
                    Context.User?.IsInRole("Manager") == true;
         }
 
         // Method để gửi thông báo test (chỉ admin)
-        [Authorize(Roles = "Administrator,Manager")]
+        [Authorize(Roles = "Quản lý tòa nhà,Manager")]
         public async Task SendTestNotification(string message)
         {
-            await Clients.All.SendAsync("TestNotification", new
+            await Clients.All.SendAsync("SendPaymentNotificationAsync", new
             {
                 Message = message,
                 Timestamp = DateTime.UtcNow,
